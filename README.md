@@ -1,9 +1,9 @@
 # RoB 2 for Google Sheets
 
-Implementation of RoB 2 risk of bias assessment tool for Google Sheets
+Implementation of RoB 2 risk of bias assessment tool for Google Sheets.
 
 > [!WARNING]
-> This implementation of the RoB 2 tool is in the testing phase and has not yet been validated for use. The official source of instructions and tools on risk of bias assessment, from the Cochrane Collaboration, is available only at www.riskofbias.info.
+> This implementation of the RoB 2 tool is in the testing phase and has not yet been validated for use. The official source of instructions and tools on risk of bias assessment, from the Cochrane Collaboration, is available only at [www.riskofbias.info](www.riskofbias.info).
 
 > [!NOTE]
 > All credit for the development of the RoB 2 tool and its original implementation for Excel spreadsheets belongs to the following authors in the following publications:
