@@ -32,5 +32,5 @@ This page will only describe information specific to the use of this particular 
 2. Log in to your Google account if you are not already logged in (**Sign in** button)
 
 3. In the **File** menu, in the top left corner of the page, select the **Make a copy** option
-![Print screen how to make a copy](https://github.com/fabioTowers/rob_2_for_google_sheets/images/how_to_use_make_a_copy.jpg)
+![Print screen how to make a copy](images/how_to_use_make_a_copy.jpg)
 
