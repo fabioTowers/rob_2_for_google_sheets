@@ -35,4 +35,4 @@ This page will only describe information specific to the use of this particular 
 ![Print screen how to make a copy](images/how_to_use_make_a_copy.jpg)
 
 4. In the pop-up window, you can choose the name of the spreadsheet and the folder where it will be saved in Google Drive. There is also information that the script file will be copied along with the spreadsheet. This script file is necessary for the tool to function. If you agree, click the button **Make a copy**
-![Print screen how to make a copy pop-up](images\how_to_use_save_a_copy_pop_up.jpg)
+![Print screen how to make a copy pop-up](images/how_to_use_save_a_copy_pop_up.jpg)
