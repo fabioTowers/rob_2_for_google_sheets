@@ -15,3 +15,20 @@ Implementation of RoB 2 risk of bias assessment tool for Google Sheets.
 The implementation of RoB 2 for Google Sheets aims to facilitate and popularize the use of the tool. Access is exclusively through a web browser, and therefore it can be accessed from any computer with internet access and on any operating system, avoiding version incompatibility issues. Sharing is done online and allows simultaneous editing by more than one user, in addition to being able to control who can have access and what type of access (read-only, edit, etc.).
 
 This page will only describe information specific to the use of this particular implementation. For general questions about the RoB 2 tool, please consult the tool's original manual (available at this link: https://drive.google.com/file/d/19R9savfPdCHC8XLz2iiMvL_71lPJERWK/view).
+
+## Table of Contents
+- [System and software requirements](#system-and-software-requirements)
+- 
+
+## System and software requirements
+
+- Internet access;
+- Google account.
+
+## How to use
+
+1. Access the spreadsheet link: https://docs.google.com/spreadsheets/d/1oO5L3sdsczpX9jspHANO0yCoUkvngHV4Ts1vKlF4gjE/edit?usp=sharing
+
+2. Log in to your Google account if you are not already logged in
+
+3. In the **File** menu, in the top left corner of the page, select the **Make a copy** option
