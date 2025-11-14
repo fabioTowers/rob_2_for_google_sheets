@@ -27,7 +27,7 @@ This page will only describe information specific to the use of this particular 
 
 ## How to use
 
-1. Access the spreadsheet link: https://docs.google.com/spreadsheets/d/1oO5L3sdsczpX9jspHANO0yCoUkvngHV4Ts1vKlF4gjE/edit?usp=sharing
+1. Access the spreadsheet link: https://docs.google.com/spreadsheets/d/1ak9kmsB4Zh6xtms7-SZQ4pC7M_Ahi6hobCX81i8L7h0/edit?usp=sharing
 
 2. Log in to your Google account if you are not already logged in (**Sign in** button)
 
