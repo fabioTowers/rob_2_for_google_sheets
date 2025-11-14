@@ -36,3 +36,13 @@ This page will only describe information specific to the use of this particular 
 
 4. In the pop-up window, you can choose the name of the spreadsheet and the folder where it will be saved in Google Drive. There is also information that the script file will be copied along with the spreadsheet. This script file is necessary for the tool to function. If you agree, click the button **Make a copy**
 ![Print screen how to make a copy pop-up](images/how_to_use_save_a_copy_pop_up.jpg)
+
+> [!NOTE]
+> The original spreadsheet is for viewing only and cannot be edited. The linked account can edit and use the copy that was created.
+
+5. When you click for the first time on one of the buttons on the **Intro** tab or on one of the items in the **RoB 2** menu (which are equivalent), you will be asked for your authorisation to run the script that implements the RoB 2 features. This authorisation procedure will only be necessary the first time.
+![Print screen authorisation pop-up](images/how_to_use_script_authorization_1.jpg)
+
+If you clicked OK in the image above, a new browser tab or window will open asking you to choose the Google account to authorise (there may be one or more accounts currently logged in). Select the account by clicking on it.
+![Print screen select account pop-up](images/how_to_use_script_authorization_2.jpg)
+
