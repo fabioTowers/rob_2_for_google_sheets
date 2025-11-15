@@ -1,6 +1,6 @@
 # RoB 2 for Google Sheets
 
-RoB 2 is a tool to assessment the risk of bias in randomized clinical trials developed by the Cochrane Colaboration. The tool was originally implemented using Microsoft Excel spreadsheets and macros. This repository contains a version of the same tool using Google Sheets.
+RoB 2 is a tool, developed by the Cochrane Colaboration, to assessing risk of bias in randomized clinical trials. The tool was originally implemented using Microsoft Excel spreadsheets and macros. This repository contains a version of the same tool using Google Sheets.
 
 The implementation of RoB 2 for Google Sheets aims to facilitate and popularize the use of the tool. Access is exclusively through a web browser, and therefore it can be accessed from any computer with internet access and on any operating system, avoiding version incompatibility issues. Sharing is done online and allows simultaneous editing by more than one user, in addition to being able to control who can have access and what type of access (read-only, edit, etc.).
 
@@ -9,6 +9,8 @@ This page will only describe information specific to the use of this particular 
 > [!WARNING]
 > This implementation of the RoB 2 tool is in the testing phase and has not yet been validated for use. The official source of instructions and tools on risk of bias assessment, from the Cochrane Collaboration, is available only at [www.riskofbias.info](www.riskofbias.info).
 
+---
+Examples of use of this implementation:
 ![Print screen domain 1](images/print_screen_1.png)
 
 ![Print screen domain 5](images/print_screen_2.png)
@@ -29,8 +31,8 @@ This page will only describe information specific to the use of this particular 
 ## Table of Contents
 - [System and software requirements](#system-and-software-requirements)
 - [How to use](#how-to-use)
- - [Make a copy of the RoB 2 spreadsheet](#make-a-copy-of-the-rob-2-spreadsheet)
- - [Authorise the execution of the script](#authorise-the-execution-of-the-script)
+  - [Make a copy of the RoB 2 spreadsheet](#make-a-copy-of-the-rob-2-spreadsheet)
+  - [Authorise the execution of the script](#authorise-the-execution-of-the-script)
 
 ## System and software requirements
 
