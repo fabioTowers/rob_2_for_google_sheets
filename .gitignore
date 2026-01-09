@@ -1,3 +1,10 @@
 # clasp stuff
 .clasp.json
+.clasp-dev.json
+.clasp-prod.json
 .clasprc.json
+
+# node stuff
+node_modules/
+npm-debug.log*
+package-lock.json
