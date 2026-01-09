@@ -1,0 +1,23 @@
+{
+  "name": "rob_2_for_google_sheets",
+  "version": "1.0.0",
+  "description": "RoB 2 is a tool, developed by the Cochrane Colaboration, to assessing risk of bias in randomized clinical trials. The tool was originally implemented using Microsoft Excel spreadsheets and macros. This repository contains a version of the same tool using Google Sheets.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "push-dev": "copy .clasp-dev.json .clasp.json /Y && clasp push",
+    "deploy-prod": "copy .clasp-prod.json .clasp.json /Y && clasp push && copy .clasp-dev.json .clasp.json /Y"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabioTowers/rob_2_for_google_sheets.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/fabioTowers/rob_2_for_google_sheets/issues"
+  },
+  "homepage": "https://github.com/fabioTowers/rob_2_for_google_sheets#readme"
+}
