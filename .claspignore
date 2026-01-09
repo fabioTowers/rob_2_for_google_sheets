@@ -1,0 +1,9 @@
+# ignore configuration files
+.gitignore
+.claspignore
+.clasp-dev.json
+.clasp-prod.json
+package.json
+package-lock.json
+node_modules/
+README.md
