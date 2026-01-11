@@ -23,6 +23,11 @@ function showForm() {
   SpreadsheetApp.getUi().showModalDialog(html, 'RoB 2 assessment for individual randomized, parallel group trials');
 }
 
+function include(filename) {
+  return HtmlService.createHtmlOutputFromFile(filename)
+    .getContent();
+}
+
 function populateIttTable(sheet, record, rowOffset) {
   
   const mapping = {
