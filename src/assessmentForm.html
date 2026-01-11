@@ -1706,6 +1706,7 @@
 
     </div>
 
+    <?!= include('afD1JavaScript'); ?>
     <script>
   
         function initDateTime() {
@@ -2129,37 +2130,6 @@
                 inputElement.addEventListener('input', onAssessmentIdInput);
             }
 
-        });
-
-
-        document.getElementById('Q_1_1_instructions').addEventListener('click', function(e) {
-            event.preventDefault();
-
-            document.getElementById('Q_1_1_instructions_modal').showModal();;
-
-            document.getElementById('Q_1_1_instructions_modal_button').addEventListener('click', () => {
-                document.getElementById('Q_1_1_instructions_modal').close();
-            });
-        });
-
-        document.getElementById('Q_1_2_instructions').addEventListener('click', function(e) {
-            event.preventDefault();
-
-            document.getElementById('Q_1_2_instructions_modal').showModal();;
-
-            document.getElementById('Q_1_2_instructions_modal_button').addEventListener('click', () => {
-                document.getElementById('Q_1_2_instructions_modal').close();
-            });
-        });
-
-        document.getElementById('Q_1_3_instructions').addEventListener('click', function(e) {
-            event.preventDefault();
-
-            document.getElementById('Q_1_3_instructions_modal').showModal();;
-
-            document.getElementById('Q_1_3_instructions_modal_button').addEventListener('click', () => {
-                document.getElementById('Q_1_3_instructions_modal').close();
-            });
         });
 
         document.getElementById('Q_2_1_instructions').addEventListener('click', function(e) {
