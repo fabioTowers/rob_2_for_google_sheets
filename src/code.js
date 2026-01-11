@@ -1,7 +1,7 @@
 function onOpen() {
   const ui = SpreadsheetApp.getUi();
   ui.createMenu('RoB 2')
-    .addItem('Assessment Form', 'showForm')
+    .addItem('Assessment Form', 'showAssessmentForm')
     .addItem('Summary', 'populateSummary')
     .addItem('Figures', 'generateFigures')
     .addItem('Generating a Print View', 'generatePrintView')
@@ -16,8 +16,8 @@ function showDiscrepancyCheckForm() {
   SpreadsheetApp.getUi().showModalDialog(html, 'RoB 2 discrepancy check');
 }
 
-function showForm() {
-  const template = HtmlService.createTemplateFromFile('form');
+function showAssessmentForm() {
+  const template = HtmlService.createTemplateFromFile('assessmentForm');
 
   const html = template.evaluate()
     .setWidth(1000)
