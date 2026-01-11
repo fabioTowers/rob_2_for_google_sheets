@@ -17,9 +17,12 @@ function showDiscrepancyCheckForm() {
 }
 
 function showForm() {
-  const html = HtmlService.createHtmlOutputFromFile('form')
+  const template = HtmlService.createTemplateFromFile('form');
+
+  const html = template.evaluate()
     .setWidth(1000)
     .setHeight(800);
+
   SpreadsheetApp.getUi().showModalDialog(html, 'RoB 2 assessment for individual randomized, parallel group trials');
 }
 
