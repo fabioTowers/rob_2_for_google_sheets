@@ -3731,16 +3731,17 @@
             });
             formData['m'] = sources.join("; ");
 
-            formData['n'] = document.getElementById('answer_1_1')?.value;
-            formData['o'] = document.getElementById('answer_1_2')?.value;
-            formData['p'] = document.getElementById('comments_1_1_and_1_2')?.value;
-            formData['q'] = document.getElementById('answer_1_3')?.value;
-            formData['r'] = document.getElementById('comments_1_3')?.value;
-            formData['s'] = getAlgAssessmentResult('domain-1');
-            formData['t'] = document.getElementById('assessor-jud-domain-1')?.value;
-            formData['u'] = document.getElementById('assessor_jud_domain_1')?.value;
-            formData['v'] = document.getElementById('direction_bias_select_1')?.value;
-            formData['w'] = document.getElementById('direction_bias_domain_1')?.value;
+            answersD1 = D1.getAnswers();
+            formData['n'] = answersD1['1.1'];
+            formData['o'] = answersD1['1.2'];
+            formData['p'] = answersD1['1.2Comment'];
+            formData['q'] = answersD1['1.3'];
+            formData['r'] = answersD1['1.3Comment'];
+            formData['s'] = answersD1['algorithmResult'];
+            formData['t'] = answersD1['assessorJudgement'];
+            formData['u'] = answersD1['assessorJudgementComment'];
+            formData['v'] = answersD1['directionBias'];
+            formData['w'] = answersD1['directionBiasComment'];
 
             const activeDomain2TabId = document.getElementById('assessment-aim').value === 'per-protocol' ? 'PP' :
                                        document.getElementById('assessment-aim').value === 'intention-to-treat' ? 'ITT' : '';;
@@ -4539,10 +4540,6 @@
         function getAlgAssessmentResult(domain) {
             result = '';
             switch (domain) {
-                case 'domain-1':
-                    let resultDiv1 = document.getElementById('alg-result-domain-1');
-                    result = resultDiv1.textContent.trim();
-                    break;
                 case 'domain-2-pp':
                     let resultDiv2pp = document.getElementById('alg-result-domain-2-PP');
                     result = resultDiv2pp.textContent.trim();
