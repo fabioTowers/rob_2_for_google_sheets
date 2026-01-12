@@ -4609,25 +4609,7 @@
 
             document.getElementById('weight-analysis').value = '';
 
-
-            document.getElementById('answer_1_1').value = '';
-            document.getElementById('answer_1_1').dispatchEvent(new Event('change'));
-            document.getElementById('answer_1_2').value = '';
-            document.getElementById('answer_1_2').dispatchEvent(new Event('change'));
-            document.getElementById('comments_1_1_and_1_2').value = '';
-            document.getElementById('answer_1_3').value = '';
-            document.getElementById('answer_1_3').dispatchEvent(new Event('change'));
-            document.getElementById('comments_1_3').value = '';
-            resetDiv("alg-result-domain-1", isOverAllBias=false);
-            document.getElementById('assessor-jud-domain-1').value = '';
-            document.getElementById('assessor-jud-domain-1').dispatchEvent(new Event('change'));
-            document.getElementById('assessor_jud_domain_1').value = '';
-            document.getElementById('direction_bias_select_1').value = '';
-            document.getElementById('direction_bias_select_1').dispatchEvent(new Event('change'));
-            document.getElementById('direction_bias_domain_1').value = '';
-            D1.defineAssessorJudDomain1();
-            resetDiv("overall-bias-domain-1", isOverAllBias=true);
-
+            D1.clearForm();
 
             document.getElementById('answer_2_1_pp').value = '';
             document.getElementById('answer_2_1_pp').dispatchEvent(new Event('change'));

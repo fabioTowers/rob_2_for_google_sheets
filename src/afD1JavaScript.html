@@ -233,7 +233,35 @@
       return answers;
     },
 
-    
+    clearForm: function () {
+      document.getElementById('answer_1_1').value = '';
+      document.getElementById('answer_1_1').dispatchEvent(new Event('change'));
+      document.getElementById('answer_1_2').value = '';
+      document.getElementById('answer_1_2').dispatchEvent(new Event('change'));
+      document.getElementById('comments_1_1_and_1_2').value = '';
+      document.getElementById('answer_1_3').value = '';
+      document.getElementById('answer_1_3').dispatchEvent(new Event('change'));
+      document.getElementById('comments_1_3').value = '';
+
+      let divAlgorithmResult = document.getElementById('alg-result-domain-1');
+      divAlgorithmResult.textContent = 'Algorithm';
+      divAlgorithmResult.style.backgroundColor = '#f0f0f0';
+      divAlgorithmResult.style.color = '#666';
+
+      document.getElementById('assessor-jud-domain-1').value = '';
+      document.getElementById('assessor-jud-domain-1').dispatchEvent(new Event('change'));
+      document.getElementById('assessor_jud_domain_1').value = '';
+      document.getElementById('direction_bias_select_1').value = '';
+      document.getElementById('direction_bias_select_1').dispatchEvent(new Event('change'));
+      document.getElementById('direction_bias_domain_1').value = '';
+
+      D1.defineAssessorJudDomain1();
+
+      let divOfDomain1InOverAllBias = document.getElementById('overall-bias-domain-1');
+      divOfDomain1InOverAllBias.textContent = "";
+      divOfDomain1InOverAllBias.style.backgroundColor = "#F0F0F0";
+      divOfDomain1InOverAllBias.style.color = "#666";
+    }
   }
 
 </script>
