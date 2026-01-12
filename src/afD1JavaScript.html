@@ -30,4 +30,116 @@
     });
   });
 
+  const D1 = {
+    defineAssessorJudDomain1: function () {
+      const answer = document.getElementById("assessor-jud-domain-1");
+      const answerValue = answer.value;
+      const overallBiasIndicator = document.getElementById("overall-bias-domain-1");
+
+      if (answerValue === 'Low') {
+        overallBiasIndicator.textContent = "L";
+        overallBiasIndicator.style.backgroundColor = "#00ff00";
+        overallBiasIndicator.style.color = "black";
+      } else if (answerValue === 'Some concerns') {
+        overallBiasIndicator.textContent = "S";
+        overallBiasIndicator.style.backgroundColor = "#ffff00";
+        overallBiasIndicator.style.color = "black";
+        overallBiasAlgorithm();
+      } else if (answerValue === 'High') {
+        overallBiasIndicator.textContent = "H";
+        overallBiasIndicator.style.backgroundColor = "#ff0000";
+        overallBiasIndicator.style.color = "black";
+      } else {
+        overallBiasIndicator.textContent = "";
+        overallBiasIndicator.style.backgroundColor = "#F0F0F0";
+        overallBiasIndicator.style.color = "#666";
+      }
+
+      overallBiasAlgorithm();
+    },
+
+    assessorJudgmentListenerDomain1: function () {
+      const answer = document.getElementById("assessor-jud-domain-1");
+      if (answer && !answer.dataset.listenerAttached) {
+        answer.addEventListener("change", D1.defineAssessorJudDomain1);
+        answer.dataset.listenerAttached = 'true';
+      }
+    },
+
+    updateDomain1AlgResult: function () {
+      const answer1 = document.getElementById('answer_1_1')?.value;
+      const answer2 = document.getElementById('answer_1_2')?.value;
+      const answer3 = document.getElementById('answer_1_3')?.value;
+      const resultDiv = document.getElementById('alg-result-domain-1');
+
+      if (!answer1 || !answer2 || !answer3 || !resultDiv) {
+        resultDiv.textContent = 'Algorithm';
+        resultDiv.style.backgroundColor = '#f0f0f0';
+        resultDiv.style.color = '#666';
+        return;
+      }
+
+      const domain1_alg = {
+        'low': {
+          'combination_1': {
+            '1.1': ['Y', 'PY', 'NI'],
+            '1.2': ['Y', 'PY'],
+            '1.3': ['N', 'PN', 'NI'],
+          },
+        },
+        'some_concerns': {
+          'combination_1': {
+            '1.1': ['Y', 'PY', 'NI'],
+            '1.2': ['Y', 'PY'],
+            '1.3': ['Y', 'PY'],
+          },
+          'combination_2': {
+            '1.1': ['N', 'PN'],
+            '1.2': ['Y', 'PY'],
+            '1.3': [],
+          },
+          'combination_3': {
+            '1.1': [],
+            '1.2': ['NI'],
+            '1.3': ['N', 'PN', 'NI'],
+          },
+        },
+        'high': {
+          'combination_1': {
+            '1.1': [],
+            '1.2': ['NI'],
+            '1.3': ['Y', 'PY'],
+          },
+          'combination_2': {
+            '1.1': [],
+            '1.2': ['N', 'PN'],
+            '1.3': [],
+          },
+        },
+      }
+
+      const answers = {
+        '1.1': answer1,
+        '1.2': answer2,
+        '1.3': answer3,
+      };
+
+      const result_div_properties = algorithm_result(domain1_alg, answers);
+
+      resultDiv.textContent = result_div_properties['text'];
+      resultDiv.style.backgroundColor = result_div_properties['color'];
+      resultDiv.style.color = result_div_properties['font_color'];
+    },
+
+    setupAnswer1Listeners: function () {
+      ['answer_1_1', 'answer_1_2', 'answer_1_3'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && !el.dataset.listenerAttached) {
+          el.addEventListener('change', D1.updateDomain1AlgResult);
+          el.dataset.listenerAttached = 'true';
+        }
+      });
+    },
+  }
+
 </script>

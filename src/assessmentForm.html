@@ -1743,8 +1743,8 @@
             }
 
             if (tabId === 'domain-1') {
-                setupAnswer1Listeners();
-                assessorJudgmentListenerDomain1();
+                D1.setupAnswer1Listeners();
+                D1.assessorJudgmentListenerDomain1();
             }
 
             if (tabId === 'domain-2-ITT') {
@@ -1773,40 +1773,7 @@
             }
         }
 
-        function defineAssessorJudDomain1() {
-            const answer = document.getElementById("assessor-jud-domain-1");
-            const answerValue = answer.value;
-            const overallBiasIndicator = document.getElementById("overall-bias-domain-1");
-
-            if (answerValue === 'Low') {
-                overallBiasIndicator.textContent = "L";
-                overallBiasIndicator.style.backgroundColor = "#00ff00";
-                overallBiasIndicator.style.color = "black";
-            } else if (answerValue === 'Some concerns') {
-                overallBiasIndicator.textContent = "S";
-                overallBiasIndicator.style.backgroundColor = "#ffff00";
-                overallBiasIndicator.style.color = "black";
-                overallBiasAlgorithm();
-            } else if (answerValue === 'High') {
-                overallBiasIndicator.textContent = "H";
-                overallBiasIndicator.style.backgroundColor = "#ff0000";
-                overallBiasIndicator.style.color = "black";
-            } else {
-                overallBiasIndicator.textContent = "";
-                overallBiasIndicator.style.backgroundColor = "#F0F0F0";
-                overallBiasIndicator.style.color = "#666";
-            }
-
-            overallBiasAlgorithm();
-        }
-
-        function assessorJudgmentListenerDomain1() {
-            const answer = document.getElementById("assessor-jud-domain-1");
-            if(answer && !answer.dataset.listenerAttached){
-                answer.addEventListener("change", defineAssessorJudDomain1);
-                answer.dataset.listenerAttached = 'true';
-            }
-        }
+        
 
         function defineAssessorJudDomain2PP() {
             const answer = document.getElementById("assessor-jud-domain-2-PP");
@@ -2442,71 +2409,6 @@
             }
         }
 
-        function updateDomain1AlgResult() {
-            const answer1 = document.getElementById('answer_1_1')?.value;
-            const answer2 = document.getElementById('answer_1_2')?.value;
-            const answer3 = document.getElementById('answer_1_3')?.value;
-            const resultDiv = document.getElementById('alg-result-domain-1');
-
-            if (!answer1 || !answer2 || !answer3 || !resultDiv) {
-                resultDiv.textContent = 'Algorithm';
-                resultDiv.style.backgroundColor = '#f0f0f0';
-                resultDiv.style.color = '#666';
-                return;
-            }
-
-            const domain1_alg = {
-	              'low': {
-		                  'combination_1': {
-			                    '1.1': ['Y', 'PY', 'NI'],
-			                    '1.2': ['Y', 'PY'],
-			                    '1.3': ['N', 'PN', 'NI'],
-		                  },
-	              },
-	              'some_concerns': {
-		                  'combination_1': {
-			                    '1.1': ['Y', 'PY', 'NI'],
-			                    '1.2': ['Y', 'PY'],
-			                    '1.3': ['Y', 'PY'],
-		                  },
-		                  'combination_2': {
-			                    '1.1': ['N', 'PN'],
-			                    '1.2': ['Y', 'PY'],
-			                    '1.3': [],
-		                  },
-		                  'combination_3': {
-			                    '1.1': [],
-			                    '1.2': ['NI'],
-			                    '1.3': ['N', 'PN', 'NI'],
-		                  },
-	                },
-	              'high': {
-		                  'combination_1': {
-			                    '1.1': [],
-			                    '1.2': ['NI'],
-			                    '1.3': ['Y', 'PY'],
-		                  },
-		                  'combination_2': {
-			                    '1.1': [],
-			                    '1.2': ['N', 'PN'],
-			                    '1.3': [],
-		                  },
-	              },
-              }
-
-            const answers = {
-              '1.1': answer1,
-              '1.2': answer2,
-              '1.3': answer3,
-            };
-
-            const result_div_properties = algorithm_result(domain1_alg, answers);
-
-            resultDiv.textContent = result_div_properties['text'];
-            resultDiv.style.backgroundColor = result_div_properties['color'];
-            resultDiv.style.color = result_div_properties['font_color'];
-        }
-
         function condEnable2_7_ITT() {
             const q6 = document.getElementById("answer_2_6_itt");
             const q7 = document.getElementById("answer_2_7_itt");
@@ -2867,16 +2769,6 @@
             resultDiv.textContent = result_div_properties['text'];
             resultDiv.style.backgroundColor = result_div_properties['color'];
             resultDiv.style.color = result_div_properties['font_color'];
-        }
-
-        function setupAnswer1Listeners() {
-            ['answer_1_1', 'answer_1_2', 'answer_1_3'].forEach(id => {
-            const el = document.getElementById(id);
-                if (el && !el.dataset.listenerAttached) {
-                    el.addEventListener('change', updateDomain1AlgResult);
-                    el.dataset.listenerAttached = 'true';
-                }
-            });
         }
 
         function setupAnswer2ListenersITT() {
@@ -4182,7 +4074,7 @@
                             }
                         }
                         document.getElementById('comments_1_3').value = row['Note for 1.3'];
-                        updateDomain1AlgResult();
+                        D1.updateDomain1AlgResult();
                         assessorJud = document.getElementById('assessor-jud-domain-1');
                         assessorJudPlan = row["1.0 Assessor's Judgement"];
                         if (assessorJudPlan) {
@@ -4194,7 +4086,7 @@
                                 }
                             }
                         }
-                        defineAssessorJudDomain1();
+                        D1.defineAssessorJudDomain1();
                         document.getElementById('assessor_jud_domain_1').value = row['1.0 General note'];
                         assessorDirectionBiasSelect = document.getElementById('direction_bias_select_1');
                         assessorDirectionBiasPlan = row["1.0 Optional Question"];
@@ -4787,7 +4679,7 @@
             document.getElementById('direction_bias_select_1').value = '';
             document.getElementById('direction_bias_select_1').dispatchEvent(new Event('change'));
             document.getElementById('direction_bias_domain_1').value = '';
-            defineAssessorJudDomain1();
+            D1.defineAssessorJudDomain1();
             resetDiv("overall-bias-domain-1", isOverAllBias=true);
 
 
