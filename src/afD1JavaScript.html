@@ -140,6 +140,74 @@
         }
       });
     },
+
+    fillFormWithSheetAnswers: function (sheet1_1, sheet1_2, sheet1_1And1_2Comment, sheet1_3, sheet1_3Comment, sheetAssessorJud, sheetAssessorJudComment, sheetDirectionBias, sheetDirectionBiasComment) {
+      q1_1 = document.getElementById('answer_1_1');
+      if (sheet1_1) {
+        for (let option of q1_1.options) {
+          if (option.text === sheet1_1) {
+            q1_1.value = option.value;
+            q1_1.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+
+      q1_2 = document.getElementById('answer_1_2');
+      if (sheet1_2) {
+        for (let option of q1_2.options) {
+          if (option.text === sheet1_2) {
+            q1_2.value = option.value;
+            q1_2.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+
+      document.getElementById('comments_1_1_and_1_2').value = sheet1_1And1_2Comment;
+
+      q1_3 = document.getElementById('answer_1_3');
+      if (sheet1_3) {
+        for (let option of q1_3.options) {
+          if (option.text === sheet1_3) {
+            q1_3.value = option.value;
+            q1_3.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+
+      document.getElementById('comments_1_3').value = sheet1_3Comment;
+
+      D1.updateDomain1AlgResult();
+
+      assessorJud = document.getElementById('assessor-jud-domain-1');
+      if (sheetAssessorJud) {
+        for (let option of assessorJud) {
+          if (option.text === sheetAssessorJud) {
+            assessorJud.value = option.value;
+            assessorJud.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      D1.defineAssessorJudDomain1();
+
+      document.getElementById('assessor_jud_domain_1').value = sheetAssessorJudComment;
+
+      assessorDirectionBiasSelect = document.getElementById('direction_bias_select_1');
+      if (sheetDirectionBias) {
+        for (let option of assessorDirectionBiasSelect) {
+          if (option.text === sheetDirectionBias) {
+            assessorDirectionBiasSelect.value = option.value;
+            assessorDirectionBiasSelect.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+
+      document.getElementById('direction_bias_domain_1').value = sheetDirectionBiasComment;
+    },
   }
 
 </script>

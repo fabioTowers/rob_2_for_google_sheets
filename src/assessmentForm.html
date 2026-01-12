@@ -4038,68 +4038,17 @@
                             });
                         }
 
-
-                        q1_1 = document.getElementById('answer_1_1');
-                        plan1_1 = row['1.1'];
-                        if (plan1_1) {
-                            for (let option of q1_1.options) {
-                                if (option.text === plan1_1) {
-                                    q1_1.value = option.value;
-                                    q1_1.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        q1_2 = document.getElementById('answer_1_2');
-                        plan1_2 = row['1.2'];
-                        if (plan1_2) {
-                            for (let option of q1_2.options) {
-                                if (option.text === plan1_2) {
-                                    q1_2.value = option.value;
-                                    q1_2.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('comments_1_1_and_1_2').value = row['Note for 1.1&1.2'];
-                        q1_3 = document.getElementById('answer_1_3');
-                        plan1_3 = row['1.3'];
-                        if (plan1_3) {
-                            for (let option of q1_3.options) {
-                                if (option.text === plan1_3) {
-                                    q1_3.value = option.value;
-                                    q1_3.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('comments_1_3').value = row['Note for 1.3'];
-                        D1.updateDomain1AlgResult();
-                        assessorJud = document.getElementById('assessor-jud-domain-1');
-                        assessorJudPlan = row["1.0 Assessor's Judgement"];
-                        if (assessorJudPlan) {
-                            for (let option of assessorJud) {
-                                if (option.text === assessorJudPlan) {
-                                    assessorJud.value = option.value;
-                                    assessorJud.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        D1.defineAssessorJudDomain1();
-                        document.getElementById('assessor_jud_domain_1').value = row['1.0 General note'];
-                        assessorDirectionBiasSelect = document.getElementById('direction_bias_select_1');
-                        assessorDirectionBiasPlan = row["1.0 Optional Question"];
-                        if (assessorDirectionBiasPlan) {
-                            for (let option of assessorDirectionBiasSelect) {
-                                if (option.text === assessorDirectionBiasPlan) {
-                                    assessorDirectionBiasSelect.value = option.value;
-                                    assessorDirectionBiasSelect.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('direction_bias_domain_1').value = row['1.0 Note for optional question'];
+                        D1.fillFormWithSheetAnswers(
+                            sheet1_1 = row['1.1'],
+                            sheet1_2 = row['1.2'],
+                            sheet1_1And1_2Comment = row['Note for 1.1&1.2'],
+                            sheet1_3 = row['1.3'], 
+                            sheet1_3Comment = row['Note for 1.3'],
+                            sheetAssessorJud = row["1.0 Assessor's Judgement"],
+                            sheetAssessorJudComment = row['1.0 General note'],
+                            sheetDirectionBias = row['1.0 Optional Question'],
+                            sheetDirectionBiasComment = row['1.0 Note for optional question']
+                        );
 
                         if (aimPlan === "adhering to intervention (the 'per-protocol' effect)") {
                             q2_1_pp = document.getElementById('answer_2_1_pp');
