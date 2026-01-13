@@ -44,24 +44,24 @@
     defineAssessorJudDomain2PP: function () {
       const answer = document.getElementById("assessor-jud-domain-2-PP");
       const answerValue = answer.value;
-      const overallBiasIndicator = document.getElementById("overall-bias-domain-2");
+      const divOfDomain2PPInOverAllBias = document.getElementById("overall-bias-domain-2");
 
       if (answerValue === 'Low') {
-        overallBiasIndicator.textContent = "L";
-        overallBiasIndicator.style.backgroundColor = "#00ff00";
-        overallBiasIndicator.style.color = "black";
+        divOfDomain2PPInOverAllBias.textContent = "L";
+        divOfDomain2PPInOverAllBias.style.backgroundColor = "#00ff00";
+        divOfDomain2PPInOverAllBias.style.color = "black";
       } else if (answerValue === 'Some concerns') {
-        overallBiasIndicator.textContent = "S";
-        overallBiasIndicator.style.backgroundColor = "#ffff00";
-        overallBiasIndicator.style.color = "black";
+        divOfDomain2PPInOverAllBias.textContent = "S";
+        divOfDomain2PPInOverAllBias.style.backgroundColor = "#ffff00";
+        divOfDomain2PPInOverAllBias.style.color = "black";
       } else if (answerValue === 'High') {
-        overallBiasIndicator.textContent = "H";
-        overallBiasIndicator.style.backgroundColor = "#ff0000";
-        overallBiasIndicator.style.color = "black";
+        divOfDomain2PPInOverAllBias.textContent = "H";
+        divOfDomain2PPInOverAllBias.style.backgroundColor = "#ff0000";
+        divOfDomain2PPInOverAllBias.style.color = "black";
       } else {
-        overallBiasIndicator.textContent = "";
-        overallBiasIndicator.style.backgroundColor = "#F0F0F0";
-        overallBiasIndicator.style.color = "#666";
+        divOfDomain2PPInOverAllBias.textContent = "";
+        divOfDomain2PPInOverAllBias.style.backgroundColor = "#F0F0F0";
+        divOfDomain2PPInOverAllBias.style.color = "#666";
       }
 
       overallBiasAlgorithm();
@@ -76,6 +76,43 @@
     },
 
     
+
+    clearForm: function () {
+      document.getElementById('answer_2_1_pp').value = '';
+      document.getElementById('answer_2_1_pp').dispatchEvent(new Event('change'));
+      document.getElementById('answer_2_2_pp').value = '';
+      document.getElementById('answer_2_2_pp').dispatchEvent(new Event('change'));
+      document.getElementById('2.1_and_2.2_comment_PP').value = '';
+      document.getElementById('answer_2_3_pp').value = '';
+      document.getElementById('answer_2_3_pp').dispatchEvent(new Event('change'));
+      document.getElementById('2.3_comment_PP').value = '';
+      document.getElementById('answer_2_4_pp').value = '';
+      document.getElementById('answer_2_4_pp').dispatchEvent(new Event('change'));
+      document.getElementById('2.4_comment_PP').value = '';
+      document.getElementById('answer_2_5_pp').value = '';
+      document.getElementById('answer_2_5_pp').dispatchEvent(new Event('change'));
+      document.getElementById('2.5_comment_PP').value = '';
+      document.getElementById('answer_2_6_pp').value = '';
+      document.getElementById('answer_2_6_pp').dispatchEvent(new Event('change'));
+      document.getElementById('2.6_comment_PP').value = '';
+
+      let divAlgorithmResult = document.getElementById('alg-result-domain-2-PP');
+      divAlgorithmResult.textContent = 'Algorithm';
+      divAlgorithmResult.style.backgroundColor = '#f0f0f0';
+      divAlgorithmResult.style.color = '#666';
+
+      document.getElementById('assessor-jud-domain-2-PP').value = '';
+      document.getElementById('assessor-jud-domain-2-PP').dispatchEvent(new Event('change'));
+      document.getElementById('assessor_jud_domain_2_PP').value = '';
+      document.getElementById('direction_bias_select_2_PP').value = '';
+      document.getElementById('direction_bias_select_2_PP').dispatchEvent(new Event('change'));
+      document.getElementById('direction_bias_domain_2_PP').value = '';
+
+      let divOfDomain2PPInOverAllBias = document.getElementById("overall-bias-domain-2");
+      divOfDomain2PPInOverAllBias.textContent = "";
+      divOfDomain2PPInOverAllBias.style.backgroundColor = "#F0F0F0";
+      divOfDomain2PPInOverAllBias.style.color = "#666";
+    }
   }
 
 </script>

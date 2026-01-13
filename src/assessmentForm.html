@@ -1951,9 +1951,9 @@
             }
         }
 
-        function resetDomain2Fields() {
+        function resetDomain2ITTFields() {
             
-            const panelIds = ['domain-2-ITT', 'domain-2-PP'];
+            const panelIds = ['domain-2-ITT'];
 
             const overallBiasIndicator = document.getElementById("overall-bias-domain-2");
             overallBiasIndicator.textContent = "";
@@ -1983,7 +1983,8 @@
         }
 
         function toggleConditionalField() {
-            resetDomain2Fields();
+            resetDomain2ITTFields();
+            D2PP.clearForm();
 
             const select = document.getElementById('assessment-aim');
             const conditionalField = document.getElementById('conditional-field');
@@ -4536,29 +4537,7 @@
 
             D1.clearForm();
 
-            document.getElementById('answer_2_1_pp').value = '';
-            document.getElementById('answer_2_1_pp').dispatchEvent(new Event('change'));
-            document.getElementById('answer_2_2_pp').value = '';
-            document.getElementById('answer_2_2_pp').dispatchEvent(new Event('change'));
-            document.getElementById('2.1_and_2.2_comment_PP').value = '';
-            document.getElementById('answer_2_3_pp').value = '';
-            document.getElementById('answer_2_3_pp').dispatchEvent(new Event('change'));
-            document.getElementById('2.3_comment_PP').value = '';
-            document.getElementById('answer_2_4_pp').value = '';
-            document.getElementById('answer_2_4_pp').dispatchEvent(new Event('change'));
-            document.getElementById('2.4_comment_PP').value = '';
-            document.getElementById('answer_2_5_pp').value = '';
-            document.getElementById('answer_2_5_pp').dispatchEvent(new Event('change'));
-            document.getElementById('2.5_comment_PP').value = '';
-            document.getElementById('answer_2_6_pp').value = '';
-            document.getElementById('answer_2_6_pp').dispatchEvent(new Event('change'));
-            document.getElementById('2.6_comment_PP').value = '';
-            document.getElementById('assessor-jud-domain-2-PP').value = '';
-            document.getElementById('assessor-jud-domain-2-PP').dispatchEvent(new Event('change'));
-            document.getElementById('assessor_jud_domain_2_PP').value = '';
-            document.getElementById('direction_bias_select_2_PP').value = '';
-            document.getElementById('direction_bias_select_2_PP').dispatchEvent(new Event('change'));
-            document.getElementById('direction_bias_domain_2_PP').value = '';
+            D2PP.clearForm();
 
 
             document.getElementById('answer_2_1_itt').value = '';
