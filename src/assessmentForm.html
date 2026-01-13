@@ -1754,7 +1754,7 @@
             }
 
             if (tabId === 'domain-2-PP') {
-                setupAnswer2ListenersPP();
+                D2PP.setupCondEnableListeners();
                 D2PP.assessorJudgmentListenerDomain2PP();
             }
 
@@ -1992,7 +1992,7 @@
             if (select.value === 'per-protocol') {
                 activeDomain2TabId = 'domain-2-PP';
                 conditionalField.classList.remove('disabled');
-                setupAnswer2ListenersPP();
+                D2PP.setupCondEnableListeners();
             } else if (select.value === 'intention-to-treat') {
                 activeDomain2TabId = 'domain-2-ITT';
                 conditionalField.classList.add('disabled');
@@ -2722,38 +2722,6 @@
                     el.dataset.listenerAttached = 'true';
                 }
             });
-        }
-
-        function setupAnswer2ListenersPP() {
-            ['non-adherence', 'implementation-failures', 'non-protocol', 'answer_2_1_pp', 'answer_2_2_pp', 'answer_2_3_pp', 'answer_2_4_pp', 'answer_2_5_pp', 'answer_2_6_pp'].forEach(id => {
-            const el = document.getElementById(id);
-                if (el && !el.dataset.listenerAttached) {
-                    el.addEventListener('change', D2PP.updateDomain2PPAlgResult);
-
-                    if (id === 'non-protocol' || id === 'answer_2_1_pp' || id === 'answer_2_2_pp') {
-                        el.addEventListener('change', D2PP.condEnable2_3_PP);
-                    }
-
-                    if (id === 'implementation-failures') {
-                        el.addEventListener('change', D2PP.condEnable2_4_PP);
-                    }
-
-                    if (id === 'non-adherence') {
-                        el.addEventListener('change', D2PP.condEnable2_5_PP);
-                    }
-
-                    if (id === 'answer_2_3_pp' || id === 'answer_2_4_pp' || id === 'answer_2_5_pp') {
-                        el.addEventListener('change', D2PP.condEnable2_6_PP);
-                    }
-
-                    el.dataset.listenerAttached = 'true';
-                }
-            });
-
-            D2PP.condEnable2_3_PP();
-            D2PP.condEnable2_4_PP();
-            D2PP.condEnable2_5_PP();
-            D2PP.condEnable2_6_PP();
         }
 
         function condEnable3_2() {
