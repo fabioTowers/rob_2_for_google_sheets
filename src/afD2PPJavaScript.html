@@ -118,6 +118,34 @@
       updateDomain2PPAlgResult();
     },
 
+    condEnable2_4_PP: function () {
+      const q4 = document.getElementById("answer_2_4_pp");
+      const opNa = document.getElementById("2.4_pp_NA");
+      const failuresOnImplementationOption = document.getElementById('implementation-failures');
+      const q4Comment = document.getElementById('2.4_comment_PP');
+      const q4Link = document.getElementById('Q_2_4_instructions_pp');
+
+      if (failuresOnImplementationOption.checked) {
+        q4.disabled = false;
+        q4Comment.disabled = false;
+        opNa.style.display = 'none';
+        q4Link.classList.remove("disabled");
+        if (q4.value === "NA") {
+          q4.value = "";
+        }
+      } else {
+        q4.disabled = true;
+        opNa.style.display = 'block';
+        q4.value = "NA";
+        q4Comment.value = '';
+        q4Comment.disabled = true;
+        q4Link.classList.add("disabled");
+      }
+
+      condEnable2_6_PP();
+      updateDomain2PPAlgResult();
+    },
+
     clearForm: function () {
       document.getElementById('answer_2_1_pp').value = '';
       document.getElementById('answer_2_1_pp').dispatchEvent(new Event('change'));
