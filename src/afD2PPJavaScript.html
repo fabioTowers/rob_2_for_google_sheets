@@ -146,6 +146,34 @@
       updateDomain2PPAlgResult();
     },
 
+    condEnable2_5_PP: function () {
+      const q5 = document.getElementById("answer_2_5_pp");
+      const opNa = document.getElementById("2.5_pp_NA");
+      const nonAdherenceOption = document.getElementById('non-adherence');
+      const q5Comment = document.getElementById('2.5_comment_PP');
+      const q5Link = document.getElementById('Q_2_5_instructions_pp');
+
+      if (nonAdherenceOption.checked) {
+        q5.disabled = false;
+        q5Comment.disabled = false;
+        opNa.style.display = 'none';
+        q5Link.classList.remove("disabled");
+        if (q5.value === "NA") {
+          q5.value = "";
+        }
+      } else {
+        q5.disabled = true;
+        opNa.style.display = 'block';
+        q5.value = "NA";
+        q5Comment.value = '';
+        q5Comment.disabled = true;
+        q5Link.classList.add("disabled");
+      }
+
+      condEnable2_6_PP();
+      updateDomain2PPAlgResult();
+    },
+
     clearForm: function () {
       document.getElementById('answer_2_1_pp').value = '';
       document.getElementById('answer_2_1_pp').dispatchEvent(new Event('change'));

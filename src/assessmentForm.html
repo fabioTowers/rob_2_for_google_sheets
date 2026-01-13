@@ -2724,34 +2724,6 @@
             });
         }
 
-        function condEnable2_5_PP() {
-            const q5 = document.getElementById("answer_2_5_pp");
-            const opNa = document.getElementById("2.5_pp_NA");
-            const nonAdherenceOption = document.getElementById('non-adherence');
-            const q5Comment = document.getElementById('2.5_comment_PP');
-            const q5Link = document.getElementById('Q_2_5_instructions_pp');
-
-            if (nonAdherenceOption.checked) {
-                q5.disabled = false;
-                q5Comment.disabled = false;
-                opNa.style.display = 'none';
-                q5Link.classList.remove("disabled");
-                if (q5.value === "NA") {
-                    q5.value = "";
-                }
-            } else {
-                q5.disabled = true;
-                opNa.style.display = 'block';
-                q5.value = "NA";
-                q5Comment.value = '';
-                q5Comment.disabled = true;
-                q5Link.classList.add("disabled");
-            }
-
-            condEnable2_6_PP();
-            updateDomain2PPAlgResult();
-        }
-
         function condEnable2_6_PP() {
             const q3 = document.getElementById("answer_2_3_pp");
             const answer3 = q3.value;
@@ -3012,7 +2984,7 @@
                     }
 
                     if (id === 'non-adherence') {
-                        el.addEventListener('change', condEnable2_5_PP);
+                        el.addEventListener('change', D2PP.condEnable2_5_PP);
                     }
 
                     if (id === 'answer_2_3_pp' || id === 'answer_2_4_pp' || id === 'answer_2_5_pp') {
@@ -3025,7 +2997,7 @@
 
             D2PP.condEnable2_3_PP();
             D2PP.condEnable2_4_PP();
-            condEnable2_5_PP();
+            D2PP.condEnable2_5_PP();
             condEnable2_6_PP();
         }
 
