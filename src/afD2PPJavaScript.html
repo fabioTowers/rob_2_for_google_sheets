@@ -75,7 +75,48 @@
       }
     },
 
-    
+    condEnable2_3_PP: function () {
+      const q1 = document.getElementById("answer_2_1_pp");
+      const answer1 = q1.value;
+      const q2 = document.getElementById("answer_2_2_pp");
+      const answer2 = q2.value;
+      const q3 = document.getElementById("answer_2_3_pp");
+      const opNa = document.getElementById("2.3_pp_NA");
+      const nonProtocolOption = document.getElementById('non-protocol');
+      const q3Comment = document.getElementById('2.3_comment_PP');
+      const q3Link = document.getElementById('Q_2_3_instructions_pp');
+
+      const answers = ["Y", "PY", "NI", ""];
+
+      if (nonProtocolOption.checked) {
+        if (answers.includes(answer1) || answers.includes(answer2)) {
+          q3.disabled = false;
+          opNa.style.display = 'none';
+          q3Comment.disabled = false;
+          q3Link.classList.remove("disabled");
+          if (q3.value === "NA") {
+            q3.value = "";
+          }
+        } else {
+          q3.disabled = true;
+          opNa.style.display = 'block';
+          q3.value = "NA";
+          q3Comment.value = '';
+          q3Comment.disabled = true;
+          q3Link.classList.add("disabled");
+        }
+      } else {
+        q3.disabled = true;
+        opNa.style.display = 'block';
+        q3.value = "NA";
+        q3Comment.value = '';
+        q3Comment.disabled = true;
+        q3Link.classList.add("disabled");
+      }
+
+      condEnable2_6_PP();
+      updateDomain2PPAlgResult();
+    },
 
     clearForm: function () {
       document.getElementById('answer_2_1_pp').value = '';
