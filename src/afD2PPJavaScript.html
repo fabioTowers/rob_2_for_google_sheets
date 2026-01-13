@@ -114,7 +114,7 @@
         q3Link.classList.add("disabled");
       }
 
-      condEnable2_6_PP();
+      D2PP.condEnable2_6_PP();
       updateDomain2PPAlgResult();
     },
 
@@ -142,7 +142,7 @@
         q4Link.classList.add("disabled");
       }
 
-      condEnable2_6_PP();
+      D2PP.condEnable2_6_PP();
       updateDomain2PPAlgResult();
     },
 
@@ -170,7 +170,50 @@
         q5Link.classList.add("disabled");
       }
 
-      condEnable2_6_PP();
+      D2PP.condEnable2_6_PP();
+      updateDomain2PPAlgResult();
+    },
+
+    condEnable2_6_PP: function () {
+      const q3 = document.getElementById("answer_2_3_pp");
+      const answer3 = q3.value;
+      const q4 = document.getElementById("answer_2_4_pp");
+      const answer4 = q4.value;
+      const q5 = document.getElementById("answer_2_5_pp");
+      const answer5 = q5.value;
+      const q6 = document.getElementById("answer_2_6_pp");
+      const opNa = document.getElementById("2.6_pp_NA");
+      const q6Comment = document.getElementById('2.6_comment_PP');
+      const q6Link = document.getElementById('Q_2_6_instructions_pp');
+
+      const answers2_3 = ['N', 'PN', 'NI', ''];
+      const answers2_4_or_2_5 = ['Y', 'PY', 'NI', ''];
+
+      if (answers2_4_or_2_5.includes(answer4) || answers2_4_or_2_5.includes(answer5)) {
+        q6.disabled = false;
+        opNa.style.display = 'none';
+        q6Comment.disabled = false;
+        q6Link.classList.remove("disabled");
+        if (q6.value === "NA") {
+          q6.value = "";
+        }
+      } else if (answers2_3.includes(answer3)) {
+        q6.disabled = false;
+        opNa.style.display = 'none';
+        q6Comment.disabled = false;
+        q6Link.classList.remove("disabled");
+        if (q6.value === "NA") {
+          q6.value = "";
+        }
+      } else {
+        q6.disabled = true;
+        opNa.style.display = 'block';
+        q6.value = "NA";
+        q6Comment.value = '';
+        q6Comment.disabled = true;
+        q6Link.classList.add("disabled");
+      }
+
       updateDomain2PPAlgResult();
     },
 
