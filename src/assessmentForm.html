@@ -3297,24 +3297,25 @@
                                        document.getElementById('assessment-aim').value === 'intention-to-treat' ? 'ITT' : '';;
             
             if (activeDomain2TabId === 'PP') {
-                formData['x'] = document.getElementById('answer_2_1_pp')?.value;
-                formData['y'] = document.getElementById('answer_2_2_pp')?.value;
-                formData['z'] = document.getElementById('2.1_and_2.2_comment_PP')?.value;
-                formData['aa'] = document.getElementById('answer_2_3_pp')?.value;
-                formData['ab'] = document.getElementById('2.3_comment_PP')?.value;
-                formData['ac'] = document.getElementById('answer_2_4_pp')?.value;
-                formData['ad'] = document.getElementById('2.4_comment_PP')?.value;
-                formData['ae'] = document.getElementById('answer_2_5_pp')?.value;
-                formData['af'] = document.getElementById('2.5_comment_PP')?.value;
-                formData['ag'] = document.getElementById('answer_2_6_pp')?.value;
-                formData['ah'] = document.getElementById('2.6_comment_PP')?.value;
+                answersD2PP = D2PP.getAnswers();
+                formData['x'] = answersD2PP['2.1'];
+                formData['y'] = answersD2PP['2.2'];
+                formData['z'] = answersD2PP['1.2Comment'];
+                formData['aa'] = answersD2PP['2.3'];
+                formData['ab'] = answersD2PP['2.3Comment'];
+                formData['ac'] = answersD2PP['2.4'];
+                formData['ad'] = answersD2PP['2.4Comment'];
+                formData['ae'] = answersD2PP['2.5'];
+                formData['af'] = answersD2PP['2.5Comment'];
+                formData['ag'] = answersD2PP['2.6'];
+                formData['ah'] = answersD2PP['2.6Comment'];
                 formData['ai'] = '';
                 formData['aj'] = '';
-                formData['ak'] = getAlgAssessmentResult('domain-2-pp');
-                formData['al'] = document.getElementById('assessor-jud-domain-2-PP')?.value;
-                formData['am'] = document.getElementById('assessor_jud_domain_2_PP')?.value;
-                formData['an'] = document.getElementById('direction_bias_select_2_PP')?.value;
-                formData['ao'] = document.getElementById('direction_bias_domain_2_PP')?.value;
+                formData['ak'] = answersD2PP['algorithmResult'];
+                formData['al'] = answersD2PP['assessorJudgement'];
+                formData['am'] = answersD2PP['assessorJudgementComment'];
+                formData['an'] = answersD2PP['directionBias'];
+                formData['ao'] = answersD2PP['directionBiasComment'];
             } else if (activeDomain2TabId === 'ITT') {
                 formData['x'] = document.getElementById('answer_2_1_itt')?.value;
                 formData['y'] = document.getElementById('answer_2_2_itt')?.value;
@@ -4090,10 +4091,6 @@
         function getAlgAssessmentResult(domain) {
             result = '';
             switch (domain) {
-                case 'domain-2-pp':
-                    let resultDiv2pp = document.getElementById('alg-result-domain-2-PP');
-                    result = resultDiv2pp.textContent.trim();
-                    break;
                 case 'domain-2-itt':
                     let resultDiv2itt = document.getElementById('alg-result-domain-2-ITT');
                     result = resultDiv2itt.textContent.trim();
