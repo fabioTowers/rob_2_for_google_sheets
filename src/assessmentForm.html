@@ -3603,111 +3603,23 @@
                         );
 
                         if (aimPlan === "adhering to intervention (the 'per-protocol' effect)") {
-                            q2_1_pp = document.getElementById('answer_2_1_pp');
-                            plan2_1 = row['2.1'];
-                            if (plan2_1) {
-                                for (let option of q2_1_pp.options) {
-                                    if (option.text === plan2_1) {
-                                        q2_1_pp.value = option.value;
-                                        q2_1_pp.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-
-                            q2_2_pp = document.getElementById('answer_2_2_pp');
-                            plan2_2 = row['2.2'];
-                            if (plan2_2) {
-                                for (let option of q2_2_pp.options) {
-                                    if (option.text === plan2_2) {
-                                        q2_2_pp.value = option.value;
-                                        q2_2_pp.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-                            document.getElementById('2.1_and_2.2_comment_PP').value = row['Note for 2.1&2.2'];
-
-                            q2_3_pp = document.getElementById('answer_2_3_pp');
-                            plan2_3 = row['2.3'];
-                            if (plan2_3) {
-                                for (let option of q2_3_pp.options) {
-                                    if (option.text === plan2_3) {
-                                        q2_3_pp.value = option.value;
-                                        q2_3_pp.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-                            document.getElementById('2.3_comment_PP').value = row['Note for 2.3'];
-
-                            q2_4_pp = document.getElementById('answer_2_4_pp');
-                            plan2_4 = row['2.4'];
-                            if (plan2_4) {
-                                for (let option of q2_4_pp.options) {
-                                    if (option.text === plan2_4) {
-                                        q2_4_pp.value = option.value;
-                                        q2_4_pp.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-                            document.getElementById('2.4_comment_PP').value = row['Note for 2.4'];
-
-                            q2_5_pp = document.getElementById('answer_2_5_pp');
-                            plan2_5 = row['2.5'];
-                            if (plan2_5) {
-                                for (let option of q2_5_pp.options) {
-                                    if (option.text === plan2_5) {
-                                        q2_5_pp.value = option.value;
-                                        q2_5_pp.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-                            document.getElementById('2.5_comment_PP').value = row['Note for 2.5'];
-                            
-                            q2_6_pp = document.getElementById('answer_2_6_pp');
-                            plan2_6 = row['2.6'];
-                            if (plan2_6) {
-                                for (let option of q2_6_pp.options) {
-                                    if (option.text === plan2_6) {
-                                        q2_6_pp.value = option.value;
-                                        q2_6_pp.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-                            document.getElementById('2.6_comment_PP').value = row['Note for 2.6'];
-
-                            D2PP.updateDomain2PPAlgResult();
-
-                            assessorJud = document.getElementById('assessor-jud-domain-2-PP');
-                            assessorJudPlan = row["2.0 Assessor's Judgement"];
-                            if (assessorJudPlan) {
-                                for (let option of assessorJud) {
-                                    if (option.text === assessorJudPlan) {
-                                        assessorJud.value = option.value;
-                                        assessorJud.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-                            D2PP.defineAssessorJudDomain2PP();
-                            document.getElementById('assessor_jud_domain_2_PP').value = row['2.0 General Notes'];
-                            assessorDirectionBiasSelect = document.getElementById('direction_bias_select_2_PP');
-                            assessorDirectionBiasPlan = row["2.0 Optional Question"];
-                            if (assessorDirectionBiasPlan) {
-                                for (let option of assessorDirectionBiasSelect) {
-                                    if (option.text === assessorDirectionBiasPlan) {
-                                        assessorDirectionBiasSelect.value = option.value;
-                                        assessorDirectionBiasSelect.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-                            document.getElementById('direction_bias_domain_2_PP').value = row['2.0 Note for optional question'];
-
+                            D2PP.fillFormWithSheetAnswers(
+                                sheet2_1 = row['2.1'],
+                                sheet2_2 = row['2.2'],
+                                sheet2_1And2_2Comment = row['Note for 2.1&2.2'],
+                                sheet2_3 = row['2.3'],
+                                sheet2_3Comment = row['Note for 2.3'],
+                                sheet2_4 = row['2.4'],
+                                sheet2_4Comment = row['Note for 2.4'],
+                                sheet2_5 = row['2.5'],
+                                sheet2_5Comment = row['Note for 2.5'],
+                                sheet2_6 = row['2.6'],
+                                sheet2_6Comment = row['Note for 2.6'],
+                                sheetAssessorJud = row["2.0 Assessor's Judgement"],
+                                sheetAssessorJudComment = row['2.0 General Notes'],
+                                sheetDirectionBias = row['2.0 Optional Question'],
+                                sheetDirectionBiasComment = row['2.0 Note for optional question']
+                            );
 
                         } else if (aimPlan === "assignment to intervention (the 'intention-to-treat' effect)") {
                             q2_1_itt = document.getElementById('answer_2_1_itt');

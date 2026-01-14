@@ -459,28 +459,133 @@
       }
 
       answers = {
-        '2.1' : document.getElementById('answer_2_1_pp')?.value,
-        '2.2' : document.getElementById('answer_2_2_pp')?.value,
-        '1.2Comment' : document.getElementById('2.1_and_2.2_comment_PP')?.value,
-        '2.3' : document.getElementById('answer_2_3_pp')?.value,
-        '2.3Comment' : document.getElementById('2.3_comment_PP')?.value,
-        '2.4' : document.getElementById('answer_2_4_pp')?.value,
-        '2.4Comment' : document.getElementById('2.4_comment_PP')?.value,
-        '2.5' : document.getElementById('answer_2_5_pp')?.value,
-        '2.5Comment' : document.getElementById('2.5_comment_PP')?.value,
-        '2.6' : document.getElementById('answer_2_6_pp')?.value,
-        '2.6Comment' : document.getElementById('2.6_comment_PP')?.value,
-        'algorithmResult' : algorithmResult,
-        'assessorJudgement' : document.getElementById('assessor-jud-domain-2-PP')?.value,
-        'assessorJudgementComment' : document.getElementById('assessor_jud_domain_2_PP')?.value,
-        'directionBias' : document.getElementById('direction_bias_select_2_PP')?.value,
-        'directionBiasComment' : document.getElementById('direction_bias_domain_2_PP')?.value,
+        '2.1': document.getElementById('answer_2_1_pp')?.value,
+        '2.2': document.getElementById('answer_2_2_pp')?.value,
+        '1.2Comment': document.getElementById('2.1_and_2.2_comment_PP')?.value,
+        '2.3': document.getElementById('answer_2_3_pp')?.value,
+        '2.3Comment': document.getElementById('2.3_comment_PP')?.value,
+        '2.4': document.getElementById('answer_2_4_pp')?.value,
+        '2.4Comment': document.getElementById('2.4_comment_PP')?.value,
+        '2.5': document.getElementById('answer_2_5_pp')?.value,
+        '2.5Comment': document.getElementById('2.5_comment_PP')?.value,
+        '2.6': document.getElementById('answer_2_6_pp')?.value,
+        '2.6Comment': document.getElementById('2.6_comment_PP')?.value,
+        'algorithmResult': algorithmResult,
+        'assessorJudgement': document.getElementById('assessor-jud-domain-2-PP')?.value,
+        'assessorJudgementComment': document.getElementById('assessor_jud_domain_2_PP')?.value,
+        'directionBias': document.getElementById('direction_bias_select_2_PP')?.value,
+        'directionBiasComment': document.getElementById('direction_bias_domain_2_PP')?.value,
       };
 
       return answers;
     },
 
-    
+    fillFormWithSheetAnswers: function (sheet2_1, sheet2_2, sheet2_1And2_2Comment,
+                                        sheet2_3, sheet2_3Comment,
+                                        sheet2_4, sheet2_4Comment,
+                                        sheet2_5, sheet2_5Comment,
+                                        sheet2_6, sheet2_6Comment,
+                                        sheetAssessorJud, sheetAssessorJudComment,
+                                        sheetDirectionBias, sheetDirectionBiasComment) {
+
+      q2_1_pp = document.getElementById('answer_2_1_pp');
+      if (sheet2_1) {
+        for (let option of q2_1_pp.options) {
+          if (option.text === sheet2_1) {
+            q2_1_pp.value = option.value;
+            q2_1_pp.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+
+      q2_2_pp = document.getElementById('answer_2_2_pp');
+      if (sheet2_2) {
+        for (let option of q2_2_pp.options) {
+          if (option.text === sheet2_2) {
+            q2_2_pp.value = option.value;
+            q2_2_pp.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('2.1_and_2.2_comment_PP').value = sheet2_1And2_2Comment;
+
+      q2_3_pp = document.getElementById('answer_2_3_pp');
+      if (sheet2_3) {
+        for (let option of q2_3_pp.options) {
+          if (option.text === sheet2_3) {
+            q2_3_pp.value = option.value;
+            q2_3_pp.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('2.3_comment_PP').value = sheet2_3Comment;
+
+      q2_4_pp = document.getElementById('answer_2_4_pp');
+      if (sheet2_4) {
+        for (let option of q2_4_pp.options) {
+          if (option.text === sheet2_4) {
+            q2_4_pp.value = option.value;
+            q2_4_pp.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('2.4_comment_PP').value = sheet2_4Comment;
+
+      q2_5_pp = document.getElementById('answer_2_5_pp');
+      if (sheet2_5) {
+        for (let option of q2_5_pp.options) {
+          if (option.text === sheet2_5) {
+            q2_5_pp.value = option.value;
+            q2_5_pp.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('2.5_comment_PP').value = sheet2_5Comment;
+
+      q2_6_pp = document.getElementById('answer_2_6_pp');
+      if (sheet2_6) {
+        for (let option of q2_6_pp.options) {
+          if (option.text === sheet2_6) {
+            q2_6_pp.value = option.value;
+            q2_6_pp.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('2.6_comment_PP').value = sheet2_6Comment;
+
+      D2PP.updateDomain2PPAlgResult();
+
+      assessorJud = document.getElementById('assessor-jud-domain-2-PP');
+      if (sheetAssessorJud) {
+        for (let option of assessorJud) {
+          if (option.text === sheetAssessorJud) {
+            assessorJud.value = option.value;
+            assessorJud.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      D2PP.defineAssessorJudDomain2PP();
+      document.getElementById('assessor_jud_domain_2_PP').value = sheetAssessorJudComment;
+
+      assessorDirectionBiasSelect = document.getElementById('direction_bias_select_2_PP');
+      if (sheetDirectionBias) {
+        for (let option of assessorDirectionBiasSelect) {
+          if (option.text === sheetDirectionBias) {
+            assessorDirectionBiasSelect.value = option.value;
+            assessorDirectionBiasSelect.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('direction_bias_domain_2_PP').value = sheetDirectionBiasComment;
+    },
 
     clearForm: function () {
       document.getElementById('answer_2_1_pp').value = '';
