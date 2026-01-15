@@ -1,4 +1,23 @@
 <script>
+  document.getElementById('Q_2_1_instructions').addEventListener('click', function (e) {
+    event.preventDefault();
+
+    document.getElementById('Q_2_1_instructions_modal').showModal();;
+
+    document.getElementById('Q_2_1_instructions_modal_button').addEventListener('click', () => {
+      document.getElementById('Q_2_1_instructions_modal').close();
+    });
+  });
+
+  document.getElementById('Q_2_2_instructions').addEventListener('click', function (e) {
+    event.preventDefault();
+
+    document.getElementById('Q_2_2_instructions_modal').showModal();;
+
+    document.getElementById('Q_2_2_instructions_modal_button').addEventListener('click', () => {
+      document.getElementById('Q_2_2_instructions_modal').close();
+    });
+  });
 
   document.getElementById('Q_2_3_instructions_pp').addEventListener('click', function (e) {
     event.preventDefault();
@@ -481,12 +500,12 @@
     },
 
     fillFormWithSheetAnswers: function (sheet2_1, sheet2_2, sheet2_1And2_2Comment,
-                                        sheet2_3, sheet2_3Comment,
-                                        sheet2_4, sheet2_4Comment,
-                                        sheet2_5, sheet2_5Comment,
-                                        sheet2_6, sheet2_6Comment,
-                                        sheetAssessorJud, sheetAssessorJudComment,
-                                        sheetDirectionBias, sheetDirectionBiasComment) {
+      sheet2_3, sheet2_3Comment,
+      sheet2_4, sheet2_4Comment,
+      sheet2_5, sheet2_5Comment,
+      sheet2_6, sheet2_6Comment,
+      sheetAssessorJud, sheetAssessorJudComment,
+      sheetDirectionBias, sheetDirectionBiasComment) {
 
       q2_1_pp = document.getElementById('answer_2_1_pp');
       if (sheet2_1) {
