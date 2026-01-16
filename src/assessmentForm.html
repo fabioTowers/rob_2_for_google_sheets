@@ -1751,7 +1751,7 @@
 
             if (tabId === 'domain-2-ITT') {
                 D2ITT.setupCondEnableListeners();
-                assessorJudgmentListenerDomain2ITT();
+                D2ITT.assessorJudgmentListenerDomain2ITT();
             }
 
             if (tabId === 'domain-2-PP') {
@@ -1772,40 +1772,6 @@
             if (tabId === 'domain-5') {
                 setupAnswer5Listeners();
                 assessorJudgmentListenerDomain5();
-            }
-        }
-
-        function defineAssessorJudDomain2ITT() {
-            const answer = document.getElementById("assessor-jud-domain-2-ITT");
-            const answerValue = answer.value;
-            const overallBiasIndicator = document.getElementById("overall-bias-domain-2");
-
-            if (answerValue === 'Low') {
-                overallBiasIndicator.textContent = "L";
-                overallBiasIndicator.style.backgroundColor = "#00ff00";
-                overallBiasIndicator.style.color = "black";
-            } else if (answerValue === 'Some concerns') {
-                overallBiasIndicator.textContent = "S";
-                overallBiasIndicator.style.backgroundColor = "#ffff00";
-                overallBiasIndicator.style.color = "black";
-            } else if (answerValue === 'High') {
-                overallBiasIndicator.textContent = "H";
-                overallBiasIndicator.style.backgroundColor = "#ff0000";
-                overallBiasIndicator.style.color = "black";
-            } else {
-                overallBiasIndicator.textContent = "";
-                overallBiasIndicator.style.backgroundColor = "#F0F0F0";
-                overallBiasIndicator.style.color = "#666";
-            }
-
-            overallBiasAlgorithm();
-        }
-
-        function assessorJudgmentListenerDomain2ITT() {
-            const answer = document.getElementById("assessor-jud-domain-2-ITT");
-            if(answer && !answer.dataset.listenerAttached){
-                answer.addEventListener("change", defineAssessorJudDomain2ITT);
-                answer.dataset.listenerAttached = 'true';
             }
         }
 

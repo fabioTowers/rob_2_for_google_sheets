@@ -70,6 +70,40 @@
   });
 
   const D2ITT = {
+    defineAssessorJudDomain2ITT: function () {
+      const answer = document.getElementById("assessor-jud-domain-2-ITT");
+      const answerValue = answer.value;
+      const overallBiasIndicator = document.getElementById("overall-bias-domain-2");
+
+      if (answerValue === 'Low') {
+        overallBiasIndicator.textContent = "L";
+        overallBiasIndicator.style.backgroundColor = "#00ff00";
+        overallBiasIndicator.style.color = "black";
+      } else if (answerValue === 'Some concerns') {
+        overallBiasIndicator.textContent = "S";
+        overallBiasIndicator.style.backgroundColor = "#ffff00";
+        overallBiasIndicator.style.color = "black";
+      } else if (answerValue === 'High') {
+        overallBiasIndicator.textContent = "H";
+        overallBiasIndicator.style.backgroundColor = "#ff0000";
+        overallBiasIndicator.style.color = "black";
+      } else {
+        overallBiasIndicator.textContent = "";
+        overallBiasIndicator.style.backgroundColor = "#F0F0F0";
+        overallBiasIndicator.style.color = "#666";
+      }
+
+      overallBiasAlgorithm();
+    },
+
+    assessorJudgmentListenerDomain2ITT: function () {
+      const answer = document.getElementById("assessor-jud-domain-2-ITT");
+      if (answer && !answer.dataset.listenerAttached) {
+        answer.addEventListener("change", D2ITT.defineAssessorJudDomain2ITT);
+        answer.dataset.listenerAttached = 'true';
+      }
+    },
+
     condEnable2_3_ITT: function () {
       const q1 = document.getElementById("answer_2_1_itt");
       const q2 = document.getElementById("answer_2_2_itt");
@@ -596,7 +630,7 @@
         }
       }
 
-      defineAssessorJudDomain2ITT();
+      D2ITT.defineAssessorJudDomain2ITT();
 
       document.getElementById('assessor_jud_domain_2_ITT').value = sheetAssessorJudComment;
 
