@@ -491,7 +491,127 @@
       return answers;
     },
 
-    
+    fillFormWithSheetAnswers: function (sheet2_1, sheet2_2, sheet2_1And2_2Comment,
+      sheet2_3, sheet2_3Comment,
+      sheet2_4, sheet2_4Comment,
+      sheet2_5, sheet2_5Comment,
+      sheet2_6, sheet2_6Comment,
+      sheet2_7, sheet2_7Comment,
+      sheetAssessorJud, sheetAssessorJudComment,
+      sheetDirectionBias, sheetDirectionBiasComment) {
+
+      q2_1_itt = document.getElementById('answer_2_1_itt');
+      if (sheet2_1) {
+        for (let option of q2_1_itt.options) {
+          if (option.text === sheet2_1) {
+            q2_1_itt.value = option.value;
+            q2_1_itt.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+
+      q2_2_itt = document.getElementById('answer_2_2_itt');
+      if (sheet2_2) {
+        for (let option of q2_2_itt.options) {
+          if (option.text === sheet2_2) {
+            q2_2_itt.value = option.value;
+            q2_2_itt.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('2.1_and_2.2_comment_ITT').value = sheet2_1And2_2Comment;
+
+      q2_3_itt = document.getElementById('answer_2_3_itt');
+      if (sheet2_3) {
+        for (let option of q2_3_itt.options) {
+          if (option.text === sheet2_3) {
+            q2_3_itt.value = option.value;
+            q2_3_itt.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('2.3_comment_ITT').value = sheet2_3Comment;
+
+      q2_4_itt = document.getElementById('answer_2_4_itt');
+      if (sheet2_4) {
+        for (let option of q2_4_itt.options) {
+          if (option.text === sheet2_4) {
+            q2_4_itt.value = option.value;
+            q2_4_itt.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('2.4_comment_ITT').value = sheet2_4Comment;
+
+      q2_5_itt = document.getElementById('answer_2_5_itt');
+      if (sheet2_5) {
+        for (let option of q2_5_itt.options) {
+          if (option.text === sheet2_5) {
+            q2_5_itt.value = option.value;
+            q2_5_itt.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('2.5_comment_ITT').value = sheet2_5Comment;
+
+      q2_6_itt = document.getElementById('answer_2_6_itt');
+      if (sheet2_6) {
+        for (let option of q2_6_itt.options) {
+          if (option.text === sheet2_6) {
+            q2_6_itt.value = option.value;
+            q2_6_itt.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('2.6_comment_ITT').value = sheet2_6Comment;
+
+      q2_7_itt = document.getElementById('answer_2_7_itt');
+      if (sheet2_7) {
+        for (let option of q2_7_itt.options) {
+          if (option.text === sheet2_7) {
+            q2_7_itt.value = option.value;
+            q2_7_itt.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('2.7_comment_ITT').value = sheet2_7Comment;
+
+      D2ITT.updateDomain2ITTAlgResult();
+
+      assessorJud = document.getElementById('assessor-jud-domain-2-ITT');
+      if (sheetAssessorJud) {
+        for (let option of assessorJud) {
+          if (option.text === sheetAssessorJud) {
+            assessorJud.value = option.value;
+            assessorJud.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+
+      defineAssessorJudDomain2ITT();
+
+      document.getElementById('assessor_jud_domain_2_ITT').value = sheetAssessorJudComment;
+
+      assessorDirectionBiasSelect = document.getElementById('direction_bias_select_2_ITT');
+      if (sheetDirectionBias) {
+        for (let option of assessorDirectionBiasSelect) {
+          if (option.text === sheetDirectionBias) {
+            assessorDirectionBiasSelect.value = option.value;
+            assessorDirectionBiasSelect.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('direction_bias_domain_2_ITT').value = sheetDirectionBiasComment;
+    },
 
     clearForm: function () {
       document.getElementById('answer_2_1_itt').value = '';

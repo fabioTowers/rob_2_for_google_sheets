@@ -3114,123 +3114,25 @@
                             );
 
                         } else if (aimPlan === "assignment to intervention (the 'intention-to-treat' effect)") {
-                            q2_1_itt = document.getElementById('answer_2_1_itt');
-                            plan2_1_itt = row['2.1'];
-                            if (plan2_1_itt) {
-                                for (let option of q2_1_itt.options) {
-                                    if (option.text === plan2_1_itt) {
-                                        q2_1_itt.value = option.value;
-                                        q2_1_itt.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-
-                            q2_2_itt = document.getElementById('answer_2_2_itt');
-                            plan2_2_itt = row['2.2'];
-                            if (plan2_2_itt) {
-                                for (let option of q2_2_itt.options) {
-                                    if (option.text === plan2_2_itt) {
-                                        q2_2_itt.value = option.value;
-                                        q2_2_itt.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-                            document.getElementById('2.1_and_2.2_comment_ITT').value = row['Note for 2.1&2.2'];
-
-                            q2_3_itt = document.getElementById('answer_2_3_itt');
-                            plan2_3_itt = row['2.3'];
-                            if (plan2_3_itt) {
-                                for (let option of q2_3_itt.options) {
-                                    if (option.text === plan2_3_itt) {
-                                        q2_3_itt.value = option.value;
-                                        q2_3_itt.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-                            document.getElementById('2.3_comment_ITT').value = row['Note for 2.3'];
-
-                            q2_4_itt = document.getElementById('answer_2_4_itt');
-                            plan2_4_itt = row['2.4'];
-                            if (plan2_4_itt) {
-                                for (let option of q2_4_itt.options) {
-                                    if (option.text === plan2_4_itt) {
-                                        q2_4_itt.value = option.value;
-                                        q2_4_itt.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-                            document.getElementById('2.4_comment_ITT').value = row['Note for 2.4'];
-
-                            q2_5_itt = document.getElementById('answer_2_5_itt');
-                            plan2_5_itt = row['2.5'];
-                            if (plan2_5_itt) {
-                                for (let option of q2_5_itt.options) {
-                                    if (option.text === plan2_5_itt) {
-                                        q2_5_itt.value = option.value;
-                                        q2_5_itt.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-                            document.getElementById('2.5_comment_ITT').value = row['Note for 2.5'];
-                            
-                            q2_6_itt = document.getElementById('answer_2_6_itt');
-                            plan2_6_itt = row['2.6'];
-                            if (plan2_6_itt) {
-                                for (let option of q2_6_itt.options) {
-                                    if (option.text === plan2_6_itt) {
-                                        q2_6_itt.value = option.value;
-                                        q2_6_itt.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-                            document.getElementById('2.6_comment_ITT').value = row['Note for 2.6'];
-
-                            q2_7_itt = document.getElementById('answer_2_7_itt');
-                            plan2_7_itt = row['2.7'];
-                            if (plan2_7_itt) {
-                                for (let option of q2_7_itt.options) {
-                                    if (option.text === plan2_7_itt) {
-                                        q2_7_itt.value = option.value;
-                                        q2_7_itt.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-                            document.getElementById('2.7_comment_ITT').value = row['Note for 2.7'];
-
-                            D2ITT.updateDomain2ITTAlgResult();
-
-                            assessorJud = document.getElementById('assessor-jud-domain-2-ITT');
-                            assessorJudPlan = row["2.0 Assessor's Judgement"];
-                            if (assessorJudPlan) {
-                                for (let option of assessorJud) {
-                                    if (option.text === assessorJudPlan) {
-                                        assessorJud.value = option.value;
-                                        assessorJud.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-                            defineAssessorJudDomain2ITT();
-                            document.getElementById('assessor_jud_domain_2_ITT').value = row['2.0 General Notes'];
-                            assessorDirectionBiasSelect = document.getElementById('direction_bias_select_2_ITT');
-                            assessorDirectionBiasPlan = row["2.0 Optional Question"];
-                            if (assessorDirectionBiasPlan) {
-                                for (let option of assessorDirectionBiasSelect) {
-                                    if (option.text === assessorDirectionBiasPlan) {
-                                        assessorDirectionBiasSelect.value = option.value;
-                                        assessorDirectionBiasSelect.dispatchEvent(new Event('change'));
-                                        break;
-                                    }
-                                }
-                            }
-                            document.getElementById('direction_bias_domain_2_ITT').value = row['2.0 Note for optional question'];
+                            D2ITT.fillFormWithSheetAnswers(
+                                sheet2_1 = row['2.1'],
+                                sheet2_2 = row['2.2'],
+                                sheet2_1And2_2Comment = row['Note for 2.1&2.2'],
+                                sheet2_3 = row['2.3'],
+                                sheet2_3Comment = row['Note for 2.3'],
+                                sheet2_4 = row['2.4'],
+                                sheet2_4Comment = row['Note for 2.4'],
+                                sheet2_5 = row['2.5'],
+                                sheet2_5Comment = row['Note for 2.5'],
+                                sheet2_6 = row['2.6'],
+                                sheet2_6Comment = row['Note for 2.6'],
+                                sheet2_7 = row['2.7'],
+                                sheet2_7Comment = row['Note for 2.7'],
+                                sheetAssessorJud = row["2.0 Assessor's Judgement"],
+                                sheetAssessorJudComment = row['2.0 General Notes'],
+                                sheetDirectionBias = row['2.0 Optional Question'],
+                                sheetDirectionBiasCommen = row['2.0 Note for optional question']
+                            );
                         }
 
 
