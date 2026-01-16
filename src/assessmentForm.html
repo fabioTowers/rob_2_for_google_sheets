@@ -2274,37 +2274,6 @@
             updateDomain2ITTAlgResult();
         }
 
-        function condEnable2_5_ITT() {
-            const q4 = document.getElementById("answer_2_4_itt");
-            const q5 = document.getElementById("answer_2_5_itt");
-            const answer4 = q4.value;
-            const answer5 = q5.value;
-            const opNa = document.getElementById("2.5_itt_NA");
-            const q5Comment = document.getElementById('2.5_comment_ITT');
-            const q5Link = document.getElementById('Q_2_5_instructions_itt');
-
-            const answers = ["NA", "N", "PN"]
-
-            if (answers.includes(answer4)) {
-                q5.disabled = true;
-                opNa.disabled = false;
-                q5.value = "NA";
-                q5Comment.value = '';
-                q5Comment.disabled = true;
-                q5Link.classList.add("disabled");
-            } else {
-                q5.disabled = false;
-                opNa.disabled = true;
-                q5Comment.disabled = false;
-                q5Link.classList.remove("disabled");
-                if (q5.value === "NA") {
-                    q5.value = "";
-                }
-            }
-
-            updateDomain2ITTAlgResult();
-        }
-
         function updateDomain2ITTAlgResult() {
           
             const resultDiv = document.getElementById('alg-result-domain-2-ITT');
@@ -2564,7 +2533,7 @@
                     }
 
                     if (id === 'answer_2_4_itt') {
-                        el.addEventListener('change', condEnable2_5_ITT);
+                        el.addEventListener('change', D2ITT.condEnable2_5_ITT);
                     }
 
                     el.dataset.listenerAttached = 'true';
