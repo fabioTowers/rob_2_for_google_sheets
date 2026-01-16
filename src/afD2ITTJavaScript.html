@@ -162,7 +162,7 @@
         }
       }
 
-      updateDomain2ITTAlgResult();
+      D2ITT.updateDomain2ITTAlgResult();
     },
 
     condEnable2_7_ITT: function () {
@@ -190,10 +190,274 @@
         q7Link.classList.add("disabled");
       }
 
-      updateDomain2ITTAlgResult();
+      D2ITT.updateDomain2ITTAlgResult();
     },
 
-    
+    updateDomain2ITTAlgResult: function () {
+      const resultDiv = document.getElementById('alg-result-domain-2-ITT');
+
+      const answerElements = [
+        document.getElementById('answer_2_1_itt'),
+        document.getElementById('answer_2_2_itt'),
+        document.getElementById('answer_2_3_itt'),
+        document.getElementById('answer_2_4_itt'),
+        document.getElementById('answer_2_5_itt'),
+        document.getElementById('answer_2_6_itt'),
+        document.getElementById('answer_2_7_itt')
+      ];
+
+      const hasEmptyRequired = answerElements.some(el => {
+        return !el.disabled && el.value === "";
+      });
+
+      if (hasEmptyRequired || !resultDiv) {
+        resultDiv.textContent = 'Algorithm';
+        resultDiv.style.backgroundColor = '#f0f0f0';
+        resultDiv.style.color = '#666';
+        return;
+      }
+
+      const domain2_alg = {
+        'low': {
+          'combination_1': {
+            '2.1': ['N', 'PN'],
+            '2.2': ['N', 'PN'],
+            '2.3': [],
+            '2.4': [],
+            '2.5': [],
+            '2.6': ['Y', 'PY'],
+            '2.7': [],
+          },
+          'combination_2': {
+            '2.1': ['Y', 'PY', 'NI'],
+            '2.2': [],
+            '2.3': ['N', 'PN'],
+            '2.4': [],
+            '2.5': [],
+            '2.6': ['Y', 'PY'],
+            '2.7': [],
+          },
+          'combination_3': {
+            '2.1': [],
+            '2.2': ['Y', 'PY', 'NI'],
+            '2.3': ['N', 'PN'],
+            '2.4': [],
+            '2.5': [],
+            '2.6': ['Y', 'PY'],
+            '2.7': [],
+          },
+        },
+        'some_concerns': {
+          'combination_1': {
+            '2.1': ['Y', 'PY', 'NI'],
+            '2.2': [],
+            '2.3': ['NI'],
+            '2.4': [],
+            '2.5': [],
+            '2.6': ['Y', 'PY'],
+            '2.7': [],
+          },
+          'combination_2': {
+            '2.1': [],
+            '2.2': ['Y', 'PY', 'NI'],
+            '2.3': ['NI'],
+            '2.4': [],
+            '2.5': [],
+            '2.6': ['Y', 'PY'],
+            '2.7': [],
+          },
+          'combination_3': {
+            '2.1': ['Y', 'PY', 'NI'],
+            '2.2': [],
+            '2.3': ['Y', 'PY'],
+            '2.4': ['N', 'PN'],
+            '2.5': [],
+            '2.6': ['Y', 'PY'],
+            '2.7': [],
+          },
+          'combination_4': {
+            '2.1': [],
+            '2.2': ['Y', 'PY', 'NI'],
+            '2.3': ['Y', 'PY'],
+            '2.4': ['N', 'PN'],
+            '2.5': [],
+            '2.6': ['Y', 'PY'],
+            '2.7': [],
+          },
+          'combination_5': {
+            '2.1': ['Y', 'PY', 'NI'],
+            '2.2': [],
+            '2.3': ['Y', 'PY'],
+            '2.4': ['Y', 'PY', 'NI'],
+            '2.5': ['Y', 'PY'],
+            '2.6': ['Y', 'PY'],
+            '2.7': [],
+          },
+          'combination_6': {
+            '2.1': [],
+            '2.2': ['Y', 'PY', 'NI'],
+            '2.3': ['Y', 'PY'],
+            '2.4': ['Y', 'PY', 'NI'],
+            '2.5': ['Y', 'PY'],
+            '2.6': ['Y', 'PY'],
+            '2.7': [],
+          },
+          'combination_7': {
+            '2.1': ['Y', 'PY', 'NI'],
+            '2.2': [],
+            '2.3': ['NI'],
+            '2.4': [],
+            '2.5': [],
+            '2.6': ['N', 'PN', 'NI'],
+            '2.7': ['N', 'PN'],
+          },
+          'combination_8': {
+            '2.1': [],
+            '2.2': ['Y', 'PY', 'NI'],
+            '2.3': ['NI'],
+            '2.4': [],
+            '2.5': [],
+            '2.6': ['N', 'PN', 'NI'],
+            '2.7': ['N', 'PN'],
+          },
+          'combination_9': {
+            '2.1': ['Y', 'PY', 'NI'],
+            '2.2': [],
+            '2.3': ['Y', 'PY'],
+            '2.4': ['N', 'PN'],
+            '2.5': [],
+            '2.6': ['N', 'PN', 'NI'],
+            '2.7': ['N', 'PN'],
+          },
+          'combination_10': {
+            '2.1': [],
+            '2.2': ['Y', 'PY', 'NI'],
+            '2.3': ['Y', 'PY'],
+            '2.4': ['N', 'PN'],
+            '2.5': [],
+            '2.6': ['N', 'PN', 'NI'],
+            '2.7': ['N', 'PN'],
+          },
+          'combination_11': {
+            '2.1': ['Y', 'PY', 'NI'],
+            '2.2': [],
+            '2.3': ['Y', 'PY'],
+            '2.4': ['Y', 'PY', 'NI'],
+            '2.5': ['Y', 'PY'],
+            '2.6': ['N', 'PN', 'NI'],
+            '2.7': ['N', 'PN'],
+          },
+          'combination_12': {
+            '2.1': [],
+            '2.2': ['Y', 'PY', 'NI'],
+            '2.3': ['Y', 'PY'],
+            '2.4': ['Y', 'PY', 'NI'],
+            '2.5': ['Y', 'PY'],
+            '2.6': ['N', 'PN', 'NI'],
+            '2.7': ['N', 'PN'],
+          },
+          'combination_14': {
+            '2.1': ['N', 'PN'],
+            '2.2': ['N', 'PN'],
+            '2.3': [],
+            '2.4': [],
+            '2.5': [],
+            '2.6': ['N', 'PN', 'NI'],
+            '2.7': ['N', 'PN'],
+          },
+          'combination_15': {
+            '2.1': ['Y', 'PY', 'NI'],
+            '2.2': [],
+            '2.3': ['N', 'PN'],
+            '2.4': [],
+            '2.5': [],
+            '2.6': ['N', 'PN', 'NI'],
+            '2.7': ['N', 'PN'],
+          },
+          'combination_16': {
+            '2.1': [],
+            '2.2': ['Y', 'PY', 'NI'],
+            '2.3': ['N', 'PN'],
+            '2.4': [],
+            '2.5': [],
+            '2.6': ['N', 'PN', 'NI'],
+            '2.7': ['N', 'PN'],
+          },
+        },
+        'high': {
+          'combination_1': {
+            '2.1': ['Y', 'PY', 'NI'],
+            '2.2': [],
+            '2.3': ['Y', 'PY'],
+            '2.4': ['Y', 'PY', 'NI'],
+            '2.5': ['N', 'PN', 'NI'],
+            '2.6': [],
+            '2.7': [],
+          },
+          'combination_2': {
+            '2.1': [],
+            '2.2': ['Y', 'PY', 'NI'],
+            '2.3': ['Y', 'PY'],
+            '2.4': ['Y', 'PY', 'NI'],
+            '2.5': ['N', 'PN', 'NI'],
+            '2.6': [],
+            '2.7': [],
+          },
+          'combination_3': {
+            '2.1': [],
+            '2.2': [],
+            '2.3': [],
+            '2.4': [],
+            '2.5': [],
+            '2.6': ['N', 'PN', 'NI'],
+            '2.7': ['Y', 'PY', 'NI'],
+          },
+        }
+      }
+
+      const answers = {
+        '2.1': answerElements[0].value,
+        '2.2': answerElements[1].value,
+        '2.3': answerElements[2].value,
+        '2.4': answerElements[3].value,
+        '2.5': answerElements[4].value,
+        '2.6': answerElements[5].value,
+        '2.7': answerElements[6].value,
+      };
+
+      const result_div_properties = algorithm_result(domain2_alg, answers);
+
+      resultDiv.textContent = result_div_properties['text'];
+      resultDiv.style.backgroundColor = result_div_properties['color'];
+      resultDiv.style.color = result_div_properties['font_color'];
+    },
+
+    setupCondEnableListeners: function () {
+      ['answer_2_1_itt', 'answer_2_2_itt', 'answer_2_3_itt', 'answer_2_4_itt', 'answer_2_5_itt', 'answer_2_6_itt', 'answer_2_7_itt'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && !el.dataset.listenerAttached) {
+          el.addEventListener('change', D2ITT.updateDomain2ITTAlgResult);
+
+          if (id === 'answer_2_6_itt') {
+            el.addEventListener('change', D2ITT.condEnable2_7_ITT);
+          }
+
+          if (id === 'answer_2_1_itt' || id === 'answer_2_2_itt') {
+            el.addEventListener('change', D2ITT.condEnable2_3_ITT);
+          }
+
+          if (id === 'answer_2_3_itt') {
+            el.addEventListener('change', D2ITT.condEnable2_4_ITT);
+          }
+
+          if (id === 'answer_2_4_itt') {
+            el.addEventListener('change', D2ITT.condEnable2_5_ITT);
+          }
+
+          el.dataset.listenerAttached = 'true';
+        }
+      });
+    },
 
   }
 </script>
