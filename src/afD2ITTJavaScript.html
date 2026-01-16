@@ -459,5 +459,46 @@
       });
     },
 
+    
+
+    clearForm: function () {
+      document.getElementById('answer_2_1_itt').value = '';
+      document.getElementById('answer_2_1_itt').dispatchEvent(new Event('change'));
+      document.getElementById('answer_2_2_itt').value = '';
+      document.getElementById('answer_2_2_itt').dispatchEvent(new Event('change'));
+      document.getElementById('2.1_and_2.2_comment_ITT').value = '';
+      document.getElementById('answer_2_3_itt').value = '';
+      document.getElementById('answer_2_3_itt').dispatchEvent(new Event('change'));
+      document.getElementById('2.3_comment_ITT').value = '';
+      document.getElementById('answer_2_4_itt').value = '';
+      document.getElementById('answer_2_4_itt').dispatchEvent(new Event('change'));
+      document.getElementById('2.4_comment_ITT').value = '';
+      document.getElementById('answer_2_5_itt').value = '';
+      document.getElementById('answer_2_5_itt').dispatchEvent(new Event('change'));
+      document.getElementById('2.5_comment_ITT').value = '';
+      document.getElementById('answer_2_6_itt').value = '';
+      document.getElementById('answer_2_6_itt').dispatchEvent(new Event('change'));
+      document.getElementById('2.6_comment_ITT').value = '';
+      document.getElementById('answer_2_7_itt').value = '';
+      document.getElementById('answer_2_7_itt').dispatchEvent(new Event('change'));
+      document.getElementById('2.7_comment_ITT').value = '';
+
+      let divAlgorithmResult = document.getElementById('alg-result-domain-2-ITT');
+      divAlgorithmResult.textContent = 'Algorithm';
+      divAlgorithmResult.style.backgroundColor = '#f0f0f0';
+      divAlgorithmResult.style.color = '#666';
+
+      document.getElementById('assessor-jud-domain-2-ITT').value = '';
+      document.getElementById('assessor-jud-domain-2-ITT').dispatchEvent(new Event('change'));
+      document.getElementById('assessor_jud_domain_2_ITT').value = '';
+      document.getElementById('direction_bias_select_2_ITT').value = '';
+      document.getElementById('direction_bias_select_2_ITT').dispatchEvent(new Event('change'));
+      document.getElementById('direction_bias_domain_2_ITT').value = '';
+
+      let divOfDomain2PPInOverAllBias = document.getElementById("overall-bias-domain-2");
+      divOfDomain2PPInOverAllBias.textContent = "";
+      divOfDomain2PPInOverAllBias.style.backgroundColor = "#F0F0F0";
+      divOfDomain2PPInOverAllBias.style.color = "#666";
+    }
   }
 </script>
