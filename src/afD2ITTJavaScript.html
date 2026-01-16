@@ -459,6 +459,38 @@
       });
     },
 
+    getAnswers: function () {
+      let divAlgorithmResult = document.getElementById('alg-result-domain-2-ITT');
+      algorithmResult = divAlgorithmResult.textContent.trim();
+
+      if (algorithmResult === 'Algorithm') {
+        algorithmResult = '';
+      }
+
+      answers = {
+        '2.1': document.getElementById('answer_2_1_itt')?.value,
+        '2.2': document.getElementById('answer_2_2_itt')?.value,
+        '1.2Comment': document.getElementById('2.1_and_2.2_comment_ITT')?.value,
+        '2.3': document.getElementById('answer_2_3_itt')?.value,
+        '2.3Comment': document.getElementById('2.3_comment_ITT')?.value,
+        '2.4': document.getElementById('answer_2_4_itt')?.value,
+        '2.4Comment': document.getElementById('2.4_comment_ITT')?.value,
+        '2.5': document.getElementById('answer_2_5_itt')?.value,
+        '2.5Comment': document.getElementById('2.5_comment_ITT')?.value,
+        '2.6': document.getElementById('answer_2_6_itt')?.value,
+        '2.6Comment': document.getElementById('2.6_comment_ITT')?.value,
+        '2.7': document.getElementById('answer_2_7_itt')?.value,
+        '2.7Comment': document.getElementById('2.7_comment_ITT')?.value,
+        'algorithmResult': algorithmResult,
+        'assessorJudgement': document.getElementById('assessor-jud-domain-2-ITT')?.value,
+        'assessorJudgementComment': document.getElementById('assessor_jud_domain_2_ITT')?.value,
+        'directionBias': document.getElementById('direction_bias_select_2_ITT')?.value,
+        'directionBiasComment': document.getElementById('direction_bias_domain_2_ITT')?.value,
+      };
+
+      return answers;
+    },
+
     
 
     clearForm: function () {
