@@ -2246,34 +2246,6 @@
             }
         }
 
-        function condEnable2_7_ITT() {
-            const q6 = document.getElementById("answer_2_6_itt");
-            const q7 = document.getElementById("answer_2_7_itt");
-            const answer6 = q6.value;
-            const opNa = document.getElementById("2.7_itt_NA");
-            const q7Comment = document.getElementById('2.7_comment_ITT');
-            const q7Link = document.getElementById('Q_2_7_instructions_itt');
-
-            if (answer6 === "N" || answer6 === "PN" || answer6 === "NI" || answer6 === "") {
-                q7.disabled = false;
-                opNa.disabled = true;
-                q7Comment.disabled = false;
-                q7Link.classList.remove("disabled");
-                if (q7.value === "NA") {
-                    q7.value = "";
-                }
-            } else {
-                q7.disabled = true;
-                opNa.disabled = false;
-                q7.value = "NA";
-                q7Comment.value = '';
-                q7Comment.disabled = true;
-                q7Link.classList.add("disabled");
-            }
-
-            updateDomain2ITTAlgResult();
-        }
-
         function updateDomain2ITTAlgResult() {
           
             const resultDiv = document.getElementById('alg-result-domain-2-ITT');
@@ -2521,7 +2493,7 @@
                     el.addEventListener('change', updateDomain2ITTAlgResult);
 
                     if (id === 'answer_2_6_itt') {
-                        el.addEventListener('change', condEnable2_7_ITT);
+                        el.addEventListener('change', D2ITT.condEnable2_7_ITT);
                     }
 
                     if (id === 'answer_2_1_itt' || id === 'answer_2_2_itt') {
