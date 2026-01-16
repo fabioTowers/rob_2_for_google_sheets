@@ -69,5 +69,39 @@
     });
   });
 
+  const D2ITT = {
+    condEnable2_3_ITT: function () {
+      const q1 = document.getElementById("answer_2_1_itt");
+      const q2 = document.getElementById("answer_2_2_itt");
+      const q3 = document.getElementById("answer_2_3_itt");
+      const answer1 = q1.value;
+      const answer2 = q2.value;
+      const opNa = document.getElementById("2.3_itt_NA");
+      const q3Comment = document.getElementById('2.3_comment_ITT');
+      const q3Link = document.getElementById('Q_2_3_instructions_itt');
 
+      const answers = ["N", "PN"]
+
+      if (answers.includes(answer1) && answers.includes(answer2)) {
+        q3.disabled = true;
+        opNa.disabled = false;
+        q3.value = "NA";
+        q3Comment.value = '';
+        q3Comment.disabled = true;
+        q3Link.classList.add("disabled");
+      } else {
+        q3.disabled = false;
+        opNa.disabled = true;
+        q3Comment.disabled = false;
+        q3Link.classList.remove("disabled");
+        if (q3.value === "NA") {
+          q3.value = "";
+        }
+      }
+
+      condEnable2_4_ITT();
+    },
+
+    
+  }
 </script>
