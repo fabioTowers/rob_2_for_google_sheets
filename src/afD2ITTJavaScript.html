@@ -99,9 +99,40 @@
         }
       }
 
-      condEnable2_4_ITT();
+      D2ITT.condEnable2_4_ITT();
     },
 
-    
+    condEnable2_4_ITT: function () {
+      const q3 = document.getElementById("answer_2_3_itt");
+      const q4 = document.getElementById("answer_2_4_itt");
+      const answer3 = q3.value;
+      const answer4 = q4.value;
+      const opNa = document.getElementById("2.4_itt_NA");
+      const q4Comment = document.getElementById('2.4_comment_ITT');
+      const q4Link = document.getElementById('Q_2_4_instructions_itt');
+
+      const answers = ["NA", "N", "PN", "NI"]
+
+      if (answers.includes(answer3)) {
+        q4.disabled = true;
+        opNa.disabled = false;
+        q4.value = "NA";
+        q4Comment.value = '';
+        q4Comment.disabled = true;
+        q4Link.classList.add("disabled");
+      } else {
+        q4.disabled = false;
+        opNa.disabled = true;
+        q4Comment.disabled = false;
+        q4Link.classList.remove("disabled");
+        if (q4.value === "NA") {
+          q4.value = "";
+        }
+      }
+
+      condEnable2_5_ITT();
+    },
+
+
   }
 </script>
