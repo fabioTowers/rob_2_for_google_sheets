@@ -102,7 +102,7 @@
       }
 
       D3.condEnable3_3();
-      updateDomain3AlgResult();
+      D3.updateDomain3AlgResult();
     },
 
     condEnable3_3: function () {
@@ -133,7 +133,7 @@
       }
 
       D3.condEnable3_4();
-      updateDomain3AlgResult();
+      D3.updateDomain3AlgResult();
     },
 
     condEnable3_4: function () {
@@ -159,16 +159,14 @@
         q4Link.classList.add("disabled");
       }
 
-      updateDomain3AlgResult();
+      D3.updateDomain3AlgResult();
     },
-
-    
 
     setupAnswer3Listeners: function () {
       ['answer_3_1', 'answer_3_2', 'answer_3_3', 'answer_3_4'].forEach(id => {
         const el = document.getElementById(id);
         if (el && !el.dataset.listenerAttached) {
-          el.addEventListener('change', updateDomain3AlgResult);
+          el.addEventListener('change', D3.updateDomain3AlgResult);
 
           if (id === 'answer_3_1') {
             el.addEventListener('change', D3.condEnable3_2);
@@ -190,5 +188,82 @@
       D3.condEnable3_3();
       D3.condEnable3_4();
     },
+
+    updateDomain3AlgResult: function () {
+      const resultDiv = document.getElementById('alg-result-domain-3');
+
+      const answerElements = [
+        document.getElementById('answer_3_1'),
+        document.getElementById('answer_3_2'),
+        document.getElementById('answer_3_3'),
+        document.getElementById('answer_3_4'),
+      ];
+
+      const hasEmptyRequired = answerElements.some(el => {
+        return !el.disabled && el.value === "";
+      });
+
+      if (hasEmptyRequired || !resultDiv) {
+        resultDiv.textContent = 'Algorithm';
+        resultDiv.style.backgroundColor = '#f0f0f0';
+        resultDiv.style.color = '#666';
+        return;
+      }
+
+
+      const domain3_alg = {
+        'low': {
+          'combination_1': {
+            '3.1': ['Y', 'PY'],
+            '3.2': [],
+            '3.3': [],
+            '3.4': [],
+          },
+          'combination_2': {
+            '3.1': ['N', 'PN', 'NI'],
+            '3.2': ['Y', 'PY'],
+            '3.3': [],
+            '3.4': [],
+          },
+          'combination_3': {
+            '3.1': ['N', 'PN', 'NI'],
+            '3.2': ['N', 'PN'],
+            '3.3': ['N', 'PN'],
+            '3.4': [],
+          },
+        },
+        'some_concerns': {
+          'combination_1': {
+            '3.1': ['N', 'PN', 'NI'],
+            '3.2': ['N', 'PN'],
+            '3.3': ['Y', 'PY', 'NI'],
+            '3.4': ['N', 'PN'],
+          },
+        },
+        'high': {
+          'combination_1': {
+            '3.1': ['N', 'PN', 'NI'],
+            '3.2': ['N', 'PN'],
+            '3.3': ['Y', 'PY', 'NI'],
+            '3.4': ['Y', 'PY', 'NI'],
+          },
+        }
+      }
+
+      const answers = {
+        '3.1': answerElements[0].value,
+        '3.2': answerElements[1].value,
+        '3.3': answerElements[2].value,
+        '3.4': answerElements[3].value,
+      };
+
+      const result_div_properties = algorithm_result(domain3_alg, answers);
+
+      resultDiv.textContent = result_div_properties['text'];
+      resultDiv.style.backgroundColor = result_div_properties['color'];
+      resultDiv.style.color = result_div_properties['font_color'];
+    },
+
+    
   }
 </script>
