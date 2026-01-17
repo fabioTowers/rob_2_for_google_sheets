@@ -374,6 +374,35 @@
       document.getElementById('direction_bias_domain_3').value = sheetDirectionBiasComment;
     },
 
-    
+    clearForm: function () {
+      document.getElementById('answer_3_1').value = '';
+      document.getElementById('answer_3_1').dispatchEvent(new Event('change'));
+      document.getElementById('3.1_comment').value = '';
+      document.getElementById('answer_3_2').value = '';
+      document.getElementById('answer_3_2').dispatchEvent(new Event('change'));
+      document.getElementById('3.2_comment').value = '';
+      document.getElementById('answer_3_3').value = '';
+      document.getElementById('answer_3_3').dispatchEvent(new Event('change'));
+      document.getElementById('3.3_and_3.4_comment').value = '';
+      document.getElementById('answer_3_4').value = '';
+      document.getElementById('answer_3_4').dispatchEvent(new Event('change'));
+
+      let divAlgorithmResult = document.getElementById('alg-result-domain-3');
+      divAlgorithmResult.textContent = 'Algorithm';
+      divAlgorithmResult.style.backgroundColor = '#f0f0f0';
+      divAlgorithmResult.style.color = '#666';
+
+      document.getElementById('assessor-jud-domain-3').value = '';
+      document.getElementById('assessor-jud-domain-3').dispatchEvent(new Event('change'));
+      document.getElementById('assessor_jud_domain_3').value = '';
+      document.getElementById('direction_bias_select_3').value = '';
+      document.getElementById('direction_bias_select_3').dispatchEvent(new Event('change'));
+      document.getElementById('direction_bias_domain_3').value = '';
+
+      let divOfDomain2PPInOverAllBias = document.getElementById("overall-bias-domain-3");
+      divOfDomain2PPInOverAllBias.textContent = "";
+      divOfDomain2PPInOverAllBias.style.backgroundColor = "#F0F0F0";
+      divOfDomain2PPInOverAllBias.style.color = "#666";
+    }
   }
 </script>
