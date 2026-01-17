@@ -74,6 +74,37 @@
       }
     },
 
+    condEnable3_2: function () {
+      const q1 = document.getElementById("answer_3_1");
+      const answer1 = q1.value;
+      const q2 = document.getElementById("answer_3_2");
+      const opNa = document.getElementById("3.2_NA");
+      const q2Comment = document.getElementById('3.2_comment');
+      const q2Link = document.getElementById('Q_3_2_instructions');
+
+      const answers3_1 = ['N', 'PN', 'NI', ''];
+
+      if (answers3_1.includes(answer1)) {
+        q2.disabled = false;
+        opNa.style.display = 'none';
+        q2Comment.disabled = false;
+        q2Link.classList.remove("disabled");
+        if (q2.value === "NA") {
+          q2.value = "";
+        }
+      } else {
+        q2.disabled = true;
+        opNa.style.display = 'block';
+        q2.value = "NA";
+        q2Comment.value = '';
+        q2Comment.disabled = true;
+        q2Link.classList.add("disabled");
+      }
+
+      condEnable3_3();
+      updateDomain3AlgResult();
+    },
+
     
   }
 </script>
