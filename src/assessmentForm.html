@@ -2840,80 +2840,19 @@
                         }
 
 
-                        q3_1 = document.getElementById('answer_3_1');
-                        plan3_1 = row['3.1'];
-                        if (plan3_1) {
-                            for (let option of q3_1.options) {
-                                if (option.text === plan3_1) {
-                                    q3_1.value = option.value;
-                                    q3_1.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('3.1_comment').value = row['Note for 3.1'];
-                        q3_2 = document.getElementById('answer_3_2');
-                        plan3_2 = row['3.2'];
-                        if (plan3_2) {
-                            for (let option of q3_2.options) {
-                                if (option.text === plan3_2) {
-                                    q3_2.value = option.value;
-                                    q3_2.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('3.2_comment').value = row['Note for 3.2'];
-                        
-                        q3_3 = document.getElementById('answer_3_3');
-                        plan3_3 = row['3.3'];
-                        if (plan3_3) {
-                            for (let option of q3_3.options) {
-                                if (option.text === plan3_3) {
-                                    q3_3.value = option.value;
-                                    q3_3.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('3.3_and_3.4_comment').value = row['Note for 3.3&3.4'];
-                        q3_4 = document.getElementById('answer_3_4');
-                        plan3_4 = row['3.4'];
-                        if (plan3_4) {
-                            for (let option of q3_4.options) {
-                                if (option.text === plan3_4) {
-                                    q3_4.value = option.value;
-                                    q3_4.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        D3.updateDomain3AlgResult();
-                        assessorJud = document.getElementById('assessor-jud-domain-3');
-                        assessorJudPlan = row["3.0 Assessor's judgement"];
-                        if (assessorJudPlan) {
-                            for (let option of assessorJud) {
-                                if (option.text === assessorJudPlan) {
-                                    assessorJud.value = option.value;
-                                    assessorJud.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        D3.defineAssessorJudDomain3();
-                        document.getElementById('assessor_jud_domain_3').value = row['3.0 Gerenal notes'];
-                        assessorDirectionBiasSelect = document.getElementById('direction_bias_select_3');
-                        assessorDirectionBiasPlan = row["3.0 Optional Question"];
-                        if (assessorDirectionBiasPlan) {
-                            for (let option of assessorDirectionBiasSelect) {
-                                if (option.text === assessorDirectionBiasPlan) {
-                                    assessorDirectionBiasSelect.value = option.value;
-                                    assessorDirectionBiasSelect.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('direction_bias_domain_3').value = row['3.0 Note for optional question'];
+                        D3.fillFormWithSheetAnswers(
+                            sheet3_1 = row['3.1'],
+                            sheet3_1Comment = row['Note for 3.1'],
+                            sheet3_2 = row['3.2'],
+                            sheet3_2Comment = row['Note for 3.2'],
+                            sheet3_3 = row['3.3'],
+                            sheet3_3And3_4Comment = row['Note for 3.3&3.4'],
+                            sheet3_4 = row['3.4'],
+                            sheetAssessorJud = row["3.0 Assessor's judgement"],
+                            sheetAssessorJudComment = row['3.0 Gerenal notes'],
+                            sheetDirectionBias = row["3.0 Optional Question"],
+                            sheetDirectionBiasComment = row['3.0 Note for optional question']
+                        );
 
                         q4_1 = document.getElementById('answer_4_1');
                         plan4_1 = row['4.1'];

@@ -290,6 +290,90 @@
       return answers;
     },
 
+    fillFormWithSheetAnswers: function (sheet3_1, sheet3_1Comment,
+      sheet3_2, sheet3_2Comment,
+      sheet3_3, sheet3_3And3_4Comment,
+      sheet3_4,
+      sheetAssessorJud, sheetAssessorJudComment,
+      sheetDirectionBias, sheetDirectionBiasComment) {
 
+      q3_1 = document.getElementById('answer_3_1');
+      if (sheet3_1) {
+        for (let option of q3_1.options) {
+          if (option.text === sheet3_1) {
+            q3_1.value = option.value;
+            q3_1.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('3.1_comment').value = sheet3_1Comment;
+
+      q3_2 = document.getElementById('answer_3_2');
+      if (sheet3_2) {
+        for (let option of q3_2.options) {
+          if (option.text === sheet3_2) {
+            q3_2.value = option.value;
+            q3_2.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('3.2_comment').value = sheet3_2Comment;
+
+      q3_3 = document.getElementById('answer_3_3');
+      if (sheet3_3) {
+        for (let option of q3_3.options) {
+          if (option.text === sheet3_3) {
+            q3_3.value = option.value;
+            q3_3.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('3.3_and_3.4_comment').value = sheet3_3And3_4Comment;
+
+      q3_4 = document.getElementById('answer_3_4');
+      if (sheet3_4) {
+        for (let option of q3_4.options) {
+          if (option.text === sheet3_4) {
+            q3_4.value = option.value;
+            q3_4.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+
+      D3.updateDomain3AlgResult();
+
+      assessorJud = document.getElementById('assessor-jud-domain-3');
+      if (sheetAssessorJud) {
+        for (let option of assessorJud) {
+          if (option.text === sheetAssessorJud) {
+            assessorJud.value = option.value;
+            assessorJud.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+
+      D3.defineAssessorJudDomain3();
+
+      document.getElementById('assessor_jud_domain_3').value = sheetAssessorJudComment;
+
+      assessorDirectionBiasSelect = document.getElementById('direction_bias_select_3');
+      if (sheetDirectionBias) {
+        for (let option of assessorDirectionBiasSelect) {
+          if (option.text === sheetDirectionBias) {
+            assessorDirectionBiasSelect.value = option.value;
+            assessorDirectionBiasSelect.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+      document.getElementById('direction_bias_domain_3').value = sheetDirectionBiasComment;
+    },
+
+    
   }
 </script>
