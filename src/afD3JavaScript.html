@@ -163,5 +163,32 @@
     },
 
     
+
+    setupAnswer3Listeners: function () {
+      ['answer_3_1', 'answer_3_2', 'answer_3_3', 'answer_3_4'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && !el.dataset.listenerAttached) {
+          el.addEventListener('change', updateDomain3AlgResult);
+
+          if (id === 'answer_3_1') {
+            el.addEventListener('change', D3.condEnable3_2);
+          }
+
+          if (id === 'answer_3_2') {
+            el.addEventListener('change', D3.condEnable3_3);
+          }
+
+          if (id === 'answer_3_3') {
+            el.addEventListener('change', D3.condEnable3_4);
+          }
+
+          el.dataset.listenerAttached = 'true';
+        }
+      });
+
+      D3.condEnable3_2();
+      D3.condEnable3_3();
+      D3.condEnable3_4();
+    },
   }
 </script>
