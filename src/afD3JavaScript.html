@@ -264,6 +264,32 @@
       resultDiv.style.color = result_div_properties['font_color'];
     },
 
-    
+    getAnswers: function () {
+      let divAlgorithmResult = document.getElementById('alg-result-domain-3');
+      algorithmResult = divAlgorithmResult.textContent.trim();
+
+      if (algorithmResult === 'Algorithm') {
+        algorithmResult = '';
+      }
+
+      answers = {
+        '3.1': document.getElementById('answer_3_1')?.value,
+        '3.1Comment': document.getElementById('3.1_comment')?.value,
+        '3.2': document.getElementById('answer_3_2')?.value,
+        '3.2Comment': document.getElementById('3.2_comment')?.value,
+        '3.3': document.getElementById('answer_3_3')?.value,
+        '3.4Comment': document.getElementById('3.3_and_3.4_comment')?.value,
+        '3.4': document.getElementById('answer_3_4')?.value,
+        'algorithmResult': algorithmResult,
+        'assessorJudgement': document.getElementById('assessor-jud-domain-3')?.value,
+        'assessorJudgementComment': document.getElementById('assessor_jud_domain_3')?.value,
+        'directionBias': document.getElementById('direction_bias_select_3')?.value,
+        'directionBiasComment': document.getElementById('direction_bias_domain_3')?.value,
+      };
+
+      return answers;
+    },
+
+
   }
 </script>

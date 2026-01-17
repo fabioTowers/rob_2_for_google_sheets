@@ -2550,18 +2550,20 @@
                 formData['ao'] = '';
             }
 
-            formData['ap'] = document.getElementById('answer_3_1')?.value;
-            formData['aq'] = document.getElementById('3.1_comment')?.value;
-            formData['ar'] = document.getElementById('answer_3_2')?.value;
-            formData['as'] = document.getElementById('3.2_comment')?.value;
-            formData['at'] = document.getElementById('answer_3_3')?.value;
-            formData['au'] = document.getElementById('3.3_and_3.4_comment')?.value;
-            formData['av'] = document.getElementById('answer_3_4')?.value;
-            formData['aw'] = getAlgAssessmentResult('domain-3');
-            formData['ax'] = document.getElementById('assessor-jud-domain-3')?.value;
-            formData['ay'] = document.getElementById('assessor_jud_domain_3')?.value;
-            formData['az'] = document.getElementById('direction_bias_select_3')?.value;
-            formData['ba'] = document.getElementById('direction_bias_domain_3')?.value;
+            answersD3 = D3.getAnswers();
+            formData['ap'] = answersD3['3.1'];
+            formData['aq'] = answersD3['3.1Comment'];
+            formData['ar'] = answersD3['3.2'];
+            formData['as'] = answersD3['3.2Comment'];
+            formData['at'] = answersD3['3.3'];
+            formData['au'] = answersD3['3.4Comment'];
+            formData['av'] = answersD3['3.4'];
+            formData['aw'] = answersD3['algorithmResult'];
+            formData['ax'] = answersD3['assessorJudgement'];
+            formData['ay'] = answersD3['assessorJudgementComment'];
+            formData['az'] = answersD3['directionBias'];
+            formData['ba'] = answersD3['directionBiasComment'];
+
 
             formData['bb'] = document.getElementById('answer_4_1')?.value;
             formData['bc'] = document.getElementById('4.1_comment')?.value;
@@ -3099,10 +3101,6 @@
         function getAlgAssessmentResult(domain) {
             result = '';
             switch (domain) {
-                case 'domain-3':
-                    let resultDiv3 = document.getElementById('alg-result-domain-3');
-                    result = resultDiv3.textContent.trim();
-                    break;
                 case 'domain-4':
                     let resultDiv4 = document.getElementById('alg-result-domain-4');
                     result = resultDiv4.textContent.trim();
