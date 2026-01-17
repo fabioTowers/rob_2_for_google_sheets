@@ -132,10 +132,36 @@
         q3Link.classList.add("disabled");
       }
 
-      condEnable3_4();
+      D3.condEnable3_4();
       updateDomain3AlgResult();
     },
 
+    condEnable3_4: function () {
+      const q3 = document.getElementById("answer_3_3");
+      const answer3 = q3.value;
+      const q4 = document.getElementById("answer_3_4");
+      const opNa = document.getElementById("3.4_NA");
+      const q4Link = document.getElementById('Q_3_4_instructions');
 
+      const answers3_3 = ['Y', 'PY', 'NI', ''];
+
+      if (answers3_3.includes(answer3)) {
+        q4.disabled = false;
+        opNa.style.display = 'none';
+        q4Link.classList.remove("disabled");
+        if (q4.value === "NA") {
+          q4.value = "";
+        }
+      } else {
+        q4.disabled = true;
+        opNa.style.display = 'block';
+        q4.value = "NA";
+        q4Link.classList.add("disabled");
+      }
+
+      updateDomain3AlgResult();
+    },
+
+    
   }
 </script>
