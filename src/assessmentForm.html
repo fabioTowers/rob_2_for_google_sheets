@@ -1762,7 +1762,7 @@
 
             if (tabId === 'domain-3') {
                 setupAnswer3Listeners();
-                assessorJudgmentListenerDomain3();
+                D3.assessorJudgmentListenerDomain3();
             }
 
             if (tabId === 'domain-4') {
@@ -1773,40 +1773,6 @@
             if (tabId === 'domain-5') {
                 setupAnswer5Listeners();
                 assessorJudgmentListenerDomain5();
-            }
-        }
-
-        function defineAssessorJudDomain3() {
-            const answer = document.getElementById("assessor-jud-domain-3");
-            const answerValue = answer.value;
-            const overallBiasIndicator = document.getElementById("overall-bias-domain-3");
-
-            if (answerValue === 'Low') {
-                overallBiasIndicator.textContent = "L";
-                overallBiasIndicator.style.backgroundColor = "#00ff00";
-                overallBiasIndicator.style.color = "black";
-            } else if (answerValue === 'Some concerns') {
-                overallBiasIndicator.textContent = "S";
-                overallBiasIndicator.style.backgroundColor = "#ffff00";
-                overallBiasIndicator.style.color = "black";
-            } else if (answerValue === 'High') {
-                overallBiasIndicator.textContent = "H";
-                overallBiasIndicator.style.backgroundColor = "#ff0000";
-                overallBiasIndicator.style.color = "black";
-            } else {
-                overallBiasIndicator.textContent = "";
-                overallBiasIndicator.style.backgroundColor = "#F0F0F0";
-                overallBiasIndicator.style.color = "#666";
-            }
-
-            overallBiasAlgorithm();
-        }
-
-        function assessorJudgmentListenerDomain3() {
-            const answer = document.getElementById("assessor-jud-domain-3");
-            if(answer && !answer.dataset.listenerAttached){
-                answer.addEventListener("change", defineAssessorJudDomain3);
-                answer.dataset.listenerAttached = 'true';
             }
         }
 
@@ -3123,7 +3089,7 @@
                                 }
                             }
                         }
-                        defineAssessorJudDomain3();
+                        D3.defineAssessorJudDomain3();
                         document.getElementById('assessor_jud_domain_3').value = row['3.0 Gerenal notes'];
                         assessorDirectionBiasSelect = document.getElementById('direction_bias_select_3');
                         assessorDirectionBiasPlan = row["3.0 Optional Question"];
