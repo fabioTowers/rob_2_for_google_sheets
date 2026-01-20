@@ -84,6 +84,39 @@
       }
     },
 
+    condEnable4_3: function () {
+      const q1 = document.getElementById("answer_4_1");
+      const answer1 = q1.value;
+      const q2 = document.getElementById("answer_4_2");
+      const answer2 = q2.value;
+      const q3 = document.getElementById("answer_4_3");
+      const opNa = document.getElementById("4.3_NA");
+      const q3Comment = document.getElementById('4.3_comment');
+      const q3Link = document.getElementById('Q_4_3_instructions');
+
+      const answers1_2 = ['N', 'PN', 'NI', ''];
+
+      if (answers1_2.includes(answer1) && answers1_2.includes(answer2)) {
+        q3.disabled = false;
+        opNa.style.display = 'none';
+        q3Comment.disabled = false;
+        q3Link.classList.remove("disabled");
+        if (q3.value === "NA") {
+          q3.value = "";
+        }
+      } else {
+        q3.disabled = true;
+        opNa.style.display = 'block';
+        q3.value = "NA";
+        q3Comment.value = '';
+        q3Comment.disabled = true;
+        q3Link.classList.add("disabled");
+      }
+
+      condEnable4_4();
+      updateDomain4AlgResult();
+    },
+
     
   }
 </script>
