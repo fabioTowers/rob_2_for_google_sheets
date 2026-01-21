@@ -144,10 +144,36 @@
         q4Link.classList.add("disabled");
       }
 
-      condEnable4_5();
+      D4.condEnable4_5();
       updateDomain4AlgResult();
     },
 
+    condEnable4_5: function () {
+      const q4 = document.getElementById("answer_4_4");
+      const answer4 = q4.value;
+      const q5 = document.getElementById("answer_4_5");
+      const opNa = document.getElementById("4.5_NA");
+      const q5Link = document.getElementById('Q_4_5_instructions');
 
+      const answers4 = ['Y', 'PY', 'NI', ''];
+
+      if (answers4.includes(answer4)) {
+        q5.disabled = false;
+        opNa.style.display = 'none';
+        q5Link.classList.remove("disabled");
+        if (q5.value === "NA") {
+          q5.value = "";
+        }
+      } else {
+        q5.disabled = true;
+        opNa.style.display = 'block';
+        q5.value = "NA";
+        q5Link.classList.add("disabled");
+      }
+
+      updateDomain4AlgResult();
+    },
+
+    
   }
 </script>
