@@ -174,6 +174,33 @@
       updateDomain4AlgResult();
     },
 
+    setupAnswer4Listeners: function () {
+      ['answer_4_1', 'answer_4_2', 'answer_4_3', 'answer_4_4', 'answer_4_5'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && !el.dataset.listenerAttached) {
+          el.addEventListener('change', updateDomain4AlgResult);
+
+          if (id === 'answer_4_1' || id === 'answer_4_2') {
+            el.addEventListener('change', D4.condEnable4_3);
+          }
+
+          if (id === 'answer_4_3') {
+            el.addEventListener('change', D4.condEnable4_4);
+          }
+
+          if (id === 'answer_4_4') {
+            el.addEventListener('change', D4.condEnable4_5);
+          }
+
+          el.dataset.listenerAttached = 'true';
+        }
+      });
+
+      D4.condEnable4_3();
+      D4.condEnable4_4();
+      D4.condEnable4_5();
+    },
+
     
   }
 </script>

@@ -1767,7 +1767,7 @@
             }
 
             if (tabId === 'domain-4') {
-                setupAnswer4Listeners();
+                D4.setupAnswer4Listeners();
                 D4.assessorJudgmentListenerDomain4();
             }
 
@@ -2141,33 +2141,6 @@
             resultDiv.textContent = result_div_properties['text'];
             resultDiv.style.backgroundColor = result_div_properties['color'];
             resultDiv.style.color = result_div_properties['font_color'];
-        }
-
-        function setupAnswer4Listeners() {
-            ['answer_4_1', 'answer_4_2', 'answer_4_3', 'answer_4_4', 'answer_4_5'].forEach(id => {
-            const el = document.getElementById(id);
-                if (el && !el.dataset.listenerAttached) {
-                    el.addEventListener('change', updateDomain4AlgResult);
-
-                    if (id === 'answer_4_1' || id === 'answer_4_2') {
-                        el.addEventListener('change', D4.condEnable4_3);
-                    }
-
-                    if (id === 'answer_4_3') {
-                        el.addEventListener('change', D4.condEnable4_4);
-                    }
-
-                    if (id === 'answer_4_4') {
-                        el.addEventListener('change', D4.condEnable4_5);
-                    }
-
-                    el.dataset.listenerAttached = 'true';
-                }
-            });
-
-            D4.condEnable4_3();
-            D4.condEnable4_4();
-            D4.condEnable4_5();
         }
 
         function updateDomain5AlgResult() {
