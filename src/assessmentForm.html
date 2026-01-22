@@ -2537,91 +2537,21 @@
                             sheetDirectionBiasComment = row['3.0 Note for optional question']
                         );
 
-                        q4_1 = document.getElementById('answer_4_1');
-                        plan4_1 = row['4.1'];
-                        if (plan4_1) {
-                            for (let option of q4_1.options) {
-                                if (option.text === plan4_1) {
-                                    q4_1.value = option.value;
-                                    q4_1.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('4.1_comment').value = row['Note for 4.1'];
-                        q4_2 = document.getElementById('answer_4_2');
-                        plan4_2 = row['4.2'];
-                        if (plan4_2) {
-                            for (let option of q4_2.options) {
-                                if (option.text === plan4_2) {
-                                    q4_2.value = option.value;
-                                    q4_2.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('4.2_comment').value = row['Note for 4.2'];
-                        q4_3 = document.getElementById('answer_4_3');
-                        plan4_3 = row['4.3'];
-                        if (plan4_3) {
-                            for (let option of q4_3.options) {
-                                if (option.text === plan4_3) {
-                                    q4_3.value = option.value;
-                                    q4_3.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('4.3_comment').value = row['Note for 4.3'];
-                        q4_4 = document.getElementById('answer_4_4');
-                        plan4_4 = row['4.4'];
-                        if (plan4_4) {
-                            for (let option of q4_4.options) {
-                                if (option.text === plan4_4) {
-                                    q4_4.value = option.value;
-                                    q4_4.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('4.4_and_4.5_comment').value = row['Note for 4.4&4.5'];
-                        q4_5 = document.getElementById('answer_4_5');
-                        plan4_5 = row['4.5'];
-                        if (plan4_5) {
-                            for (let option of q4_5.options) {
-                                if (option.text === plan4_5) {
-                                    q4_5.value = option.value;
-                                    q4_5.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        D4.updateDomain4AlgResult();
-                        assessorJud = document.getElementById('assessor-jud-domain-4');
-                        assessorJudPlan = row["4.0 Assessor's Judgement"];
-                        if (assessorJudPlan) {
-                            for (let option of assessorJud) {
-                                if (option.text === assessorJudPlan) {
-                                    assessorJud.value = option.value;
-                                    assessorJud.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        D4.defineAssessorJudDomain4();
-                        document.getElementById('assessor_jud_domain_4').value = row['4.0 General note'];
-                        assessorDirectionBiasSelect = document.getElementById('direction_bias_select_4');
-                        assessorDirectionBiasPlan = row["4.0 Optional Question"];
-                        if (assessorDirectionBiasPlan) {
-                            for (let option of assessorDirectionBiasSelect) {
-                                if (option.text === assessorDirectionBiasPlan) {
-                                    assessorDirectionBiasSelect.value = option.value;
-                                    assessorDirectionBiasSelect.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('direction_bias_domain_4').value = row['4.0 Note for optional question'];
+                        D4.fillFormWithSheetAnswers(
+                            sheet4_1 = row["4.1"],
+                            sheet4_1Comment = row["Note for 4.1"],
+                            sheet4_2 = row["4.2"],
+                            sheet4_2Comment = row["Note for 4.2"],
+                            sheet4_3 = row["4.3"],
+                            sheet4_3Comment = row["Note for 4.3"],
+                            sheet4_4 = row["4.4"],
+                            sheet4_4And4_5Comment = row["Note for 4.4&4.5"],
+                            sheet4_5 = row["4.5"],
+                            sheetAssessorJud = row["4.0 Assessor's Judgement"],
+                            sheetAssessorJudComment = row["4.0 General note"],
+                            sheetDirectionBias = row["4.0 Optional Question"],
+                            sheetDirectionBiasComment = row["4.0 Note for optional question"],
+                        );
                         
                         q5_1 = document.getElementById('answer_5_1');
                         plan5_1 = row['5.1'];
