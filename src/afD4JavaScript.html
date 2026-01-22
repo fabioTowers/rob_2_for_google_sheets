@@ -319,6 +319,34 @@
       resultDiv.style.color = result_div_properties['font_color'];
     },
 
+    getAnswers: function () {
+      let divAlgorithmResult = document.getElementById('alg-result-domain-4');
+      algorithmResult = divAlgorithmResult.textContent.trim();
+
+      if (algorithmResult === 'Algorithm') {
+        algorithmResult = '';
+      }
+
+      answers = {
+        '4.1': document.getElementById('answer_4_1')?.value,
+        '4.1Comment': document.getElementById('4.1_comment')?.value,
+        '4.2': document.getElementById('answer_4_2')?.value,
+        '4.2Comment': document.getElementById('4.2_comment')?.value,
+        '4.3': document.getElementById('answer_4_3')?.value,
+        '4.3Comment': document.getElementById('4.3_comment')?.value,
+        '4.4': document.getElementById('answer_4_4')?.value,
+        '4.5Comment': document.getElementById('4.4_and_4.5_comment')?.value,
+        '4.5': document.getElementById('answer_4_5')?.value,
+        'algorithmResult': algorithmResult,
+        'assessorJudgement': document.getElementById('assessor-jud-domain-4')?.value,
+        'assessorJudgementComment': document.getElementById('assessor_jud_domain_4')?.value,
+        'directionBias': document.getElementById('direction_bias_select_4')?.value,
+        'directionBiasComment': document.getElementById('direction_bias_domain_4')?.value
+      };
+
+      return answers;
+    },
+
 
   }
 </script>

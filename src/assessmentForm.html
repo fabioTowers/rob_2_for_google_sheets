@@ -2247,20 +2247,21 @@
             formData['ba'] = answersD3['directionBiasComment'];
 
 
-            formData['bb'] = document.getElementById('answer_4_1')?.value;
-            formData['bc'] = document.getElementById('4.1_comment')?.value;
-            formData['bd'] = document.getElementById('answer_4_2')?.value;
-            formData['be'] = document.getElementById('4.2_comment')?.value;
-            formData['bf'] = document.getElementById('answer_4_3')?.value;
-            formData['bg'] = document.getElementById('4.3_comment')?.value;
-            formData['bh'] = document.getElementById('answer_4_4')?.value;
-            formData['bi'] = document.getElementById('4.4_and_4.5_comment')?.value;
-            formData['bj'] = document.getElementById('answer_4_5')?.value;
-            formData['bk'] = getAlgAssessmentResult('domain-4');
-            formData['bl'] = document.getElementById('assessor-jud-domain-4')?.value;
-            formData['bm'] = document.getElementById('assessor_jud_domain_4')?.value;
-            formData['bn'] = document.getElementById('direction_bias_select_4')?.value;
-            formData['bo'] = document.getElementById('direction_bias_domain_4')?.value;
+            answersD3 = D4.getAnswers();
+            formData['bb'] = answersD3['4.1'];
+            formData['bc'] = answersD3['4.1Comment'];
+            formData['bd'] = answersD3['4.2'];
+            formData['be'] = answersD3['4.2Comment'];
+            formData['bf'] = answersD3['4.3'];
+            formData['bg'] = answersD3['4.3Comment'];
+            formData['bh'] = answersD3['4.4'];
+            formData['bi'] = answersD3['4.5Comment'];
+            formData['bj'] = answersD3['4.5'];
+            formData['bk'] = answersD3['algorithmResult'];
+            formData['bl'] = answersD3['assessorJudgement'];
+            formData['bm'] = answersD3['assessorJudgementComment'];
+            formData['bn'] = answersD3['directionBias'];
+            formData['bo'] = answersD3['directionBiasComment'];
 
 
             formData['bp'] = document.getElementById('answer_5_1')?.value;
@@ -2722,10 +2723,6 @@
         function getAlgAssessmentResult(domain) {
             result = '';
             switch (domain) {
-                case 'domain-4':
-                    let resultDiv4 = document.getElementById('alg-result-domain-4');
-                    result = resultDiv4.textContent.trim();
-                    break;
                 case 'domain-5':
                     let resultDiv5 = document.getElementById('alg-result-domain-5');
                     result = resultDiv5.textContent.trim();
