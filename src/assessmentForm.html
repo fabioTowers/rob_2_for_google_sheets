@@ -1773,7 +1773,7 @@
             }
 
             if (tabId === 'domain-5') {
-                setupAnswer5Listeners();
+                D5.setupAnswer5Listeners();
                 D5.assessorJudgmentListenerDomain5();
             }
         }
@@ -1959,88 +1959,6 @@
                 'color': color,
                 'font_color': font_color,
             }
-        }
-
-        function updateDomain5AlgResult() {
-            const resultDiv = document.getElementById('alg-result-domain-5');
-
-            const answerElements = [
-                document.getElementById('answer_5_1'),
-                document.getElementById('answer_5_2'),
-                document.getElementById('answer_5_3'),
-            ];
-
-            const hasEmptyRequired = answerElements.some(el => {
-                return !el.disabled && el.value === "";
-            });
-
-            if (hasEmptyRequired || !resultDiv) {
-                resultDiv.textContent = 'Algorithm';
-                resultDiv.style.backgroundColor = '#f0f0f0';
-                resultDiv.style.color = '#666';
-                return;
-            }
-
-            const domain5_alg = {
-	              'low': {
-		                  'combination_1': {
-			                    '5.1': ['Y', 'PY'],
-			                    '5.2': ['N', 'PN'],
-			                    '5.3': ['N', 'PN'],
-		                  },
-	              },
-	              'some_concerns': {
-                      'combination_1': {
-			                    '5.1': ['N', 'PN', 'NI'],
-			                    '5.2': ['N', 'PN'],
-			                    '5.3': ['N', 'PN'],
-		                  },
-		                  'combination_2': {
-			                    '5.1': [],
-			                    '5.2': ['NI'],
-			                    '5.3': ['N', 'PN', 'NI'],
-		                  },
-                      'combination_3': {
-			                    '5.1': [],
-			                    '5.2': ['N', 'PN', 'NI'],
-			                    '5.3': ['NI'],
-		                  },
-	                },
-	              'high': {
-		                  'combination_1': {
-			                    '5.1': [],
-			                    '5.2': ['Y', 'PY'],
-			                    '5.3': [],
-		                  },
-                      'combination_2': {
-			                    '5.1': [],
-			                    '5.2': [],
-			                    '5.3': ['Y', 'PY'],
-		                  },
-	              },
-              }
-
-            const answers = {
-              '5.1': answerElements[0].value,
-              '5.2': answerElements[1].value,
-              '5.3': answerElements[2].value,
-            };
-
-            const result_div_properties = algorithm_result(domain5_alg, answers);
-
-            resultDiv.textContent = result_div_properties['text'];
-            resultDiv.style.backgroundColor = result_div_properties['color'];
-            resultDiv.style.color = result_div_properties['font_color'];
-        }
-
-        function setupAnswer5Listeners() {
-            ['answer_5_1', 'answer_5_2', 'answer_5_3'].forEach(id => {
-            const el = document.getElementById(id);
-                if (el && !el.dataset.listenerAttached) {
-                    el.addEventListener('change', updateDomain5AlgResult);
-                    el.dataset.listenerAttached = 'true';
-                }
-            });
         }
 
         function saveForm() {
@@ -2525,7 +2443,7 @@
                             }
                         }
                         document.getElementById('5.3_comment').value = row['Note for 5.3'];
-                        updateDomain5AlgResult();
+                        D5.updateDomain5AlgResult();
                         assessorJud = document.getElementById('assessor-jud-domain-5');
                         assessorJudPlan = row["5.0 Assessor's Judgement"];
                         if (assessorJudPlan) {
