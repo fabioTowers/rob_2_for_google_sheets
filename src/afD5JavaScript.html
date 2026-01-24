@@ -1,3 +1,33 @@
 <script>
+  document.getElementById('Q_5_1_instructions').addEventListener('click', function (e) {
+    event.preventDefault();
+
+    document.getElementById('Q_5_1_instructions_modal').showModal();
+
+    document.getElementById('Q_5_1_instructions_modal_button').addEventListener('click', () => {
+      document.getElementById('Q_5_1_instructions_modal').close();
+    });
+  });
+
+  document.getElementById('Q_5_2_instructions').addEventListener('click', function (e) {
+    event.preventDefault();
+
+    document.getElementById('Q_5_2_instructions_modal').showModal();
+
+    document.getElementById('Q_5_2_instructions_modal_button').addEventListener('click', () => {
+      document.getElementById('Q_5_2_instructions_modal').close();
+    });
+  });
+
+  document.getElementById('Q_5_3_instructions').addEventListener('click', function (e) {
+    event.preventDefault();
+
+    document.getElementById('Q_5_3_instructions_modal').showModal();
+
+    document.getElementById('Q_5_3_instructions_modal_button').addEventListener('click', () => {
+      document.getElementById('Q_5_3_instructions_modal').close();
+    });
+  });
+
   
 </script>
