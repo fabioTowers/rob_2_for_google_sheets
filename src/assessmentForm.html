@@ -2408,68 +2408,18 @@
                             sheetDirectionBiasComment = row["4.0 Note for optional question"],
                         );
                         
-                        q5_1 = document.getElementById('answer_5_1');
-                        plan5_1 = row['5.1'];
-                        if (plan5_1) {
-                            for (let option of q5_1.options) {
-                                if (option.text === plan5_1) {
-                                    q5_1.value = option.value;
-                                    q5_1.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('5.1_comment').value = row['Note for 5.1'];
-                        q5_2 = document.getElementById('answer_5_2');
-                        plan5_2 = row['5.2'];
-                        if (plan5_2) {
-                            for (let option of q5_2.options) {
-                                if (option.text === plan5_2) {
-                                    q5_2.value = option.value;
-                                    q5_2.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('5.2_comment').value = row['Note for 5.2'];
-                        q5_3 = document.getElementById('answer_5_3');
-                        plan5_3 = row['5.3'];
-                        if (plan5_3) {
-                            for (let option of q5_3.options) {
-                                if (option.text === plan5_3) {
-                                    q5_3.value = option.value;
-                                    q5_3.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('5.3_comment').value = row['Note for 5.3'];
-                        D5.updateDomain5AlgResult();
-                        assessorJud = document.getElementById('assessor-jud-domain-5');
-                        assessorJudPlan = row["5.0 Assessor's Judgement"];
-                        if (assessorJudPlan) {
-                            for (let option of assessorJud) {
-                                if (option.text === assessorJudPlan) {
-                                    assessorJud.value = option.value;
-                                    assessorJud.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        D5.defineAssessorJudDomain5();
-                        document.getElementById('assessor_jud_domain_5').value = row['5.0 General note'];
-                        assessorDirectionBiasSelect = document.getElementById('direction_bias_select_5');
-                        assessorDirectionBiasPlan = row["5.0 Optional Question"];
-                        if (assessorDirectionBiasPlan) {
-                            for (let option of assessorDirectionBiasSelect) {
-                                if (option.text === assessorDirectionBiasPlan) {
-                                    assessorDirectionBiasSelect.value = option.value;
-                                    assessorDirectionBiasSelect.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                        document.getElementById('direction_bias_domain_5').value = row['5.0 Note for optional question'];
+                        D5.fillFormWithSheetAnswers(
+                            sheet5_1 = row["5.1"],
+                            sheet5_1Comment = row["Note for 5.1"],
+                            sheet5_2 = row["5.2"],
+                            sheet5_2Comment = row["Note for 5.2"],
+                            sheet5_3 = row["5.3"],
+                            sheet5_3Comment = row["Note for 5.3"],
+                            sheetAssessorJud = row["5.0 Assessor's Judgement"],
+                            sheetAssessorJudComment = row["5.0 General note"],
+                            sheetDirectionBias = row["5.0 Optional Question"],
+                            sheetDirectionBiasComment = row["5.0 Note for optional question"]
+                        );
 
                         overallBiasAlgorithm();
                         assessorJud = document.getElementById('overall-assessor-jud-select');
