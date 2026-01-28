@@ -242,5 +242,34 @@
       }
       document.getElementById('direction_bias_domain_5').value = sheetDirectionBiasComment;
     },
+
+    clearForm: function () {
+      document.getElementById('answer_5_1').value = '';
+      document.getElementById('answer_5_1').dispatchEvent(new Event('change'));
+      document.getElementById('5.1_comment').value = '';
+      document.getElementById('answer_5_2').value = '';
+      document.getElementById('answer_5_2').dispatchEvent(new Event('change'));
+      document.getElementById('5.2_comment').value = '';
+      document.getElementById('answer_5_3').value = '';
+      document.getElementById('answer_5_3').dispatchEvent(new Event('change'));
+      document.getElementById('5.3_comment').value = '';
+
+      let divAlgorithmResult = document.getElementById('alg-result-domain-5');
+      divAlgorithmResult.textContent = 'Algorithm';
+      divAlgorithmResult.style.backgroundColor = '#f0f0f0';
+      divAlgorithmResult.style.color = '#666';
+
+      document.getElementById('assessor-jud-domain-5').value = '';
+      document.getElementById('assessor-jud-domain-5').dispatchEvent(new Event('change'));
+      document.getElementById('assessor_jud_domain_5').value = '';
+      document.getElementById('direction_bias_select_5').value = '';
+      document.getElementById('direction_bias_select_5').dispatchEvent(new Event('change'));
+      document.getElementById('direction_bias_domain_5').value = '';
+
+      let divOfDomain2PPInOverAllBias = document.getElementById("overall-bias-domain-5");
+      divOfDomain2PPInOverAllBias.textContent = "";
+      divOfDomain2PPInOverAllBias.style.backgroundColor = "#F0F0F0";
+      divOfDomain2PPInOverAllBias.style.color = "#666";
+    }
   }
 </script>

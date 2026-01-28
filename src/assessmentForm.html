@@ -2467,18 +2467,12 @@
             return result;
         }
 
-        function resetDiv(divID, isOverAllBias=false) {
-            const resultDiv = document.getElementById(divID);
+        function resetDiv(overlAllBiasDivID,) {
+            const divOverAllBias = document.getElementById(overlAllBiasDivID);
 
-            if (isOverAllBias) {
-                resultDiv.textContent = "";
-                resultDiv.style.backgroundColor = "#F0F0F0";
-                resultDiv.style.color = "#666";
-            } else {
-                resultDiv.textContent = 'Algorithm';
-                resultDiv.style.backgroundColor = '#f0f0f0';
-                resultDiv.style.color = '#666';
-            }
+            divOverAllBias.textContent = "";
+            divOverAllBias.style.backgroundColor = "#F0F0F0";
+            divOverAllBias.style.color = "#666";
         }
 
         function clearForm() {
@@ -2513,27 +2507,10 @@
 
             D4.clearForm();
 
-
-            document.getElementById('answer_5_1').value = '';
-            document.getElementById('answer_5_1').dispatchEvent(new Event('change'));
-            document.getElementById('5.1_comment').value = '';
-            document.getElementById('answer_5_2').value = '';
-            document.getElementById('answer_5_2').dispatchEvent(new Event('change'));
-            document.getElementById('5.2_comment').value = '';
-            document.getElementById('answer_5_3').value = '';
-            document.getElementById('answer_5_3').dispatchEvent(new Event('change'));
-            document.getElementById('5.3_comment').value = '';
-            resetDiv("alg-result-domain-5", isOverAllBias=false);
-            document.getElementById('assessor-jud-domain-5').value = '';
-            document.getElementById('assessor-jud-domain-5').dispatchEvent(new Event('change'));
-            document.getElementById('assessor_jud_domain_5').value = '';
-            document.getElementById('direction_bias_select_5').value = '';
-            document.getElementById('direction_bias_select_5').dispatchEvent(new Event('change'));
-            document.getElementById('direction_bias_domain_5').value = '';
-            resetDiv("overall-bias-domain-5", isOverAllBias=true);
+            D5.clearForm();
 
 
-            resetDiv("alg-result-overall", isOverAllBias=false);
+            resetDiv("alg-result-overall");
             document.getElementById('overall-assessor-jud-select').value = '';
             document.getElementById('overall-assessor-jud-select').dispatchEvent(new Event('change'));
             document.getElementById('overall_assessor_jud_comment').value = '';
