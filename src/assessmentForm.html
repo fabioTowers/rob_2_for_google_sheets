@@ -2118,19 +2118,20 @@
             formData['bo'] = answersD3['directionBiasComment'];
 
 
-            formData['bp'] = document.getElementById('answer_5_1')?.value;
-            formData['bq'] = document.getElementById('5.1_comment')?.value;
-            formData['br'] = document.getElementById('answer_5_2')?.value;
-            formData['bs'] = document.getElementById('5.2_comment')?.value;
-            formData['bt'] = document.getElementById('answer_5_3')?.value;
-            formData['bu'] = document.getElementById('5.3_comment')?.value;
-            formData['bv'] = getAlgAssessmentResult('domain-5');
-            formData['bw'] = document.getElementById('assessor-jud-domain-5')?.value;
-            formData['bx'] = document.getElementById('assessor_jud_domain_5')?.value;
-            formData['by'] = document.getElementById('direction_bias_select_5')?.value;
-            formData['bz'] = document.getElementById('direction_bias_domain_5')?.value;
+            answersD5 = D5.getAnswers();
+            formData['bp'] = answersD5['5.1'];
+            formData['bq'] = answersD5['5.1Comment'];
+            formData['br'] = answersD5['5.2'];
+            formData['bs'] = answersD5['5.2Comment'];
+            formData['bt'] = answersD5['5.3'];
+            formData['bu'] = answersD5['5.3Comment'];
+            formData['bv'] = answersD5['algorithmResult'];
+            formData['bw'] = answersD5['assessorJudgement'];
+            formData['bx'] = answersD5['assessorJudgementComment'];
+            formData['by'] = answersD5['directionBias'];
+            formData['bz'] = answersD5['directionBiasComment'];
 
-            formData['ca'] = getAlgAssessmentResult('overall-bias');
+            formData['ca'] = getOverallAlgAssessmentResult();
             formData['cb'] = document.getElementById('overall-assessor-jud-select')?.value;
             formData['cc'] = document.getElementById('overall_assessor_jud_comment')?.value;
             formData['cd'] = document.getElementById('overall_direction_bias_select')?.value;
@@ -2504,18 +2505,10 @@
 
         }
 
-        function getAlgAssessmentResult(domain) {
+        function getOverallAlgAssessmentResult() {
             result = '';
-            switch (domain) {
-                case 'domain-5':
-                    let resultDiv5 = document.getElementById('alg-result-domain-5');
-                    result = resultDiv5.textContent.trim();
-                    break;
-                case 'overall-bias':
-                    let resultDiv6 = document.getElementById('alg-result-overall');
-                    result = resultDiv6.textContent.trim();
-                    break;
-            }
+            let resultDiv6 = document.getElementById('alg-result-overall');
+            result = resultDiv6.textContent.trim();
 
             if (result === 'Algorithm') {
                 result = '';

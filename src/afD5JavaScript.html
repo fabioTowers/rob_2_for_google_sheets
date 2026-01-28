@@ -146,6 +146,29 @@
       });
     },
 
+    getAnswers: function () {
+      let divAlgorithmResult = document.getElementById('alg-result-domain-5');
+      algorithmResult = divAlgorithmResult.textContent.trim();
 
+      if (algorithmResult === 'Algorithm') {
+        algorithmResult = '';
+      }
+
+      answers = {
+        '5.1': document.getElementById('answer_5_1')?.value,
+        '5.1Comment': document.getElementById('5.1_comment')?.value,
+        '5.2': document.getElementById('answer_5_2')?.value,
+        '5.2Comment': document.getElementById('5.2_comment')?.value,
+        '5.3': document.getElementById('answer_5_3')?.value,
+        '5.3Comment': document.getElementById('5.3_comment')?.value,
+        'algorithmResult': algorithmResult,
+        'assessorJudgement': document.getElementById('assessor-jud-domain-5')?.value,
+        'assessorJudgementComment': document.getElementById('assessor_jud_domain_5')?.value,
+        'directionBias': document.getElementById('direction_bias_select_5')?.value,
+        'directionBiasComment': document.getElementById('direction_bias_domain_5')?.value
+      };
+
+      return answers;
+    },
   }
 </script>
