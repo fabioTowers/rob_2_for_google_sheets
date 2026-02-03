@@ -1675,16 +1675,15 @@
             <button class="btn btn-close" id="Q_5_3_instructions_modal_button">Close</button>
         </dialog>
 
-        <dialog id="edit_or_new">
-            <h2>Elaboration 5.3</h2>
+        <dialog id="empty_assessment_id">
+            <h2>Attention</h2>
             <hr>
             <br>
             <p>
-                There are saved reviews in the spreadsheet. Do you want to add a new review or edit a saved review?
+                Please fill the <b>Assessment ID</b> field in the <b>Basic information</b> tab. <b>The changes have not been saved</b>.
             </p>
             <br>
-            <button class="btn btn-close" id="edit_button_dialog">Edit</button>
-            <button class="btn btn-close" id="new_button_dialog">New</button>
+            <button class="btn btn-close" id="button_not_saved_empty_id">Close</button>
         </dialog>
 
         <dialog id="saved">
@@ -1962,10 +1961,17 @@
         }
 
         function saveForm() {
+            var assessmentID = document.getElementById('assessment-id')?.value;
+
+            if (assessmentID === '') {
+                errorSaveEmptyID();
+                return;
+            }
+
             const formData = {};
 
             formData['a'] = document.getElementById('datetime')?.value;
-            formData['b'] = document.getElementById('assessment-id')?.value;
+            formData['b'] = assessmentID;
             formData['c'] = document.getElementById('assessor')?.value;
             formData['d'] = document.getElementById('study-id')?.value;
             formData['e'] = document.getElementById('ref-label')?.value;
@@ -2188,6 +2194,14 @@
 
         function saving() {
           document.getElementById('loading').showModal();
+        }
+     
+        function errorSaveEmptyID() {
+            modal = document.getElementById('empty_assessment_id');
+            modal.showModal();
+            document.getElementById('button_not_saved_empty_id').onclick = () => {
+                modal.close();
+            };
         }
 
         var planData = []
