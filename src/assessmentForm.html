@@ -1686,6 +1686,17 @@
             <button class="btn btn-close" id="button_not_saved_empty_id">Close</button>
         </dialog>
 
+        <dialog id="duplicate_assessment_id">
+            <h2>Attention</h2>
+            <hr>
+            <br>
+            <p>
+                You have filled in the <b>Assessment ID</b> field (in the <b>Basic information</b> tab) with <i><span id="duplicate_assessment_id_string"></span></i>, and this identifier has already been used to identify an assessment saved in the spreadsheet. Please use unique identifiers for each assessment. <b>The changes have not been saved</b>.
+            </p>
+            <br>
+            <button class="btn btn-close" id="button_not_saved_duplicated_id">Close</button>
+        </dialog>
+
         <dialog id="saved">
             <h2>Saved successfully!</h2>
             <br>
@@ -1966,6 +1977,13 @@
             if (assessmentID === '') {
                 errorSaveEmptyID();
                 return;
+            } else {
+                const idAlreadyExists = planData.some(assessment => assessment['Unique ID'] === assessmentID);
+
+                if (idAlreadyExists) {
+                    errorSaveDuplicatedID(assessmentID);
+                    return;
+                }
             }
 
             const formData = {};
@@ -2200,6 +2218,18 @@
             modal = document.getElementById('empty_assessment_id');
             modal.showModal();
             document.getElementById('button_not_saved_empty_id').onclick = () => {
+                modal.close();
+            };
+        }
+
+        function errorSaveDuplicatedID(id) {
+            modal = document.getElementById('duplicate_assessment_id');
+            idField = document.getElementById('duplicate_assessment_id_string');
+            
+            idField.innerText = id;
+
+            modal.showModal();
+            document.getElementById('button_not_saved_duplicated_id').onclick = () => {
                 modal.close();
             };
         }
