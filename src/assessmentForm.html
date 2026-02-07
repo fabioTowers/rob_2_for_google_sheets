@@ -158,9 +158,8 @@
                         <div class="form-group">
                           <label for="assessment-aim">Is the review team's aim for this result to assess...?</label>
                           <select id="assessment-aim" onchange="toggleConditionalField()" class="domain-question-select">
-                            <option value="">Select...</option>
                             <option value="per-protocol">adhering to intervention (the 'per-protocol' effect)</option>
-                            <option value="intention-to-treat">assignment to intervention (the 'intention-to-treat' effect)</option>
+                            <option selected value="intention-to-treat">assignment to intervention (the 'intention-to-treat' effect)</option>
                           </select>
 
                           <div id="conditional-field" class="conditional-field">
@@ -295,10 +294,6 @@
                     </div>
                 </div>
 
-                <div id="domain-2-default" class="tab-panel">
-                    <h3 class="domain-title">Deviations from intended interventions</h3>
-                    <div class="empty-tab">Please select the aim (in 'Basic information' tab).</div>
-                </div>
                 <div id="domain-2-PP" class="tab-panel">
                     <h3 class="domain-title">Deviations from intended interventions</h3>
 
@@ -1743,7 +1738,7 @@
 
 
             let buttonToActivate;
-            if (['domain-2-default', 'domain-2-PP', 'domain-2-ITT'].includes(tabId)) {
+            if (['domain-2-PP', 'domain-2-ITT'].includes(tabId)) {
                 buttonToActivate = document.getElementById('domain-2-tab-button');
             } else {
                 buttonToActivate = document.querySelector(`.tab-button[onclick="switchTab('${tabId}')"]`);
@@ -1842,12 +1837,6 @@
                 D2PP.setupCondEnableListeners();
             } else if (select.value === 'intention-to-treat') {
                 activeDomain2TabId = 'domain-2-ITT';
-                conditionalField.classList.add('disabled');
-                conditionalField.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                    checkbox.checked = false;
-                });
-            } else {
-                activeDomain2TabId = 'domain-2-default';
                 conditionalField.classList.add('disabled');
                 conditionalField.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
                     checkbox.checked = false;
