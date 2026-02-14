@@ -5671,17 +5671,6 @@
                 }
               }
             }
-            q1_1 = document.getElementById('answer_1_1_check');
-            plan1_1 = correspondingCheck['1.1'];
-            if (plan1_1) {
-              for (let option of q1_1.options) {
-                if (option.text === plan1_1) {
-                  q1_1.value = option.value;
-                  
-                  break;
-                }
-              }
-            }
 
             q1_2 = document.getElementById('answer_1_2');
             plan1_2 = row['1.2'];
@@ -5694,21 +5683,9 @@
                 }
               }
             }
-            q1_2 = document.getElementById('answer_1_2_check');
-            plan1_2 = correspondingCheck['1.2'];
-            if (plan1_2) {
-              for (let option of q1_2.options) {
-                if (option.text === plan1_2) {
-                  q1_2.value = option.value;
-                  
-                  break;
-                }
-              }
-            }
 
             document.getElementById('comments_1_1_and_1_2').value = row['Note for 1.1&1.2'];
-            document.getElementById('comments_1_1_and_1_2_check').value = correspondingCheck['Note for 1.1&1.2'];
-
+            
             q1_3 = document.getElementById('answer_1_3');
             plan1_3 = row['1.3'];
             if (plan1_3) {
@@ -5719,21 +5696,9 @@
                   break;
                 }
               }
-            }
-            q1_3 = document.getElementById('answer_1_3_check');
-            plan1_3 = correspondingCheck['1.3'];
-            if (plan1_3) {
-              for (let option of q1_3.options) {
-                if (option.text === plan1_3) {
-                  q1_3.value = option.value;
-                  q1_3.dispatchEvent(new Event('change'));
-                  break;
-                }
-              }
-            }
+            }            
 
             document.getElementById('comments_1_3').value = row['Note for 1.3'];
-            document.getElementById('comments_1_3_check').value = correspondingCheck['Note for 1.3'];
             updateDomain1AlgResult();
             assessorJud = document.getElementById('assessor-jud-domain-1');
             assessorJudPlan = row["1.0 Assessor's Judgement"];
@@ -5747,25 +5712,10 @@
               }
             }
             defineAssessorJudDomain1();
-            assessorJud = document.getElementById('assessor-jud-domain-1_check');
-            assessorJudPlan = correspondingCheck["1.0 Assessor's Judgement"];
-            if (assessorJudPlan) {
-              for (let option of assessorJud) {
-                if (option.text === assessorJudPlan) {
-                  assessorJud.value = option.value;
-                  assessorJud.dispatchEvent(new Event('change'));
-                  break;
-                }
-              }
-            }
-            defineOverAllBiasForCheckDomains('assessor-jud-domain-1_check', 'overall-bias-domain-1_check');
-
+            
             document.getElementById('assessor_jud_domain_1').value = row['1.0 General note'];
-            document.getElementById('assessor_jud_domain_1_check').value = correspondingCheck['1.0 General note'];
             
-            changeSelectsBackgroundColor(idSelectConsensus='assessor-jud-domain-1', idSelectAssessor2='assessor-jud-domain-1_check', clear=false);
-
-            
+                        
             if (aimPlan === "adhering to intervention (the 'per-protocol' effect)") {
               q2_1_pp = document.getElementById('answer_2_1_pp');
               plan2_1 = row['2.1'];
@@ -6601,6 +6551,65 @@
             document.getElementById('overall_assessor_jud_comment_check').value = correspondingCheck['6.0 General Note'];
             
             changeSelectsBackgroundColor(idSelectConsensus='overall-assessor-jud-select', idSelectAssessor2='overall-assessor-jud-select_check', clear=false);
+
+            if (correspondingCheck) {
+              q1_1 = document.getElementById('answer_1_1_check');
+              plan1_1 = correspondingCheck['1.1'];
+              if (plan1_1) {
+                for (let option of q1_1.options) {
+                  if (option.text === plan1_1) {
+                    q1_1.value = option.value;
+
+                    break;
+                  }
+                }
+              }
+
+              q1_2 = document.getElementById('answer_1_2_check');
+              plan1_2 = correspondingCheck['1.2'];
+              if (plan1_2) {
+                for (let option of q1_2.options) {
+                  if (option.text === plan1_2) {
+                    q1_2.value = option.value;
+
+                    break;
+                  }
+                }
+              }
+
+              document.getElementById('comments_1_1_and_1_2_check').value = correspondingCheck['Note for 1.1&1.2'];
+
+              q1_3 = document.getElementById('answer_1_3_check');
+              plan1_3 = correspondingCheck['1.3'];
+              if (plan1_3) {
+                for (let option of q1_3.options) {
+                  if (option.text === plan1_3) {
+                    q1_3.value = option.value;
+                    q1_3.dispatchEvent(new Event('change'));
+                    break;
+                  }
+                }
+              }
+
+              document.getElementById('comments_1_3_check').value = correspondingCheck['Note for 1.3'];
+
+              assessorJud = document.getElementById('assessor-jud-domain-1_check');
+              assessorJudPlan = correspondingCheck["1.0 Assessor's Judgement"];
+              if (assessorJudPlan) {
+                for (let option of assessorJud) {
+                  if (option.text === assessorJudPlan) {
+                    assessorJud.value = option.value;
+                    assessorJud.dispatchEvent(new Event('change'));
+                    break;
+                  }
+                }
+              }
+              defineOverAllBiasForCheckDomains('assessor-jud-domain-1_check', 'overall-bias-domain-1_check');
+
+              changeSelectsBackgroundColor(idSelectConsensus='assessor-jud-domain-1', idSelectAssessor2='assessor-jud-domain-1_check', clear=false);
+
+              document.getElementById('assessor_jud_domain_1_check').value = correspondingCheck['1.0 General note'];
+            }
 
             return;
           }
