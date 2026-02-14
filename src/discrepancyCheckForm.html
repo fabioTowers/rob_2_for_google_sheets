@@ -5477,11 +5477,13 @@
         planData = JSON.parse(resultsData);
         planDataCheck = checkData;
 
-        const mapCheck = new Map((JSON.parse(checkData)).map(obj => [obj['Unique ID'], obj]));
-        planDataCheckParsed = planData.map(row => {
-          const match = mapCheck.get(row['Unique ID']);
-          return match || emptyRow;
-        });
+        if (checkData && checkData.length > 0) {
+          const mapCheck = new Map((JSON.parse(checkData)).map(obj => [obj['Unique ID'], obj]));
+          planDataCheckParsed = planData.map(row => {
+            const match = mapCheck.get(row['Unique ID']);
+            return match || emptyRow;
+          });
+        }
 
         select.disabled = false;
         
