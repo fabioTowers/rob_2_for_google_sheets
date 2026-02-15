@@ -5728,18 +5728,6 @@
                   }
                 }
               }
-              
-              q2_1_pp = document.getElementById('answer_2_1_pp_check');
-              plan2_1 = correspondingCheck['2.1'];
-              if (plan2_1) {
-                for (let option of q2_1_pp.options) {
-                  if (option.text === plan2_1) {
-                    q2_1_pp.value = option.value;
-                    q2_1_pp.dispatchEvent(new Event('change'));
-                    break;
-                  }
-                }
-              }
 
               q2_2_pp = document.getElementById('answer_2_2_pp');
               plan2_2 = row['2.2'];
@@ -5752,21 +5740,9 @@
                   }
                 }
               }
-              q2_2_pp = document.getElementById('answer_2_2_pp_check');
-              plan2_2 = correspondingCheck['2.2'];
-              if (plan2_2) {
-                for (let option of q2_2_pp.options) {
-                  if (option.text === plan2_2) {
-                    q2_2_pp.value = option.value;
-                    q2_2_pp.dispatchEvent(new Event('change'));
-                    break;
-                  }
-                }
-              }
-
+              
               document.getElementById('2.1_and_2.2_comment_PP').value = row['Note for 2.1&2.2'];
-              document.getElementById('2.1_and_2.2_comment_PP_check').value = correspondingCheck['Note for 2.1&2.2'];
-
+              
               q2_3_pp = document.getElementById('answer_2_3_pp');
               plan2_3 = row['2.3'];
               if (plan2_3) {
@@ -5778,21 +5754,9 @@
                   }
                 }
               }
-              q2_3_pp = document.getElementById('answer_2_3_pp_check');
-              plan2_3 = correspondingCheck['2.3'];
-              if (plan2_3) {
-                for (let option of q2_3_pp.options) {
-                  if (option.text === plan2_3) {
-                    q2_3_pp.value = option.value;
-                    q2_3_pp.dispatchEvent(new Event('change'));
-                    break;
-                  }
-                }
-              }
-
+              
               document.getElementById('2.3_comment_PP').value = row['Note for 2.3'];
-              document.getElementById('2.3_comment_PP_check').value = correspondingCheck['Note for 2.3'];
-
+              
               q2_4_pp = document.getElementById('answer_2_4_pp');
               plan2_4 = row['2.4'];
               if (plan2_4) {
@@ -5804,21 +5768,9 @@
                   }
                 }
               }
-              q2_4_pp = document.getElementById('answer_2_4_pp_check');
-              plan2_4 = correspondingCheck['2.4'];
-              if (plan2_4) {
-                for (let option of q2_4_pp.options) {
-                  if (option.text === plan2_4) {
-                    q2_4_pp.value = option.value;
-                    q2_4_pp.dispatchEvent(new Event('change'));
-                    break;
-                  }
-                }
-              }
-
+              
               document.getElementById('2.4_comment_PP').value = row['Note for 2.4'];
-              document.getElementById('2.4_comment_PP_check').value = correspondingCheck['Note for 2.4'];
-
+              
               q2_5_pp = document.getElementById('answer_2_5_pp');
               plan2_5 = row['2.5'];
               if (plan2_5) {
@@ -5830,21 +5782,9 @@
                   }
                 }
               }
-              q2_5_pp = document.getElementById('answer_2_5_pp_check');
-              plan2_5 = correspondingCheck['2.5'];
-              if (plan2_5) {
-                for (let option of q2_5_pp.options) {
-                  if (option.text === plan2_5) {
-                    q2_5_pp.value = option.value;
-                    q2_5_pp.dispatchEvent(new Event('change'));
-                    break;
-                  }
-                }
-              }
-
+              
               document.getElementById('2.5_comment_PP').value = row['Note for 2.5'];
-              document.getElementById('2.5_comment_PP_check').value = correspondingCheck['Note for 2.5'];
-
+            
               q2_6_pp = document.getElementById('answer_2_6_pp');
               plan2_6 = row['2.6'];
               if (plan2_6) {
@@ -5856,20 +5796,8 @@
                   }
                 }
               }
-              q2_6_pp = document.getElementById('answer_2_6_pp_check');
-              plan2_6 = correspondingCheck['2.6'];
-              if (plan2_6) {
-                for (let option of q2_6_pp.options) {
-                  if (option.text === plan2_6) {
-                    q2_6_pp.value = option.value;
-                    q2_6_pp.dispatchEvent(new Event('change'));
-                    break;
-                  }
-                }
-              }
-
+              
               document.getElementById('2.6_comment_PP').value = row['Note for 2.6'];
-              document.getElementById('2.6_comment_PP_check').value = correspondingCheck['Note for 2.6'];
 
               updateDomain2PPAlgResult();
 
@@ -5885,25 +5813,9 @@
                 }
               }
               defineAssessorJudDomain2PP();
-              assessorJud = document.getElementById('assessor-jud-domain-2-PP_check');
-              assessorJudPlan = correspondingCheck["2.0 Assessor's Judgement"];
-              if (assessorJudPlan) {
-                for (let option of assessorJud) {
-                  if (option.text === assessorJudPlan) {
-                    assessorJud.value = option.value;
-                    assessorJud.dispatchEvent(new Event('change'));
-                    break;
-                  }
-                }
-              }
-              defineOverAllBiasForCheckDomains('assessor-jud-domain-2-PP_check', 'overall-bias-domain-2_check');
-
+              
               document.getElementById('assessor_jud_domain_2_PP').value = row['2.0 General Notes'];
-              document.getElementById('assessor_jud_domain_2_PP_check').value = correspondingCheck['2.0 General Notes'];
-              
-              changeSelectsBackgroundColor(idSelectConsensus='assessor-jud-domain-2-PP', idSelectAssessor2='assessor-jud-domain-2-PP_check', clear=false);
-
-              
+                            
             } else if (aimPlan === "assignment to intervention (the 'intention-to-treat' effect)") {
               q2_1_itt = document.getElementById('answer_2_1_itt');
               plan2_1_itt = row['2.1'];
@@ -5916,18 +5828,7 @@
                   }
                 }
               }
-              q2_1_itt = document.getElementById('answer_2_1_itt_check');
-              plan2_1_itt = correspondingCheck['2.1'];
-              if (plan2_1_itt) {
-                for (let option of q2_1_itt.options) {
-                  if (option.text === plan2_1_itt) {
-                    q2_1_itt.value = option.value;
-                    q2_1_itt.dispatchEvent(new Event('change'));
-                    break;
-                  }
-                }
-              }
-
+              
               q2_2_itt = document.getElementById('answer_2_2_itt');
               plan2_2_itt = row['2.2'];
               if (plan2_2_itt) {
@@ -5939,21 +5840,9 @@
                   }
                 }
               }
-              q2_2_itt = document.getElementById('answer_2_2_itt_check');
-              plan2_2_itt = correspondingCheck['2.2'];
-              if (plan2_2_itt) {
-                for (let option of q2_2_itt.options) {
-                  if (option.text === plan2_2_itt) {
-                    q2_2_itt.value = option.value;
-                    q2_2_itt.dispatchEvent(new Event('change'));
-                    break;
-                  }
-                }
-              }
-
+              
               document.getElementById('2.1_and_2.2_comment_ITT').value = row['Note for 2.1&2.2'];
-              document.getElementById('2.1_and_2.2_comment_ITT_check').value = correspondingCheck['Note for 2.1&2.2'];
-
+              
               q2_3_itt = document.getElementById('answer_2_3_itt');
               plan2_3_itt = row['2.3'];
               if (plan2_3_itt) {
@@ -5965,20 +5854,9 @@
                   }
                 }
               }
-              q2_3_itt = document.getElementById('answer_2_3_itt_check');
-              plan2_3_itt = correspondingCheck['2.3'];
-              if (plan2_3_itt) {
-                for (let option of q2_3_itt.options) {
-                  if (option.text === plan2_3_itt) {
-                    q2_3_itt.value = option.value;
-                    q2_3_itt.dispatchEvent(new Event('change'));
-                    break;
-                  }
-                }
-              }
-
+              
               document.getElementById('2.3_comment_ITT').value = row['Note for 2.3'];
-              document.getElementById('2.3_comment_ITT_check').value = correspondingCheck['Note for 2.3'];
+              
 
               q2_4_itt = document.getElementById('answer_2_4_itt');
               plan2_4_itt = row['2.4'];
@@ -5991,21 +5869,9 @@
                   }
                 }
               }
-              q2_4_itt = document.getElementById('answer_2_4_itt_check');
-              plan2_4_itt = correspondingCheck['2.4'];
-              if (plan2_4_itt) {
-                for (let option of q2_4_itt.options) {
-                  if (option.text === plan2_4_itt) {
-                    q2_4_itt.value = option.value;
-                    q2_4_itt.dispatchEvent(new Event('change'));
-                    break;
-                  }
-                }
-              }
-
+              
               document.getElementById('2.4_comment_ITT').value = row['Note for 2.4'];
-              document.getElementById('2.4_comment_ITT_check').value = correspondingCheck['Note for 2.4'];
-
+              
               q2_5_itt = document.getElementById('answer_2_5_itt');
               plan2_5_itt = row['2.5'];
               if (plan2_5_itt) {
@@ -6017,20 +5883,8 @@
                   }
                 }
               }
-              q2_5_itt = document.getElementById('answer_2_5_itt_check');
-              plan2_5_itt = correspondingCheck['2.5'];
-              if (plan2_5_itt) {
-                for (let option of q2_5_itt.options) {
-                  if (option.text === plan2_5_itt) {
-                    q2_5_itt.value = option.value;
-                    q2_5_itt.dispatchEvent(new Event('change'));
-                    break;
-                  }
-                }
-              }
-
-              document.getElementById('2.5_comment_ITT').value = row['Note for 2.5'];
-              document.getElementById('2.5_comment_ITT_check').value = correspondingCheck['Note for 2.5'];
+              
+              document.getElementById('2.5_comment_ITT').value = row['Note for 2.5'];            
 
               q2_6_itt = document.getElementById('answer_2_6_itt');
               plan2_6_itt = row['2.6'];
@@ -6043,21 +5897,9 @@
                   }
                 }
               }
-              q2_6_itt = document.getElementById('answer_2_6_itt_check');
-              plan2_6_itt = correspondingCheck['2.6'];
-              if (plan2_6_itt) {
-                for (let option of q2_6_itt.options) {
-                  if (option.text === plan2_6_itt) {
-                    q2_6_itt.value = option.value;
-                    q2_6_itt.dispatchEvent(new Event('change'));
-                    break;
-                  }
-                }
-              }
-
+              
               document.getElementById('2.6_comment_ITT').value = row['Note for 2.6'];
-              document.getElementById('2.6_comment_ITT_check').value = correspondingCheck['Note for 2.6'];
-
+              
               q2_7_itt = document.getElementById('answer_2_7_itt');
               plan2_7_itt = row['2.7'];
               if (plan2_7_itt) {
@@ -6069,21 +5911,9 @@
                   }
                 }
               }
-              q2_7_itt = document.getElementById('answer_2_7_itt_check');
-              plan2_7_itt = correspondingCheck['2.7'];
-              if (plan2_7_itt) {
-                for (let option of q2_7_itt.options) {
-                  if (option.text === plan2_7_itt) {
-                    q2_7_itt.value = option.value;
-                    q2_7_itt.dispatchEvent(new Event('change'));
-                    break;
-                  }
-                }
-              }
-
+              
               document.getElementById('2.7_comment_ITT').value = row['Note for 2.7'];
-              document.getElementById('2.7_comment_ITT_check').value = correspondingCheck['Note for 2.7'];
-
+              
               updateDomain2ITTAlgResult();
 
               assessorJud = document.getElementById('assessor-jud-domain-2-ITT');
@@ -6098,24 +5928,8 @@
                 }
               }
               defineAssessorJudDomain2ITT();
-              assessorJud = document.getElementById('assessor-jud-domain-2-ITT_check');
-              assessorJudPlan = correspondingCheck["2.0 Assessor's Judgement"];
-              if (assessorJudPlan) {
-                for (let option of assessorJud) {
-                  if (option.text === assessorJudPlan) {
-                    assessorJud.value = option.value;
-                    assessorJud.dispatchEvent(new Event('change'));
-                    break;
-                  }
-                }
-              }
-
-              defineOverAllBiasForCheckDomains('assessor-jud-domain-2-ITT_check', 'overall-bias-domain-2_check');
-
-              document.getElementById('assessor_jud_domain_2_ITT').value = row['2.0 General Notes'];
-              document.getElementById('assessor_jud_domain_2_ITT_check').value = correspondingCheck['2.0 General Notes'];
               
-              changeSelectsBackgroundColor(idSelectConsensus='assessor-jud-domain-2-ITT', idSelectAssessor2='assessor-jud-domain-2-ITT_check', clear=false);
+              document.getElementById('assessor_jud_domain_2_ITT').value = row['2.0 General Notes'];
             }
 
             q3_1 = document.getElementById('answer_3_1');
@@ -6609,6 +6423,220 @@
               changeSelectsBackgroundColor(idSelectConsensus='assessor-jud-domain-1', idSelectAssessor2='assessor-jud-domain-1_check', clear=false);
 
               document.getElementById('assessor_jud_domain_1_check').value = correspondingCheck['1.0 General note'];
+
+              if (aimPlan === "adhering to intervention (the 'per-protocol' effect)") {
+                q2_1_pp = document.getElementById('answer_2_1_pp_check');
+                plan2_1 = correspondingCheck['2.1'];
+                if (plan2_1) {
+                  for (let option of q2_1_pp.options) {
+                    if (option.text === plan2_1) {
+                      q2_1_pp.value = option.value;
+                      q2_1_pp.dispatchEvent(new Event('change'));
+                      break;
+                    }
+                  }
+                }
+
+                q2_2_pp = document.getElementById('answer_2_2_pp_check');
+                plan2_2 = correspondingCheck['2.2'];
+                if (plan2_2) {
+                  for (let option of q2_2_pp.options) {
+                    if (option.text === plan2_2) {
+                      q2_2_pp.value = option.value;
+                      q2_2_pp.dispatchEvent(new Event('change'));
+                      break;
+                    }
+                  }
+                }
+
+                document.getElementById('2.1_and_2.2_comment_PP_check').value = correspondingCheck['Note for 2.1&2.2'];
+
+                q2_3_pp = document.getElementById('answer_2_3_pp_check');
+                plan2_3 = correspondingCheck['2.3'];
+                if (plan2_3) {
+                  for (let option of q2_3_pp.options) {
+                    if (option.text === plan2_3) {
+                      q2_3_pp.value = option.value;
+                      q2_3_pp.dispatchEvent(new Event('change'));
+                      break;
+                    }
+                  }
+                }
+
+                document.getElementById('2.3_comment_PP_check').value = correspondingCheck['Note for 2.3'];
+
+                q2_4_pp = document.getElementById('answer_2_4_pp_check');
+                plan2_4 = correspondingCheck['2.4'];
+                if (plan2_4) {
+                  for (let option of q2_4_pp.options) {
+                    if (option.text === plan2_4) {
+                      q2_4_pp.value = option.value;
+                      q2_4_pp.dispatchEvent(new Event('change'));
+                      break;
+                    }
+                  }
+                }
+
+                document.getElementById('2.4_comment_PP_check').value = correspondingCheck['Note for 2.4'];
+
+                q2_5_pp = document.getElementById('answer_2_5_pp_check');
+                plan2_5 = correspondingCheck['2.5'];
+                if (plan2_5) {
+                  for (let option of q2_5_pp.options) {
+                    if (option.text === plan2_5) {
+                      q2_5_pp.value = option.value;
+                      q2_5_pp.dispatchEvent(new Event('change'));
+                      break;
+                    }
+                  }
+                }
+
+                document.getElementById('2.5_comment_PP_check').value = correspondingCheck['Note for 2.5'];
+
+                q2_6_pp = document.getElementById('answer_2_6_pp_check');
+                plan2_6 = correspondingCheck['2.6'];
+                if (plan2_6) {
+                  for (let option of q2_6_pp.options) {
+                    if (option.text === plan2_6) {
+                      q2_6_pp.value = option.value;
+                      q2_6_pp.dispatchEvent(new Event('change'));
+                      break;
+                    }
+                  }
+                }
+
+                document.getElementById('2.6_comment_PP_check').value = correspondingCheck['Note for 2.6'];
+
+                assessorJud = document.getElementById('assessor-jud-domain-2-PP_check');
+                assessorJudPlan = correspondingCheck["2.0 Assessor's Judgement"];
+                if (assessorJudPlan) {
+                  for (let option of assessorJud) {
+                    if (option.text === assessorJudPlan) {
+                      assessorJud.value = option.value;
+                      assessorJud.dispatchEvent(new Event('change'));
+                      break;
+                    }
+                  }
+                }
+                defineOverAllBiasForCheckDomains('assessor-jud-domain-2-PP_check', 'overall-bias-domain-2_check');
+
+                document.getElementById('assessor_jud_domain_2_PP_check').value = correspondingCheck['2.0 General Notes'];
+
+                changeSelectsBackgroundColor(idSelectConsensus='assessor-jud-domain-2-PP', idSelectAssessor2='assessor-jud-domain-2-PP_check', clear=false);
+              } else if (aimPlan === "assignment to intervention (the 'intention-to-treat' effect)") {
+                q2_1_itt = document.getElementById('answer_2_1_itt_check');
+                plan2_1_itt = correspondingCheck['2.1'];
+                if (plan2_1_itt) {
+                  for (let option of q2_1_itt.options) {
+                    if (option.text === plan2_1_itt) {
+                      q2_1_itt.value = option.value;
+                      q2_1_itt.dispatchEvent(new Event('change'));
+                      break;
+                    }
+                  }
+                }
+
+                q2_2_itt = document.getElementById('answer_2_2_itt_check');
+                plan2_2_itt = correspondingCheck['2.2'];
+                if (plan2_2_itt) {
+                  for (let option of q2_2_itt.options) {
+                    if (option.text === plan2_2_itt) {
+                      q2_2_itt.value = option.value;
+                      q2_2_itt.dispatchEvent(new Event('change'));
+                      break;
+                    }
+                  }
+                }
+
+                document.getElementById('2.1_and_2.2_comment_ITT_check').value = correspondingCheck['Note for 2.1&2.2'];
+
+                q2_3_itt = document.getElementById('answer_2_3_itt_check');
+                plan2_3_itt = correspondingCheck['2.3'];
+                if (plan2_3_itt) {
+                  for (let option of q2_3_itt.options) {
+                    if (option.text === plan2_3_itt) {
+                      q2_3_itt.value = option.value;
+                      q2_3_itt.dispatchEvent(new Event('change'));
+                      break;
+                    }
+                  }
+                }
+
+                document.getElementById('2.3_comment_ITT_check').value = correspondingCheck['Note for 2.3'];
+
+                q2_4_itt = document.getElementById('answer_2_4_itt_check');
+                plan2_4_itt = correspondingCheck['2.4'];
+                if (plan2_4_itt) {
+                  for (let option of q2_4_itt.options) {
+                    if (option.text === plan2_4_itt) {
+                      q2_4_itt.value = option.value;
+                      q2_4_itt.dispatchEvent(new Event('change'));
+                      break;
+                    }
+                  }
+                }
+
+                document.getElementById('2.4_comment_ITT_check').value = correspondingCheck['Note for 2.4'];
+
+                q2_5_itt = document.getElementById('answer_2_5_itt_check');
+                plan2_5_itt = correspondingCheck['2.5'];
+                if (plan2_5_itt) {
+                  for (let option of q2_5_itt.options) {
+                    if (option.text === plan2_5_itt) {
+                      q2_5_itt.value = option.value;
+                      q2_5_itt.dispatchEvent(new Event('change'));
+                      break;
+                    }
+                  }
+                }
+
+                document.getElementById('2.5_comment_ITT_check').value = correspondingCheck['Note for 2.5'];
+
+                q2_6_itt = document.getElementById('answer_2_6_itt_check');
+                plan2_6_itt = correspondingCheck['2.6'];
+                if (plan2_6_itt) {
+                  for (let option of q2_6_itt.options) {
+                    if (option.text === plan2_6_itt) {
+                      q2_6_itt.value = option.value;
+                      q2_6_itt.dispatchEvent(new Event('change'));
+                      break;
+                    }
+                  }
+                }
+
+                document.getElementById('2.6_comment_ITT_check').value = correspondingCheck['Note for 2.6'];
+
+                q2_7_itt = document.getElementById('answer_2_7_itt_check');
+                plan2_7_itt = correspondingCheck['2.7'];
+                if (plan2_7_itt) {
+                  for (let option of q2_7_itt.options) {
+                    if (option.text === plan2_7_itt) {
+                      q2_7_itt.value = option.value;
+                      q2_7_itt.dispatchEvent(new Event('change'));
+                      break;
+                    }
+                  }
+                }
+
+                document.getElementById('2.7_comment_ITT_check').value = correspondingCheck['Note for 2.7'];
+
+                assessorJud = document.getElementById('assessor-jud-domain-2-ITT_check');
+                assessorJudPlan = correspondingCheck["2.0 Assessor's Judgement"];
+                if (assessorJudPlan) {
+                  for (let option of assessorJud) {
+                    if (option.text === assessorJudPlan) {
+                      assessorJud.value = option.value;
+                      assessorJud.dispatchEvent(new Event('change'));
+                      break;
+                    }
+                  }
+                }
+                defineOverAllBiasForCheckDomains('assessor-jud-domain-2-ITT_check', 'overall-bias-domain-2_check');
+
+                document.getElementById('assessor_jud_domain_2_ITT_check').value = correspondingCheck['2.0 General Notes'];
+              
+                changeSelectsBackgroundColor(idSelectConsensus='assessor-jud-domain-2-ITT', idSelectAssessor2='assessor-jud-domain-2-ITT_check', clear=false);
+              }
             }
 
             return;
