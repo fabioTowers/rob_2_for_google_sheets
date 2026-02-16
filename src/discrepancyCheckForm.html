@@ -5942,21 +5942,9 @@
                   break;
                 }
               }
-            }
-            q3_1 = document.getElementById('answer_3_1_check');
-            plan3_1 = correspondingCheck['3.1'];
-            if (plan3_1) {
-              for (let option of q3_1.options) {
-                if (option.text === plan3_1) {
-                  q3_1.value = option.value;
-                  q3_1.dispatchEvent(new Event('change'));
-                  break;
-                }
-              }
-            }
+            }            
 
-            document.getElementById('3.1_comment').value = row['Note for 3.1'];
-            document.getElementById('3.1_comment_check').value = correspondingCheck['Note for 3.1'];
+            document.getElementById('3.1_comment').value = row['Note for 3.1'];            
 
             q3_2 = document.getElementById('answer_3_2');
             plan3_2 = row['3.2'];
@@ -5968,21 +5956,9 @@
                   break;
                 }
               }
-            }
-            q3_2 = document.getElementById('answer_3_2_check');
-            plan3_2 = correspondingCheck['3.2'];
-            if (plan3_2) {
-              for (let option of q3_2.options) {
-                if (option.text === plan3_2) {
-                  q3_2.value = option.value;
-                  q3_2.dispatchEvent(new Event('change'));
-                  break;
-                }
-              }
-            }
+            }            
 
-            document.getElementById('3.2_comment').value = row['Note for 3.2'];
-            document.getElementById('3.2_comment_check').value = correspondingCheck['Note for 3.2'];
+            document.getElementById('3.2_comment').value = row['Note for 3.2'];            
 
             q3_3 = document.getElementById('answer_3_3');
             plan3_3 = row['3.3'];
@@ -5995,21 +5971,9 @@
                 }
               }
             }
-            q3_3 = document.getElementById('answer_3_3_check');
-            plan3_3 = correspondingCheck['3.3'];
-            if (plan3_3) {
-              for (let option of q3_3.options) {
-                if (option.text === plan3_3) {
-                  q3_3.value = option.value;
-                  q3_3.dispatchEvent(new Event('change'));
-                  break;
-                }
-              }
-            }
-
+            
             document.getElementById('3.3_and_3.4_comment').value = row['Note for 3.3&3.4'];
-            document.getElementById('3.3_and_3.4_comment_check').value = correspondingCheck['Note for 3.3&3.4'];
-
+            
             q3_4 = document.getElementById('answer_3_4');
             plan3_4 = row['3.4'];
             if (plan3_4) {
@@ -6021,18 +5985,7 @@
                 }
               }
             }
-            q3_4 = document.getElementById('answer_3_4_check');
-            plan3_4 = correspondingCheck['3.4'];
-            if (plan3_4) {
-              for (let option of q3_4.options) {
-                if (option.text === plan3_4) {
-                  q3_4.value = option.value;
-                  q3_4.dispatchEvent(new Event('change'));
-                  break;
-                }
-              }
-            }
-
+            
             updateDomain3AlgResult();
             assessorJud = document.getElementById('assessor-jud-domain-3');
             assessorJudPlan = row["3.0 Assessor's judgement"];
@@ -6045,26 +5998,9 @@
                 }
               }
             }
-            defineAssessorJudDomain3();
-            assessorJud = document.getElementById('assessor-jud-domain-3_check');
-            assessorJudPlan = correspondingCheck["3.0 Assessor's judgement"];
-            if (assessorJudPlan) {
-              for (let option of assessorJud) {
-                if (option.text === assessorJudPlan) {
-                  assessorJud.value = option.value;
-                  assessorJud.dispatchEvent(new Event('change'));
-                  break;
-                }
-              }
-            }
-
-            defineOverAllBiasForCheckDomains('assessor-jud-domain-3_check', 'overall-bias-domain-3_check');
+            defineAssessorJudDomain3();         
 
             document.getElementById('assessor_jud_domain_3').value = row['3.0 Gerenal notes'];
-            document.getElementById('assessor_jud_domain_3_check').value = correspondingCheck['3.0 Gerenal notes'];
-            
-            changeSelectsBackgroundColor(idSelectConsensus='assessor-jud-domain-3', idSelectAssessor2='assessor-jud-domain-3_check', clear=false);
-
             
             q4_1 = document.getElementById('answer_4_1');
             plan4_1 = row['4.1'];
@@ -6637,6 +6573,78 @@
               
                 changeSelectsBackgroundColor(idSelectConsensus='assessor-jud-domain-2-ITT', idSelectAssessor2='assessor-jud-domain-2-ITT_check', clear=false);
               }
+
+              q3_1 = document.getElementById('answer_3_1_check');
+              plan3_1 = correspondingCheck['3.1'];
+              if (plan3_1) {
+                for (let option of q3_1.options) {
+                  if (option.text === plan3_1) {
+                    q3_1.value = option.value;
+                    q3_1.dispatchEvent(new Event('change'));
+                    break;
+                  }
+                }
+              }
+
+              document.getElementById('3.1_comment_check').value = correspondingCheck['Note for 3.1'];
+
+              q3_2 = document.getElementById('answer_3_2_check');
+              plan3_2 = correspondingCheck['3.2'];
+              if (plan3_2) {
+                for (let option of q3_2.options) {
+                  if (option.text === plan3_2) {
+                    q3_2.value = option.value;
+                    q3_2.dispatchEvent(new Event('change'));
+                    break;
+                  }
+                }
+              }
+
+              document.getElementById('3.2_comment_check').value = correspondingCheck['Note for 3.2'];
+
+              q3_3 = document.getElementById('answer_3_3_check');
+              plan3_3 = correspondingCheck['3.3'];
+              if (plan3_3) {
+                for (let option of q3_3.options) {
+                  if (option.text === plan3_3) {
+                    q3_3.value = option.value;
+                    q3_3.dispatchEvent(new Event('change'));
+                    break;
+                  }
+                }
+              }
+
+              document.getElementById('3.3_and_3.4_comment_check').value = correspondingCheck['Note for 3.3&3.4'];
+
+              q3_4 = document.getElementById('answer_3_4_check');
+              plan3_4 = correspondingCheck['3.4'];
+              if (plan3_4) {
+                for (let option of q3_4.options) {
+                  if (option.text === plan3_4) {
+                    q3_4.value = option.value;
+                    q3_4.dispatchEvent(new Event('change'));
+                    break;
+                  }
+                }
+              }
+
+              assessorJud = document.getElementById('assessor-jud-domain-3_check');
+              assessorJudPlan = correspondingCheck["3.0 Assessor's judgement"];
+              if (assessorJudPlan) {
+                for (let option of assessorJud) {
+                  if (option.text === assessorJudPlan) {
+                    assessorJud.value = option.value;
+                    assessorJud.dispatchEvent(new Event('change'));
+                    break;
+                  }
+                }
+              }
+
+              defineOverAllBiasForCheckDomains('assessor-jud-domain-3_check', 'overall-bias-domain-3_check');
+
+              document.getElementById('assessor_jud_domain_3_check').value = correspondingCheck['3.0 Gerenal notes'];
+
+              changeSelectsBackgroundColor(idSelectConsensus='assessor-jud-domain-3', idSelectAssessor2='assessor-jud-domain-3_check', clear=false);              
             }
 
             return;
