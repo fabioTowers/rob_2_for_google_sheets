@@ -6157,23 +6157,10 @@
                   break;
                 }
               }
-            }
-            assessorJud = document.getElementById('overall-assessor-jud-select_check');
-            assessorJudPlan = correspondingCheck["Assessor's overall Judgement"];
-            if (assessorJudPlan) {
-              for (let option of assessorJud) {
-                if (option.text === assessorJudPlan) {
-                  assessorJud.value = option.value;
-                  assessorJud.dispatchEvent(new Event('change'));
-                  break;
-                }
-              }
-            }
+            }            
 
             document.getElementById('overall_assessor_jud_comment').value = row['6.0 General Note'];
-            document.getElementById('overall_assessor_jud_comment_check').value = correspondingCheck['6.0 General Note'];
             
-            changeSelectsBackgroundColor(idSelectConsensus='overall-assessor-jud-select', idSelectAssessor2='overall-assessor-jud-select_check', clear=false);
 
             if (correspondingCheck) {
               q1_1 = document.getElementById('answer_1_1_check');
@@ -6664,6 +6651,22 @@
               defineOverAllBiasForCheckDomains('assessor-jud-domain-5_check', 'overall-bias-domain-5_check');
 
               changeSelectsBackgroundColor(idSelectConsensus='assessor-jud-domain-5', idSelectAssessor2='assessor-jud-domain-5_check', clear=false);
+
+              assessorJud = document.getElementById('overall-assessor-jud-select_check');
+              assessorJudPlan = correspondingCheck["Assessor's overall Judgement"];
+              if (assessorJudPlan) {
+                for (let option of assessorJud) {
+                  if (option.text === assessorJudPlan) {
+                    assessorJud.value = option.value;
+                    assessorJud.dispatchEvent(new Event('change'));
+                    break;
+                  }
+                }
+              }
+
+              document.getElementById('overall_assessor_jud_comment_check').value = correspondingCheck['6.0 General Note'];
+            
+              changeSelectsBackgroundColor(idSelectConsensus='overall-assessor-jud-select', idSelectAssessor2='overall-assessor-jud-select_check', clear=false);
             }
 
             return;
