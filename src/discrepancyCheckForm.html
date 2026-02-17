@@ -5486,20 +5486,19 @@
         }
 
         select.disabled = false;
-        
-        var defaultOption = document.createElement('option');
-        defaultOption.value = "";
-        defaultOption.text = "New:";
-        select.appendChild(defaultOption);
-        updateStatus('new');
-
-        
+             
         planData.forEach(function (o) {
           var option = document.createElement('option');
           option.value = o['Unique ID'];
           option.text = o['Unique ID'];
           select.appendChild(option);
         });
+
+        var defaultOption = document.createElement('option');
+        defaultOption.value = "";
+        defaultOption.text = "New:";
+        select.appendChild(defaultOption);
+        updateStatus('edit');
 
         select.classList.remove("header-field");
         select.classList.add("style-select");
