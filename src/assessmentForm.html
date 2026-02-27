@@ -1709,6 +1709,13 @@
             <br>
         </dialog>
 
+        <dialog id="loadingDialog" class="loading-dialog">
+            <div class="spinner-container">
+                <div class="spinner"></div>
+                <p id="message_loading"></p>
+            </div>
+        </dialog>
+
     </div>
 
     <?!= include('afD1JavaScript'); ?>
@@ -1878,6 +1885,32 @@
             });
         }
 
+        function loadingSpinnerMessage (message) {
+            idField = document.getElementById('message_loading');
+            idField.innerText = message;
+        }
+
+        function loadData() {
+            const loadingDialog = document.getElementById('loadingDialog');
+            loadingSpinnerMessage('Loading...');
+
+            if (typeof loadingDialog.showModal === "function") {
+                loadingDialog.showModal();
+            }
+
+            google.script.run
+                .withSuccessHandler(function(data) {
+                    populateDropdown(data);
+                    loadingDialog.close();
+                })
+                .withFailureHandler(function(error) {
+                    console.error("Erro ao carregar:", error);
+                    loadingDialog.close();
+                    alert("Erro ao carregar dados: " + error.message);
+                })
+                .getRecordIds('Results');
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             initDateTime();
             syncFields();
@@ -1892,7 +1925,8 @@
             document.querySelector('.tab-button.active').classList.remove('active');
             document.querySelector('.tab-button[onclick="switchTab(\'study-info\')"]').classList.add('active');
 
-            google.script.run.withSuccessHandler(populateDropdown).getRecordIds('Results');
+            //google.script.run.withSuccessHandler(populateDropdown).getRecordIds('Results');
+            loadData();
 
             const inputElement = document.getElementById('assessment-id');
             if (inputElement) {
