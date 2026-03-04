@@ -1885,27 +1885,39 @@
             });
         }
 
-        function loadingSpinnerMessage (message) {
-            idField = document.getElementById('message_loading');
-            idField.innerText = message;
+        const loadingDialog = document.getElementById('loadingDialog');
+
+        function showLoading(mensagem) {
+            if (mensagem) {
+                loadingDialog.querySelector('p').innerText = mensagem;
+            } else {
+                loadingDialog.querySelector('p').innerText = "Carregando dados...";
+            }
+
+            if (loadingDialog && typeof loadingDialog.showModal === "function") {
+                if (!loadingDialog.open) {
+                    loadingDialog.showModal();
+                }
+            }
+        }
+
+        function hideLoading() {
+            if (loadingDialog && loadingDialog.open) {
+                loadingDialog.close();
+            }
         }
 
         function loadData() {
-            const loadingDialog = document.getElementById('loadingDialog');
-            loadingSpinnerMessage('Loading...');
-
-            if (typeof loadingDialog.showModal === "function") {
-                loadingDialog.showModal();
-            }
+            showLoading('Loading...');
 
             google.script.run
                 .withSuccessHandler(function(data) {
                     populateDropdown(data);
-                    loadingDialog.close();
+                    hideLoading();
                 })
                 .withFailureHandler(function(error) {
                     console.error("Erro ao carregar:", error);
-                    loadingDialog.close();
+                    hideLoading();
                     alert("Erro ao carregar dados: " + error.message);
                 })
                 .getRecordIds('Results');
