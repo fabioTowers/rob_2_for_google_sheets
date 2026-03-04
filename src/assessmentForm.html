@@ -1692,28 +1692,17 @@
             <button class="btn btn-close" id="button_not_saved_duplicated_id">Close</button>
         </dialog>
 
-        <dialog id="saved">
-            <h2>Saved successfully!</h2>
-            <br>
-            <button class="btn btn-close" id="dialog_saved">Close</button>
-        </dialog>
-
-        <dialog id="not-saved">
-            <h2>Error saving</h2>
-            <br>
-            <button class="btn btn-close" id="dialog_not_saved">Close</button>
-        </dialog>
-
-        <dialog id="loading">
-            <h2>Recording changes...</h2>
-            <br>
-        </dialog>
-
         <dialog id="loadingDialog" class="loading-dialog">
             <div class="spinner-container">
                 <div class="spinner"></div>
                 <p id="message_loading"></p>
             </div>
+        </dialog>
+
+        <dialog id="messageDialog">
+            <h2></h2>
+            <br>
+            <button class="btn btn-close" id="dialog_message_close">Close</button>
         </dialog>
 
     </div>
@@ -1887,11 +1876,11 @@
 
         const loadingDialog = document.getElementById('loadingDialog');
 
-        function showLoading(mensagem) {
-            if (mensagem) {
-                loadingDialog.querySelector('p').innerText = mensagem;
+        function showLoading(message) {
+            if (message) {
+                loadingDialog.querySelector('p').innerText = message;
             } else {
-                loadingDialog.querySelector('p').innerText = "Carregando dados...";
+                loadingDialog.querySelector('p').innerText = "";
             }
 
             if (loadingDialog && typeof loadingDialog.showModal === "function") {
@@ -2197,55 +2186,58 @@
 
             const dropdown = document.getElementById("header-assessment-id");
             const value = dropdown.value;
+            showLoading('Saving...');
             if (!(value === '')) {
-                saving();
                 google.script.run
                 .withSuccessHandler(res => {
                   if (res){
                       google.script.run.withSuccessHandler(d => {
                           populateDropdown(d);
                           assessmentIDshowValue(formData['b']);
-                          saveSuccess();
+                          hideLoading();
+                          messageModal("Updated successfully!");
                       }).getRecordIds('Results');
                   } else {
-                      saveError();
+                      messageModal("Error saving");
                   }
                 })
-                .withFailureHandler(saveError)
+                .withFailureHandler((e) => {
+                    messageModal("Error saving");
+                })
                 .atualizarLinhaPorValor(formData, value);
             } else {
-                saving();
                 google.script.run
                 .withSuccessHandler(() => {
                     google.script.run.withSuccessHandler(d => {
                         populateDropdown(d);
                         assessmentIDshowValue(formData['b']);
-                        saveSuccess();
+                        hideLoading();
+                        messageModal("Saved successfully!");
                     }).getRecordIds('Results');
                 })
-                .withFailureHandler(saveError)
+                .withFailureHandler((e) => {
+                    messageModal("Error updating");
+                })
                 .saveDataToSheet(formData);
             }          
         }
 
-        function saveSuccess() {
-            document.getElementById('loading').close();
-            document.getElementById('saved').showModal();
-            document.getElementById('dialog_saved').addEventListener('click', () => {
-                document.getElementById('saved').close();
-            });
-        }
+        const messageDialog = document.getElementById('messageDialog');
+        function messageModal(message) {
+            if (message) {
+                messageDialog.querySelector('h2').innerText = message;
+            } else {
+                messageDialog.querySelector('h2').innerText = "";
+            }
 
-        function saveError() {
-            document.getElementById('loading').close();
-            document.getElementById('not-saved').showModal();
-            document.getElementById('dialog_not_saved').addEventListener('click', () => {
-                document.getElementById('dialog_not_saved').close();
-            });
-        }
-
-        function saving() {
-          document.getElementById('loading').showModal();
+            if (messageDialog && typeof messageDialog.showModal === "function") {
+                if (!messageDialog.open) {
+                    messageDialog.showModal();
+                    document.getElementById('dialog_message_close').onclick = () => {
+                        messageDialog.close();
+                    };
+                }
+            }
         }
      
         function errorSaveEmptyID() {
