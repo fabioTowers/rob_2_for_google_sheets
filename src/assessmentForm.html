@@ -1923,9 +1923,8 @@
                     hideLoading();
                 })
                 .withFailureHandler(function(error) {
-                    console.error("Erro ao carregar:", error);
                     hideLoading();
-                    alert("Erro ao carregar dados: " + error.message);
+                    messageModal("Error loading data");
                 })
                 .getRecordIds('Results');
         }
