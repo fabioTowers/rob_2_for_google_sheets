@@ -2215,11 +2215,11 @@
                           messageModal("Updated successfully!");
                       }).getRecordIds('Results');
                   } else {
-                      messageModal("Error saving");
+                      messageModal("Error updating");
                   }
                 })
                 .withFailureHandler((e) => {
-                    messageModal("Error saving");
+                    messageModal("Error updating");
                 })
                 .atualizarLinhaPorValor(formData, value);
             } else {
@@ -2233,7 +2233,7 @@
                     }).getRecordIds('Results');
                 })
                 .withFailureHandler((e) => {
-                    messageModal("Error updating");
+                    messageModal("Error saving");
                 })
                 .saveDataToSheet(formData);
             }          
