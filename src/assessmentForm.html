@@ -1874,6 +1874,24 @@
             });
         }
 
+        const messageDialog = document.getElementById('messageDialog');
+        function messageModal(message) {
+            if (message) {
+                messageDialog.querySelector('h2').innerText = message;
+            } else {
+                messageDialog.querySelector('h2').innerText = "";
+            }
+
+            if (messageDialog && typeof messageDialog.showModal === "function") {
+                if (!messageDialog.open) {
+                    messageDialog.showModal();
+                    document.getElementById('dialog_message_close').onclick = () => {
+                        messageDialog.close();
+                    };
+                }
+            }
+        }
+
         const loadingDialog = document.getElementById('loadingDialog');
 
         function showLoading(message) {
@@ -2220,24 +2238,6 @@
                 })
                 .saveDataToSheet(formData);
             }          
-        }
-
-        const messageDialog = document.getElementById('messageDialog');
-        function messageModal(message) {
-            if (message) {
-                messageDialog.querySelector('h2').innerText = message;
-            } else {
-                messageDialog.querySelector('h2').innerText = "";
-            }
-
-            if (messageDialog && typeof messageDialog.showModal === "function") {
-                if (!messageDialog.open) {
-                    messageDialog.showModal();
-                    document.getElementById('dialog_message_close').onclick = () => {
-                        messageDialog.close();
-                    };
-                }
-            }
         }
      
         function errorSaveEmptyID() {
