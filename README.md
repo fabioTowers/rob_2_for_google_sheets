@@ -33,6 +33,7 @@ Examples of use of this implementation:
 - [How to use](#how-to-use)
   - [Make a copy of the RoB 2 spreadsheet](#make-a-copy-of-the-rob-2-spreadsheet)
   - [Authorise the execution of the script](#authorise-the-execution-of-the-script)
+  - [Create a new assessment](#create-a-new-assessment)
 
 ## System and software requirements
 
