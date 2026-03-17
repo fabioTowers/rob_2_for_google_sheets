@@ -77,3 +77,19 @@ That's it, you now have access to all the spreadsheet's features. Authorisation 
 
 > [!NOTE]
 > At the end of the authorisation process, you will likely receive an automatic email from Google informing you that the script now has access to some of your account data. Again, this is a standard message, and in this case, there is no cause for concern. Google allows users to check which apps have access to their account data at any time and allows users to cancel access at any time.
+
+### Create a new assessment
+
+1. To register a new assessment, you must open the assessment form (by clicking on the *RoB 2 Assessment Form* button in the spreadsheet or in the *RoB 2* menu).
+With the form open, select the *New:* option: in the *Assessment ID* selection box, if it is not already selected.
+
+2. Please fill in the information in the fields provided on the tabs. The *Assessment ID* field is mandatory, and you cannot use an ID that has already been used. It is important that the *Assessment ID* is unique for each study and outcome being assessed, because when using the Discrepancy Check feature, the spreadsheet checks for records with the same ID on the Check sheet (entered by another assessor).
+
+3. Once you have filled in the details, click the *Save* button.
+
+> [!NOTE]
+> Double-clicking on the signalling question causes guidance on answering the signalling question to appear.
+> 
+> RoB 2 incorporates an algorithm to produce risk of bias judgements for each domain, based on the answers to the signalling questions.
+> 
+> There is a box that enables you to input a weight for each result. This is set to 1.00 by default (each result has equal weight), but can be edited to reflect the weight given to the result has in the meta-analysis. This is only relevant for the plots created by clicking the ‘Summary’ button on the ‘Intro’ sheet (explained below). Note that weights should be entered in the same format for all studies (e.g. decimal or percentage).
