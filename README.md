@@ -86,7 +86,7 @@ That's it, you now have access to all the spreadsheet's features. Authorisation 
 1. To register a new assessment, you must open the assessment form (by clicking on the *RoB 2 Assessment Form* button in the spreadsheet or in the *RoB 2* menu).
 With the form open, select the *New:* option: in the *Assessment ID* selection box at the top of the form, if it is not already selected.
 
-2. Please fill in the information in the fields provided on the tabs. The *Assessment ID* (on *Basic information* tab) field is mandatory, and you cannot use an ID that has already been used. It is important that the *Assessment ID* is unique for each study and outcome being assessed, because when using the Discrepancy Check feature, the spreadsheet checks for records with the same ID on the Check sheet (entered by another assessor).
+2. Please fill in the information in the fields provided on the tabs. The *Assessment ID* (on *Basic information* tab) field is mandatory, and you cannot use an ID that has already been used. It is important that the *Assessment ID* is unique for each study and outcome being assessed, because when using the Discrepancy Check feature, the spreadsheet checks for records with the same ID on the 'Check' sheet (entered by another assessor).
 
 3. Once you have filled in the details, click the *Save* button.
 
@@ -95,7 +95,7 @@ With the form open, select the *New:* option: in the *Assessment ID* selection b
 > 
 > - RoB 2 incorporates an algorithm to produce risk of bias judgements for each domain, based on the answers to the signalling questions.
 > 
-> - There is a box that enables you to input a weight for each result. This is set to 1.00 by default (each result has equal weight), but can be edited to reflect the weight given to the result has in the meta-analysis. This is only relevant for the plots created by clicking the ‘Summary’ button on the ‘Intro’ sheet (explained below). Note that weights should be entered in the same format for all studies (e.g. decimal or percentage).
+> - There is a box that enables you to input a weight for each result. This is set to 1.00 by default (each result has equal weight), but can be edited to reflect the weight given to the result has in the meta-analysis. This is only relevant for the plots created by clicking the *Summary* button on the 'Intro' sheet (explained below). Note that weights should be entered in the same format for all studies (e.g. decimal or percentage).
 
 ### Editing existing assessments
 
@@ -104,14 +104,14 @@ There are two ways to edit an existing entry: a) by using the interactive form; 
 a) Using the interactive form:
  1. In the *Assessment ID* drop-down menu at the top of the form, select the item you wish to edit and the form will be populated.
  2. Make the necessary edits.
- 3. Click the 'Save' button.
+ 3. Click the *Save* button.
 
 b) Editing sheet results directly:
  1. Find the sheet 'Results'.
  2. Make the necessary edits.
 
 > [!NOTE]
-> When editing the Results sheet directly, the suggested risk of bias (algorithm) is not updated automatically. If changes have been made to the answers to the signalling questions, you must reopen the form, select the updated record and click the *Save* button.
+> When editing the 'Results' sheet directly, the suggested risk of bias (algorithm) is not updated automatically. If changes have been made to the answers to the signalling questions, you must reopen the form, select the updated record and click the *Save* button.
 
 ### Deleting an existing assessment
 
