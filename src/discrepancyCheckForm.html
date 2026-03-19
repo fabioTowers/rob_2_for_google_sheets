@@ -3444,16 +3444,67 @@
     var planDataCheck = [];
     var planDataCheckParsed = [];
 
+    const messageDialog = document.getElementById('messageDialog');
+    function messageModal(message) {
+      if (message) {
+        messageDialog.querySelector('h2').innerText = message;
+      } else {
+        messageDialog.querySelector('h2').innerText = "";
+      }
+
+      if (messageDialog && typeof messageDialog.showModal === "function") {
+        if (!messageDialog.open) {
+          messageDialog.showModal();
+          document.getElementById('dialog_message_close').onclick = () => {
+            messageDialog.close();
+          };
+        }
+      }
+    }
+
+    const loadingDialog = document.getElementById('loadingDialog');
+    function showLoading(message) {
+      if (message) {
+          loadingDialog.querySelector('p').innerText = message;
+      } else {
+          loadingDialog.querySelector('p').innerText = "";
+      }
+
+      if (loadingDialog && typeof loadingDialog.showModal === "function") {
+        if (!loadingDialog.open) {
+          loadingDialog.showModal();
+        }
+      }
+    }
+
+    function hideLoading() {
+      if (loadingDialog && loadingDialog.open) {
+        loadingDialog.close();
+      }
+    }
+
+    function loadData() {
+      showLoading('Loading...');
+
+      google.script.run
+        .withSuccessHandler(function(data) {
+          populateDropdown(data);
+          hideLoading();
+        })
+        .withFailureHandler(function(error) {
+          hideLoading();
+          messageModal("Error loading data");
+        })
+        .getRecordIds('Results');
+    }
     
     document.addEventListener('DOMContentLoaded', function () {
       initDateTime();
       syncFields();
-
       
       document.getElementById('domain-2-tab-button').addEventListener('click', function () {
         switchTab(activeDomain2TabId);
       });
-
       
       toggleConditionalField();
 
@@ -3461,13 +3512,7 @@
       document.querySelector('.tab-button.active').classList.remove('active');
       document.querySelector('.tab-button[onclick="switchTab(\'study-info\')"]').classList.add('active');
 
-      google.script.run
-        .withSuccessHandler(dataFromResults => {
-          google.script.run
-            .withSuccessHandler(dataFromCheck => {
-              populateDropdown(dataFromResults, dataFromCheck);
-            }).getRecordIds('Check');
-        }).getRecordIds('Results');
+      loadData();
 
       const inputElement = document.getElementById('assessment-id');
       if (inputElement) {
