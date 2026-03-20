@@ -38,7 +38,7 @@ Examples of use of this implementation:
   - [Create a new assessment](#create-a-new-assessment)
   - [Editing existing assessments](#editing-existing-assessments)
   - [Deleting an existing assessment](#deleting-an-existing-assessment)
-- [License]
+- [License](#license)
 
 ## System and software requirements
 
@@ -124,3 +124,4 @@ You will need to delete an existing assessment in the 'Results' sheet:
 
 ## License
 
+Licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).
