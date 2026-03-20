@@ -1,6 +1,6 @@
 # RoB 2 for Google Sheets
 
-[![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 RoB 2 is a tool, developed by the Cochrane Colaboration, to assessing risk of bias in randomized clinical trials. The tool was originally implemented using Microsoft Excel spreadsheets and macros. This repository contains a version of the same tool using Google Sheets.
 
@@ -38,6 +38,7 @@ Examples of use of this implementation:
   - [Create a new assessment](#create-a-new-assessment)
   - [Editing existing assessments](#editing-existing-assessments)
   - [Deleting an existing assessment](#deleting-an-existing-assessment)
+- [License]
 
 ## System and software requirements
 
@@ -120,3 +121,6 @@ b) Editing sheet results directly:
 You will need to delete an existing assessment in the 'Results' sheet:
 1. Find the row corresponding to the assessment you wish to delete in the 'Results' sheet.
 2. Delete the whole row.
+
+## License
+
