@@ -124,4 +124,4 @@ You will need to delete an existing assessment in the 'Results' sheet:
 
 ## License
 
-Licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).
+Licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). See [LICENSE.md](LICENSE.md) for more informations.
