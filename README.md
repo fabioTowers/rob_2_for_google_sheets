@@ -6,8 +6,8 @@ The implementation of RoB 2 for Google Sheets aims to facilitate and popularize 
 
 This page will only describe information specific to the use of this particular implementation. For general questions about the RoB 2 tool, please consult the tool's original manual (available at this link: https://drive.google.com/file/d/19R9savfPdCHC8XLz2iiMvL_71lPJERWK/view).
 
-> [!WARNING]
-> This implementation of the RoB 2 tool is in the testing phase and has not yet been validated for use. The official source of instructions and tools on risk of bias assessment, from the Cochrane Collaboration, is available only at [www.riskofbias.info](www.riskofbias.info).
+> [!NOTE]
+> This implementation of RoB 2 was based on the tool’s original implementation as described in the manuals, publications and the features of the Excel version. The official source of instructions and tools on risk of bias assessment, from the Cochrane Collaboration, is available at [www.riskofbias.info](www.riskofbias.info).
 
 ---
 Examples of use of this implementation:
@@ -118,3 +118,7 @@ b) Editing sheet results directly:
 You will need to delete an existing assessment in the 'Results' sheet:
 1. Find the row corresponding to the assessment you wish to delete in the 'Results' sheet.
 2. Delete the whole row.
+
+## License
+
+[![CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
