@@ -5570,6 +5570,7 @@
         defaultOption.value = "";
         defaultOption.text = "New:";
         select.appendChild(defaultOption);
+        select.dispatchEvent(new Event('change'));
         updateStatus('edit');
 
         select.classList.remove("header-field");
@@ -5581,6 +5582,7 @@
         noDataOption.value = "";
         noDataOption.text = "New:";
         select.appendChild(noDataOption);
+        select.dispatchEvent(new Event('change'));
         updateStatus('new');
       }
 
