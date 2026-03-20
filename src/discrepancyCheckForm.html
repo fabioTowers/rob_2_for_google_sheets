@@ -3470,9 +3470,17 @@
       showLoading('Loading...');
 
       google.script.run
-        .withSuccessHandler(function(data) {
-          populateDropdown(data);
-          hideLoading();
+        .withSuccessHandler(dataFromResults => {
+          google.script.run
+            .withSuccessHandler(dataFromCheck => {
+              populateDropdown(dataFromResults, dataFromCheck);
+              hideLoading();
+            })
+            .withFailureHandler(function(error) {
+              hideLoading();
+              messageModal("Error loading data");
+            })
+            .getRecordIds('Check');
         })
         .withFailureHandler(function(error) {
           hideLoading();
