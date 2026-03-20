@@ -2993,23 +2993,6 @@
       <button class="btn btn-close" id="dialog_message_close">Close</button>
     </dialog>
 
-    <dialog id="saved">
-      <h2>Saved successfully!</h2>
-      <br>
-      <button class="btn btn-close" id="dialog_saved">Close</button>
-    </dialog>
-
-    <dialog id="not-saved">
-      <h2>Error saving</h2>
-      <br>
-      <button class="btn btn-close" id="dialog_not_saved">Close</button>
-    </dialog>
-
-    <dialog id="loading">
-      <h2>Recording changes...</h2>
-      <br>
-    </dialog>
-
   </div>
 
   <script>
@@ -5422,57 +5405,44 @@
 
       const dropdown = document.getElementById("header-assessment-id");
       const value = dropdown.value;
+      showLoading('Saving...');
       if (!(value === '')) {
-        saving();
         google.script.run
           .withSuccessHandler(res => {
             if (res) {
               google.script.run.withSuccessHandler(d => {
                 populateDropdown(d, planDataCheck);
                 assessmentIDshowValue(formData['b']);
-                saveSuccess();
+                hideLoading();
+                messageModal("Updated successfully!");
               }).getRecordIds('Results');
             } else {
-              saveError();
+              messageModal("Error updating");
             }
           })
-          .withFailureHandler(saveError)
+          .withFailureHandler((e) => {
+            messageModal("Error updating");
+          })
           .atualizarLinhaPorValor(formData, value);
       } else {
-        saving();
         google.script.run
           .withSuccessHandler(() => {
             google.script.run.withSuccessHandler(d => {
               populateDropdown(d, planDataCheck);
               assessmentIDshowValue(formData['b']);
-              saveSuccess();
+              hideLoading();
+              messageModal("Saved successfully!");
             })
-            .withFailureHandler(saveError)
+            .withFailureHandler((e) => {
+              messageModal("Error saving");
+            })
             .getRecordIds('Results');
           })
-          .withFailureHandler(saveError)
+          .withFailureHandler((e) => {
+            messageModal("Error saving");
+          })
           .saveDataToSheet(formData);
       }
-    }
-
-    function saveSuccess() {
-      document.getElementById('loading').close();
-      document.getElementById('saved').showModal();
-      document.getElementById('dialog_saved').addEventListener('click', () => {
-        document.getElementById('saved').close();
-      });
-    }
-
-    function saveError() {
-      document.getElementById('loading').close();
-      document.getElementById('not-saved').showModal();
-      document.getElementById('dialog_not_saved').addEventListener('click', () => {
-        document.getElementById('dialog_not_saved').close();
-      });
-    }
-
-    function saving() {
-      document.getElementById('loading').showModal();
     }
 
     var planData = []
