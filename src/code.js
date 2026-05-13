@@ -3,7 +3,7 @@ function onOpen() {
   ui.createMenu('RoB 2')
     .addItem('Assessment Form', 'showAssessmentForm')
     .addItem('Summary', 'populateSummary')
-    .addItem('Figures', 'generateFigures')
+    .addItem('Figures', 'generateSheetTabFigures')
     .addItem('Generating a Print View', 'generatePrintView')
     .addItem('Discrepancy Check', 'showDiscrepancyCheckForm')
     .addToUi();
@@ -376,12 +376,40 @@ function populateSummary() {
   }
 }
 
-function generateFigures() {
+function getRobResults() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const resultsSheet = ss.getSheetByName('Results');
+
+  const resultsData = resultsSheet.getRange('B3:CB' + resultsSheet.getLastRow()).getValues();
+  results = [];
+
+  for (let i = 0; i < resultsData.length; i++) {
+    const row = resultsData[i];
+
+    study = {
+      'studyId': row[0],
+      'outcome': row[6],
+      'analysisType': row[8],
+      'd1': row[18],
+      'd2': row[36],
+      'd3': row[48],
+      'd4': row[62],
+      'd5': row[73],
+      'overall': row[78],
+    };
+
+    if (Object.values(study).every(value => value)) {
+      results.push(study);
+    }
+  }
+  
+  return results;
+}
+
+function generateSheetTabFigures() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
   const figureITTSheet = ss.getSheetByName('Figure (ITT)');
   const figurePPSheet = ss.getSheetByName('Figure (PP)');
-
 
   if (figureITTSheet.getLastRow() > 1) {
     figureITTSheet.getRange('A2:I' + figureITTSheet.getLastRow()).clearContent();
@@ -390,50 +418,37 @@ function generateFigures() {
     figurePPSheet.getRange('A2:I' + figurePPSheet.getLastRow()).clearContent();
   }
 
-  const resultsData = resultsSheet.getRange('B3:CB' + resultsSheet.getLastRow()).getValues();
+  results = getRobResults();
+  
+  if (results.length > 0) {
+    
+    let nextIttRow = 2;
+    let nextPpRow = 2;
 
-  let nextIttRow = 2;
-  let nextPpRow = 2;
+    const lowRiskImg = 'K2';
+    const someConcernsImg = 'K3';
+    const highRiskImg = 'K4';
 
-  const lowRiskImg = 'K2';
-  const someConcernsImg = 'K3';
-  const highRiskImg = 'K4';
+    let targetSheet;
+    let targetRow;
 
-  for (let i = 0; i < resultsData.length; i++) {
-    const row = resultsData[i];
-
-    const studyId = row[0];
-    const aod = row[6];
-    const analysisType = row[8];
-    const riskT = row[18];
-    const riskAL = row[36];
-    const riskAX = row[48];
-    const riskBL = row[62];
-    const riskBW = row[73];
-    const riskCB = row[78];
-
-    if (studyId && analysisType && aod && riskT && riskAL && riskAX && riskBL && riskBW && riskCB) {
-
-      let targetSheet;
-      let targetRow;
-
-      // 5. Determinar a aba de destino
-      if (analysisType === "assignment to intervention (the 'intention-to-treat' effect)") {
+    results.forEach(study => {
+    
+      if (study['analysisType'] === "assignment to intervention (the 'intention-to-treat' effect)") {
         targetSheet = figureITTSheet;
         targetRow = nextIttRow;
         nextIttRow++;
-      } else if (analysisType === "adhering to intervention (the 'per-protocol' effect)") {
+      } else if (study['analysisType'] === "adhering to intervention (the 'per-protocol' effect)") {
         targetSheet = figurePPSheet;
         targetRow = nextPpRow;
         nextPpRow++;
       }
 
       if (targetSheet) {
+        targetSheet.getRange('B' + targetRow).setValue(study['studyId']);
+        targetSheet.getRange('C' + targetRow).setValue(study['outcome']);
 
-        targetSheet.getRange('B' + targetRow).setValue(studyId);
-        targetSheet.getRange('C' + targetRow).setValue(aod);
-
-        const riskValues = [riskT, riskAL, riskAX, riskBL, riskBW, riskCB];
+        const riskValues = [study['d1'], study['d2'], study['d3'], study['d4'], study['d5'], study['overall']];
         const targetColumns = ['D', 'E', 'F', 'G', 'H', 'I'];
 
         for (let j = 0; j < riskValues.length; j++) {
@@ -451,7 +466,7 @@ function generateFigures() {
           }
         }
       }
-    }
+    });
   }
 }
 
