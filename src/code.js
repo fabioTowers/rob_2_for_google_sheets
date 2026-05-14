@@ -6,6 +6,7 @@ function onOpen() {
     .addItem('Figures', 'generateSheetTabFigures')
     .addItem('Generating a Print View', 'generatePrintView')
     .addItem('Discrepancy Check', 'showDiscrepancyCheckForm')
+    .addItem('Traffic Light Plot', 'showTrafficLightPlot')
     .addToUi();
 }
 
@@ -24,6 +25,16 @@ function showAssessmentForm() {
     .setHeight(800);
 
   SpreadsheetApp.getUi().showModalDialog(html, 'RoB 2 assessment for individual randomized, parallel group trials');
+}
+
+function showTrafficLightPlot() {
+  const template = HtmlService.createTemplateFromFile('trafficLightPlot');
+
+  const html = template.evaluate()
+    .setWidth(900)
+    .setHeight(650);
+  
+  SpreadsheetApp.getUi().showModalDialog(html, 'Traffic Light Plot');
 }
 
 function include(filename) {
