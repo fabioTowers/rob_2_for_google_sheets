@@ -2,8 +2,15 @@
 <html>
   <head>
     <base target="_top">
+    <?!= include('tlpStyleSheet'); ?>
   </head>
   <body>
-    
+    <div class="controls">
+      <select class="select-analysis-type">
+        <option selected value="itt">Figure (ITT)</option>
+        <option value="pp">Figure (PP)</option>
+      </select>
+      <button class="btn-download">Download</button>
+    </div>
   </body>
 </html>
