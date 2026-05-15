@@ -414,7 +414,7 @@ function getRobResults() {
     }
   }
   
-  return results;
+  return JSON.stringify(results);
 }
 
 function generateSheetTabFigures() {
@@ -429,7 +429,11 @@ function generateSheetTabFigures() {
     figurePPSheet.getRange('A2:I' + figurePPSheet.getLastRow()).clearContent();
   }
 
-  results = getRobResults();
+  jsonResults = getRobResults();
+  results = []
+  if (jsonResults) {
+    results = JSON.parse(jsonResults);
+  }
   
   if (results.length > 0) {
     
