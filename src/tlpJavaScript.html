@@ -1,3 +1,9 @@
 <script>
-  
+  document.addEventListener('DOMContentLoaded', function () {
+    google.script.run
+      .withSuccessHandler(jsonRobResults => {
+        console.log(jsonRobResults);
+      })
+      .getRobResults();
+  });
 </script>
