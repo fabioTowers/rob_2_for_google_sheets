@@ -10,7 +10,7 @@
       .withFailureHandler(function(error) {
         hideLoading();
         messageModal("Error loading data");
-        console.log(error);
+        console.error("Spreadsheet error: ", error);
       })
       .getRobResults();
   });
