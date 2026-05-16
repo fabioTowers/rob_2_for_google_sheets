@@ -1,9 +1,32 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    showLoading('Loading...');
+
     google.script.run
       .withSuccessHandler(jsonRobResults => {
         console.log(jsonRobResults);
+        hideLoading();
       })
       .getRobResults();
   });
+
+  const loadingDialog = document.getElementById('loading_dialog');
+  function showLoading(message) {
+    if (message) {
+      loadingDialog.querySelector('p').innerText = message;
+    } else {
+      loadingDialog.querySelector('p').innerText = "";
+    }
+
+    if (loadingDialog && typeof loadingDialog.showModal === "function") {
+      if (!loadingDialog.open) {
+        loadingDialog.showModal();
+      }
+    }
+  }
+  function hideLoading() {
+    if (loadingDialog && loadingDialog.open) {
+      loadingDialog.close();
+    }
+  }
 </script>
