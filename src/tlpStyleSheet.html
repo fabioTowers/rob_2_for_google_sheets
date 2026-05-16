@@ -49,20 +49,20 @@
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    
+
     border: none;
     outline: none;
     appearance: none;
-    
+
     background: white;
-    
+
     border-radius: 8px;
     box-shadow: 0 0 2em rgba(0,0,0,.3);
-    
+
     width: 90%;
     max-width: 600px;
     padding: 1.5rem;
-    
+
     backface-visibility: hidden;
   }
 
@@ -96,5 +96,22 @@
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+
+  .btn-close {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 11px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+
+  .btn-close:hover {
+    background-color: #e0e0e0;
   }
 </style>

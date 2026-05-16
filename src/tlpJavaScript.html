@@ -7,6 +7,11 @@
         console.log(jsonRobResults);
         hideLoading();
       })
+      .withFailureHandler(function(error) {
+        hideLoading();
+        messageModal("Error loading data");
+        console.log(error);
+      })
       .getRobResults();
   });
 
@@ -27,6 +32,24 @@
   function hideLoading() {
     if (loadingDialog && loadingDialog.open) {
       loadingDialog.close();
+    }
+  }
+
+  const messageDialog = document.getElementById('messageDialog');
+  function messageModal(message) {
+    if (message) {
+      messageDialog.querySelector('h2').innerText = message;
+    } else {
+      messageDialog.querySelector('h2').innerText = "";
+    }
+
+    if (messageDialog && typeof messageDialog.showModal === "function") {
+      if (!messageDialog.open) {
+        messageDialog.showModal();
+        document.getElementById('dialog_message_close').onclick = () => {
+          messageDialog.close();
+        };
+      }
     }
   }
 </script>
