@@ -400,7 +400,7 @@ function getRobResults() {
     study = {
       'studyId': row[0],
       'outcome': row[6],
-      'analysisType': row[8],
+      'analysisType': row[8] === "adhering to intervention (the 'per-protocol' effect)" ? 'pp' : 'itt',
       'd1': row[18],
       'd2': row[36],
       'd3': row[48],
@@ -449,11 +449,11 @@ function generateSheetTabFigures() {
 
     results.forEach(study => {
     
-      if (study['analysisType'] === "assignment to intervention (the 'intention-to-treat' effect)") {
+      if (study['analysisType'] === "itt") {
         targetSheet = figureITTSheet;
         targetRow = nextIttRow;
         nextIttRow++;
-      } else if (study['analysisType'] === "adhering to intervention (the 'per-protocol' effect)") {
+      } else if (study['analysisType'] === "pp") {
         targetSheet = figurePPSheet;
         targetRow = nextPpRow;
         nextPpRow++;
