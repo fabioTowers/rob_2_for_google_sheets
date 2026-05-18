@@ -13,6 +13,40 @@
       <button class="btn-download">Download</button>
     </div>
 
+    <div class="container" id="captureArea">
+      <div id="figureTitle">Intention-to-treat</div>
+      <div class="table-title">Risk of bias domains</div>
+      <table id="tableRoB">
+        <thead>
+          <tr>
+            <th style="border:none" class="side-label"></th>
+            <th style="border:none" class="study-name-cell"></th>
+            <th class="bg-gray-header domain-cell">D1</th>
+            <th class="bg-gray-header domain-cell">D2</th>
+            <th class="bg-gray-header domain-cell">D3</th>
+            <th class="bg-gray-header domain-cell">D4</th>
+            <th class="bg-gray-header domain-cell">D5</th>
+            <th class="bg-gray-header domain-cell">Overall</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+
+      <div class="legend-wrapper">
+        <div class="legend-section">
+          <div class="legend-title">Domains:</div>
+          <div>D1: Bias arising from the randomization process.</div>
+          <div>D2: Bias due to deviations from intended intervention.</div>
+          <div>D3: Bias due to missing outcome data.</div>
+          <div>D4: Bias in measurement of the outcome.</div>
+          <div>D5: Bias in selection of the reported result.</div>
+        </div>
+        <div class="legend-section" id="legendJudgement">
+          <div class="legend-title">Judgement</div>
+        </div>
+      </div>
+    </div>
+
     <dialog id="loading_dialog" class="loading-dialog">
       <div class="spinner-container">
         <div class="spinner"></div>
