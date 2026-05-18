@@ -1,10 +1,25 @@
 <script>
+  const ittRobResults = [];
+  const ppRobResults = [];
+
   document.addEventListener('DOMContentLoaded', function () {
     showLoading('Loading...');
 
     google.script.run
       .withSuccessHandler(jsonRobResults => {
-        console.log(jsonRobResults);
+        
+        if (jsonRobResults) {
+          robResults = JSON.parse(jsonRobResults);
+          
+          robResults.forEach(element => {
+            if (element.analysisType === 'itt'){
+              ittRobResults.push(element);
+            } else {
+              ppRobResults.push(element);
+            }
+          });
+        }
+
         hideLoading();
       })
       .withFailureHandler(function(error) {
