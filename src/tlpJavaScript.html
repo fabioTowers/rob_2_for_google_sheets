@@ -2,9 +2,31 @@
   const ittRobResults = [];
   const ppRobResults = [];
 
+  function renderLegend() {
+    const container = document.getElementById('legendJudgement');
+    if (!container) return;
+    
+    container.innerHTML = '<div class="legend-title">Judgement</div>';
+    
+    const items = [
+      { t: "high", label: "High" },
+      { t: "some", label: "Some concerns" },
+      { t: "low", label: "Low" }
+    ];
+    
+    items.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'legend-item';
+      div.innerHTML = `
+        <div class="legend-circle-container">${createSVG(item.t, 20)}</div>
+        <span>${item.label}</span>`;
+      container.appendChild(div);
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     showLoading('Loading...');
-
+    renderLegend();
     google.script.run
       .withSuccessHandler(jsonRobResults => {
         
