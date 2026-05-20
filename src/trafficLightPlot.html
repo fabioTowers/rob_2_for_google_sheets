@@ -6,7 +6,7 @@
   </head>
   <body>
     <div class="controls">
-      <select class="select-analysis-type">
+      <select id="analysisSelect" class="select-analysis-type" onchange="handleAnalysisChange()">
         <option selected value="itt">Figure (ITT)</option>
         <option value="pp">Figure (PP)</option>
       </select>

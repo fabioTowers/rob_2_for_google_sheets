@@ -104,6 +104,26 @@
       .getRobResults();
   });
 
+  function handleAnalysisChange() {
+    const selectElement = document.getElementById('analysisSelect');
+    const selectedValue = selectElement.value;
+    const titleElement = document.getElementById('figureTitle');
+    const tableBody = document.getElementById('tableBody');
+
+    showLoading('Loading...');
+    tableBody.innerHTML = "";
+    
+    if (selectedValue === 'itt') {
+      titleElement.innerText = "Intention-to-treat";
+      renderTable(ittRobResults);
+    } else if (selectedValue === 'pp') {
+      titleElement.innerText = "Per-protocol";
+      renderTable(ppRobResults);
+    }
+
+    hideLoading();
+  }
+
   const loadingDialog = document.getElementById('loading_dialog');
   function showLoading(message) {
     if (message) {
