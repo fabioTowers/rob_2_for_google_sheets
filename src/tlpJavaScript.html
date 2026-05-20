@@ -24,6 +24,56 @@
     });
   }
 
+  function renderTable(robData) {
+    const tableBody = document.getElementById('tableBody');
+    if (!robData || robData.length === 0) {
+      console.warn("No data found in the 'Results' sheet.");
+      return;
+    }
+
+    robData.forEach((study, index) => {
+      const tr = document.createElement('tr');
+      
+      if (index === 0) {
+        const tdSide = document.createElement('td');
+        tdSide.rowSpan = robData.length;
+        tdSide.className = 'side-label';
+        tdSide.innerHTML = '<div>Study</div>';
+        tr.appendChild(tdSide);
+      }
+
+      const tdName = document.createElement('td');
+      tdName.className = 'study-name-cell bg-gray-header';
+      tdName.innerText = study.studyId || "";
+      tr.appendChild(tdName);
+
+      const properties = ['d1', 'd2', 'd3', 'd4', 'd5', 'overall']
+      properties.forEach((p) => {
+        const tdDom = document.createElement('td');
+
+        if (p != 'overall') {
+          tdDom.className = 'domain-cell';
+        } else {
+          tdDom.className = 'domain-cell bg-overall';
+        }
+
+        let d = study[p] ? study[p].toString().trim().toLowerCase() : "";
+        let judgement = "";
+
+        if (d === "low") judgement = "low";
+        else if (d === "some concerns") judgement = "some";
+        else if (d === "high") judgement = "high";
+
+        if (judgement) {
+          tdDom.innerHTML = createSVG(judgement, 35);
+        }
+
+        tr.appendChild(tdDom);
+      });
+      tableBody.appendChild(tr);
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     showLoading('Loading...');
     renderLegend();
@@ -40,6 +90,8 @@
               ppRobResults.push(element);
             }
           });
+
+          renderTable(ittRobResults);
         }
 
         hideLoading();
