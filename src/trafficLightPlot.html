@@ -2,6 +2,7 @@
 <html>
   <head>
     <base target="_top">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <?!= include('tlpStyleSheet'); ?>
   </head>
   <body>
@@ -10,7 +11,7 @@
         <option selected value="itt">Figure (ITT)</option>
         <option value="pp">Figure (PP)</option>
       </select>
-      <button class="btn-download">Download</button>
+      <button class="btn-download" onclick="generatePNG()">Download</button>
     </div>
 
     <div class="container" id="captureArea">

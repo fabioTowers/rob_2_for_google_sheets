@@ -201,4 +201,25 @@
         ${metricSignal}
       </svg>`;
   }
+
+  function generatePNG() {
+    const area = document.getElementById('captureArea');
+    const targetSize = 3600; 
+    const currentWidth = area.getBoundingClientRect().width;
+    const customScale = targetSize / currentWidth;
+
+    html2canvas(area, {
+      scale: customScale,
+      backgroundColor: "#ffffff",
+      useCORS: true,
+      logging: false,
+      width: area.scrollWidth,
+      height: area.scrollHeight
+    }).then(canvas => {
+      const link = document.createElement('a');
+      link.download = 'traffic_light_plot.png';
+      link.href = canvas.toDataURL("image/png", 1.0);
+      link.click();
+    });
+  }
 </script>
