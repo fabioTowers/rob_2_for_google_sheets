@@ -207,6 +207,8 @@
     const targetSize = 3600; 
     const currentWidth = area.getBoundingClientRect().width;
     const customScale = targetSize / currentWidth;
+    const selectElement = document.getElementById('analysisSelect');
+    const selectedValue = selectElement.value;
 
     html2canvas(area, {
       scale: customScale,
@@ -217,7 +219,7 @@
       height: area.scrollHeight
     }).then(canvas => {
       const link = document.createElement('a');
-      link.download = 'traffic_light_plot.png';
+      link.download = 'traffic_light_plot_' + selectedValue + '.png';
       link.href = canvas.toDataURL("image/png", 1.0);
       link.click();
     });
