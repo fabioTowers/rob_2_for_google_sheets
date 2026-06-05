@@ -1,6 +1,7 @@
 # RoB 2 for Google Sheets
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+![GitHub Release](https://img.shields.io/github/v/release/fabioTowers/rob_2_for_google_sheets)
 
 RoB 2 is a tool, developed by the Cochrane Colaboration, to assessing risk of bias in randomized clinical trials. The tool was originally implemented using Microsoft Excel spreadsheets and macros. This repository contains a version of the same tool using Google Sheets.
 
@@ -19,7 +20,7 @@ Examples of use of this implementation:
 
 ![Print screen overall bias](images/print_screen_3.png)
 
-![Print screen intention-to-treat traffic light chart](images/print_screen_4.png)
+![Print screen intention-to-treat traffic light chart](images/traffic_light_plot_itt.png)
 
 > [!NOTE]
 > All credit for the development of the RoB 2 tool and its original implementation for Excel spreadsheets belongs to the following authors in the following publications:
@@ -38,6 +39,8 @@ Examples of use of this implementation:
   - [Create a new assessment](#create-a-new-assessment)
   - [Editing existing assessments](#editing-existing-assessments)
   - [Deleting an existing assessment](#deleting-an-existing-assessment)
+  - [Creating a summary table and risk of bias graph](#creating-a-summary-table-and-risk-of-bias-graph)
+    - [Download risk of bias graph](#download-risk-of-bias-graph)
 - [License](#license)
 
 ## System and software requirements
@@ -121,6 +124,25 @@ b) Editing sheet results directly:
 You will need to delete an existing assessment in the 'Results' sheet:
 1. Find the row corresponding to the assessment you wish to delete in the 'Results' sheet.
 2. Delete the whole row.
+
+### Creating a summary table and risk of bias graph
+
+This outputs details of each assessment (Assessment ID, Study ID, Reference, Outcome, Result, Weight) plus domain level and overall risk of bias judgements. It also outputs risk of bias graphs that illustrate the proportions of results or information at low risk, some concerns or high risk of bias for each domain.
+
+1. Click the *Summary* button on the 'Intro' sheet;
+
+2. All assessments should appear in the 'Summary' sheet.
+
+3. A plot of the percentage of risk of bias assessments at each level of risk of bias per domain will be displayed on the right-hand side of the sheet. The default setting results in equal weighting for each study (and the plot can be interpreted as showing the proportion of results at each level of risk of bias). If weights have been entered, the plot is weighted by this (and can be interpreted as the proportion of information at each level of risk of bias).
+
+#### Download risk of bias graph
+
+1. Click on the chart; three dots will appear in the top right-hand corner of the chart;
+
+2. Click on the three dots. Under *Download chart*, select the format you want (PNG, PDF or SVG);
+
+![instructions](images/save_rob_graph.gif)
+
 
 ## License
 
