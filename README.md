@@ -1,11 +1,11 @@
-# RoB 2 for Google Sheets
+# RoB 2 for Google Sheets (RoB 2 GS)
 
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 ![GitHub Release](https://img.shields.io/github/v/release/fabioTowers/rob_2_for_google_sheets)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-RoB 2 is a tool, developed by the Cochrane Colaboration, to assessing risk of bias in randomized clinical trials. The tool was originally implemented using Microsoft Excel spreadsheets and macros. This repository contains a version of the same tool using Google Sheets.
+Risk of Bias 2 (RoB 2) is a tool, developed by the Cochrane Colaboration, to assessing risk of bias in randomized clinical trials. The tool was originally implemented using Microsoft Excel spreadsheets using VBA macros. This repository contains a version of the same tool using Google Sheets (RoB 2 GS).
 
-The implementation of RoB 2 for Google Sheets aims to facilitate and popularize the use of the tool. Access is exclusively through a web browser, and therefore it can be accessed from any computer with internet access and on any operating system, avoiding version incompatibility issues. Sharing is done online and allows simultaneous editing by more than one user, in addition to being able to control who can have access and what type of access (read-only, edit, etc.).
+RoB 2 GS aims to facilitate and popularize the use of the tool. Access is exclusively through a web browser, and therefore it can be accessed from any computer with internet access and on any operating system, avoiding version incompatibility issues. Sharing is done online and allows simultaneous editing by more than one user, in addition to being able to control who can have access and what type of access (read-only, edit, etc.).
 
 This page will only describe information specific to the use of this particular implementation. For general questions about the RoB 2 tool, please consult the tool's original manual (available at this link: https://drive.google.com/file/d/19R9savfPdCHC8XLz2iiMvL_71lPJERWK/view).
 
@@ -13,7 +13,7 @@ This page will only describe information specific to the use of this particular 
 > This implementation of RoB 2 was based on the tool’s original implementation as described in the manuals, publications and the features of the Excel version. The official source of instructions and tools on risk of bias assessment, from the Cochrane Collaboration, is available at [www.riskofbias.info](www.riskofbias.info).
 
 ---
-Examples of use of this implementation:
+Examples of use of RoB 2 GS:
 ![Print screen domain 1](images/print_screen_1.png)
 
 ![Print screen domain 5](images/print_screen_2.png)
@@ -34,7 +34,7 @@ Examples of use of this implementation:
 ## Table of Contents
 - [System and software requirements](#system-and-software-requirements)
 - [How to use](#how-to-use)
-  - [Make a copy of the RoB 2 spreadsheet](#make-a-copy-of-the-rob-2-spreadsheet)
+  - [Make a copy of the RoB 2 GS](#make-a-copy-of-the-rob-2-spreadsheet)
   - [Authorise the execution of the script](#authorise-the-execution-of-the-script)
   - [Create a new assessment](#create-a-new-assessment)
   - [Editing existing assessments](#editing-existing-assessments)
@@ -50,7 +50,7 @@ Examples of use of this implementation:
 
 ## How to use
 
-### Make a copy of the RoB 2 spreadsheet
+### Make a copy of the RoB 2 GS
 
 1. Access the spreadsheet link: https://docs.google.com/spreadsheets/d/1ak9kmsB4Zh6xtms7-SZQ4pC7M_Ahi6hobCX81i8L7h0/copy
 
@@ -64,7 +64,7 @@ When you click on **Make a copy**, you will be directed to your copy of the spre
 
 ### Authorise the execution of the script
 
-1. When you click for the first time on one of the buttons on the **Intro** tab or on one of the items in the **RoB 2** menu (which are equivalent), you will be asked for your authorisation to run the script that implements the RoB 2 features. This authorisation procedure will only be necessary only in the first time.
+1. When you click for the first time on one of the buttons on the **Intro** tab or on one of the items in the **RoB 2** menu (which are equivalent), you will be asked for your authorisation to run the script that implements the RoB 2 GS features. This authorisation procedure will only be necessary only in the first time.
 ![Print screen authorisation pop-up](images/how_to_use_script_authorisation_1.png)
 
 2. If you clicked OK in the image above, a new browser tab or window will open asking you to choose the Google account to authorise (there may be one or more accounts currently logged in). Select the account by clicking on it.
