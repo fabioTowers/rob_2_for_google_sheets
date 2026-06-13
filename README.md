@@ -1,6 +1,6 @@
 # RoB 2 for Google Sheets (RoB 2 GS)
 
-![GitHub Release](https://img.shields.io/github/v/release/fabioTowers/rob_2_for_google_sheets)
+![GitHub Release](https://img.shields.io/github/v/release/fabioTowers/rob2_gs)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 Risk of Bias 2 (RoB 2) is a tool, developed by the Cochrane Colaboration, to assessing risk of bias in randomized clinical trials. The tool was originally implemented using Microsoft Excel spreadsheets using VBA macros. This repository contains a version of the same tool using Google Sheets (RoB 2 GS).
