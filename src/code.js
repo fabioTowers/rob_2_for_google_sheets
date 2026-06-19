@@ -389,9 +389,9 @@ function populateSummary() {
 
 function getRobResults() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const resultsSheet = ss.getSheetByName('Results');
+  const summarySheet = ss.getSheetByName('Summary');
 
-  const resultsData = resultsSheet.getRange('B3:CB' + resultsSheet.getLastRow()).getValues();
+  const resultsData = summarySheet.getRange('A2:W' + summarySheet.getLastRow()).getValues();
   results = [];
 
   for (let i = 0; i < resultsData.length; i++) {
@@ -401,12 +401,12 @@ function getRobResults() {
       'studyId': row[0],
       'outcome': row[6],
       'analysisType': row[8] === "adhering to intervention (the 'per-protocol' effect)" ? 'pp' : 'itt',
-      'd1': row[18],
-      'd2': row[36],
-      'd3': row[48],
-      'd4': row[62],
-      'd5': row[73],
-      'overall': row[78],
+      'd1': row[11],
+      'd2': row[13],
+      'd3': row[15],
+      'd4': row[17],
+      'd5': row[19],
+      'overall': row[21],
     };
 
     if (Object.values(study).every(value => value)) {
