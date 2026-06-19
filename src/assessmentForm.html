@@ -2221,7 +2221,7 @@
                 .withFailureHandler((e) => {
                     messageModal("Error updating");
                 })
-                .atualizarLinhaPorValor(formData, value);
+                .updateLinePerValue(formData, value);
             } else {
                 google.script.run
                 .withSuccessHandler(() => {

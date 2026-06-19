@@ -517,32 +517,32 @@ function saveDataToSheet(data) {
 }
 
 
-function atualizarLinhaPorValor(data, valorParaLocalizar) {
+function updateLinePerValue(data, valueSought) {
   try {
     const sheetName = "Results";
-    const planilha = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
-    const primeiraLinhaDados = 3;
-    const colunaBusca = 2;
+    const resultsSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
+    const firstLine = 3;
+    const columnSearch = 2;
 
-    const valoresColunaB = planilha.getRange(primeiraLinhaDados, colunaBusca, planilha.getLastRow() - primeiraLinhaDados + 1, 1).getValues();
+    const valuesColumnB = resultsSheet.getRange(firstLine, columnSearch, resultsSheet.getLastRow() - firstLine + 1, 1).getValues();
 
-    let linhaEncontrada = -1;
+    let lineFound = -1;
 
-    for (let i = 0; i < valoresColunaB.length; i++) {
-      if (valoresColunaB[i][0] === valorParaLocalizar) {
-        linhaEncontrada = primeiraLinhaDados + i;
+    for (let i = 0; i < valuesColumnB.length; i++) {
+      if (valuesColumnB[i][0] === valueSought) {
+        lineFound = firstLine + i;
         break;
       }
     }
 
-    if (linhaEncontrada !== -1) {
+    if (lineFound !== -1) {
 
       const columnOrder = getColumnOrder();
 
-      const valoresParaDefinir = columnOrder.map(key => data[key] || "");
+      const valuesToDefine = columnOrder.map(key => data[key] || "");
 
-      const rangeParaAtualizar = planilha.getRange(linhaEncontrada, 1, 1, valoresParaDefinir.length);
-      rangeParaAtualizar.setValues([valoresParaDefinir]);
+      const updateRange = resultsSheet.getRange(lineFound, 1, 1, valuesToDefine.length);
+      updateRange.setValues([valuesToDefine]);
 
       return true;
     } else {
