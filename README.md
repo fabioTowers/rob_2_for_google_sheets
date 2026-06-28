@@ -122,8 +122,13 @@ b) Editing sheet results directly:
 ### Deleting an existing assessment
 
 You will need to delete an existing assessment in the 'Results' sheet:
+
 1. Find the row corresponding to the assessment you wish to delete in the 'Results' sheet.
+
 2. Delete the whole row.
+
+![instructions](images/delete_assessment.gif)
+
 
 ### Creating a summary table and risk of bias graph
 
