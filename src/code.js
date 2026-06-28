@@ -387,6 +387,63 @@ function populateSummary() {
   }
 }
 
+function fillResultsWithSummaryData() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const resultsSheet = ss.getSheetByName('Results');
+  const summarySheet = ss.getSheetByName('Summary');
+
+  if (!resultsSheet || !summarySheet) {
+    SpreadsheetApp.getUi().alert('Error: Check if the "Results" and "Summary" tabs exist in your spreadsheet.');
+    return;
+  }
+
+  const lastRow = summarySheet.getLastRow();
+
+  if (lastRow < 2) {
+    SpreadsheetApp.getUi().alert('There is no data to process in the "Summary" sheet.');
+    return;
+  }
+
+  const summaryData = summarySheet.getRange(2, 1, lastRow - 1, 23).getValues();
+
+  // Summary -> Results
+  const columnMapping = {
+    0: 2,   // A -> B
+    1: 3,   // B -> C
+    2: 4,   // C -> D
+    3: 5,   // D -> E
+    4: 6,   // E -> F
+    5: 7,   // F -> G
+    6: 8,   // G -> H
+    7: 9,   // H -> I
+    8: 10,  // I -> J
+    9: 11,  // J -> K
+    10: 12, // K -> L
+    11: 20, // L -> T
+    12: 21, // M -> U
+    13: 38, // N -> AL
+    14: 39, // O -> AM
+    15: 50, // P -> AX
+    16: 51, // Q -> AY
+    17: 64, // R -> BL
+    18: 65, // S -> BM
+    19: 75, // T -> BW
+    20: 76, // U -> BX
+    21: 80, // V -> CB
+    22: 81  // W -> CC
+  };
+
+  const resultsStartRow = 3;
+
+  Object.entries(columnMapping).forEach(([summaryIndex, resultsColumn]) => {
+    const values = summaryData.map(row => [row[Number(summaryIndex)]]);
+    
+    resultsSheet
+      .getRange(resultsStartRow, resultsColumn, values.length, 1)
+      .setValues(values);
+  });
+}
+
 function getRobResults() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const summarySheet = ss.getSheetByName('Summary');
