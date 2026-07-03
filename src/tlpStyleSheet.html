@@ -10,11 +10,26 @@
     background: white;
     border-radius: 4px;
     margin-bottom: 20px;
-    text-align: center;
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    padding: 10px;
+    padding: 10px 20px;
+  }
+
+  .control-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .control-group:first-of-type {
+    margin-right: 15px;
+  }
+
+  .divider {
+    width: 1px;
+    height: 32px;
+    background-color: #d9d9d9;
+    margin-right: 15px;
   }
 
   .select-analysis-type {
@@ -37,6 +52,7 @@
     background-color: #007C3D;
     color: white;
     border-color: #007C3D;
+    margin-left: auto;
   }
 
   .btn-download:hover {

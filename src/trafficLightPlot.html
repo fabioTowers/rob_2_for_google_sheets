@@ -7,10 +7,25 @@
   </head>
   <body>
     <div class="controls">
-      <select id="analysisSelect" class="select-analysis-type" onchange="handleAnalysisChange()">
-        <option selected value="itt">Figure (ITT)</option>
-        <option value="pp">Figure (PP)</option>
-      </select>
+
+      <div class="control-group">
+        <label for="analysisSelect">Analysis:</label>
+        <select id="analysisSelect" class="select-analysis-type" onchange="handleAnalysisChange()">
+          <option selected value="itt">Figure (ITT)</option>
+          <option value="pp">Figure (PP)</option>
+        </select>
+      </div>
+
+      <div class="divider"></div>
+      
+      <div class="control-group">
+        <label for="figureTypeSelect">Figure style:</label>
+        <select id="figureTypeSelect" class="select-analysis-type">
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+        </select>
+      </div>
+
       <button class="btn-download" onclick="generatePNG()">Download</button>
     </div>
 
