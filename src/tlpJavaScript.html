@@ -74,8 +74,27 @@
     });
   }
 
+  function updateVisibleOption() {
+    const figureTypeSelect = document.getElementById("figureTypeSelect");
+    const option1 = document.getElementById("option1");
+    const option2 = document.getElementById("option2");
+
+    option1.style.display = "none";
+    option2.style.display = "none";
+
+    if (figureTypeSelect.value === "1") {
+        option1.style.display = "block";
+    } else if (figureTypeSelect.value === "2") {
+        option2.style.display = "block";
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     showLoading('Loading...');
+
+    document.getElementById("figureTypeSelect").addEventListener("change", updateVisibleOption);
+    updateVisibleOption();
+
     renderLegend();
     google.script.run
       .withSuccessHandler(jsonRobResults => {
