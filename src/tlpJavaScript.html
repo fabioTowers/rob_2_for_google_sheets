@@ -3,10 +3,10 @@
   const ppRobResults = [];
 
   function renderLegend() {
-    const container = document.getElementById('legendJudgement');
-    if (!container) return;
+    const opt1LegendContainer = document.getElementById('opt1LegendJudgement');
+    if (!opt1LegendContainer) return;
     
-    container.innerHTML = '<div class="opt1-legend-title">Judgement:</div>';
+    opt1LegendContainer.innerHTML = '<div class="opt1-legend-title">Judgement:</div>';
     
     const items = [
       { t: "high", label: "High" },
@@ -20,7 +20,7 @@
       div.innerHTML = `
         <div class="opt1-legend-circle-container">${createSVG(item.t, 20)}</div>
         <span>${item.label}</span>`;
-      container.appendChild(div);
+      opt1LegendContainer.appendChild(div);
     });
   }
 
