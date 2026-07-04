@@ -246,4 +246,87 @@
     width: 16px; 
     height: 16px;
   }
+
+  .opt2-table {
+    border-collapse:collapse;
+    margin-right:30px;
+  }
+
+  .opt2-table th {
+    font-weight:bold;
+    text-decoration:underline;
+    padding:10px;
+    text-align:center;
+  }
+
+  .opt2-table tr th:nth-child(3),
+  .opt2-table tr td:nth-child(3){
+    border-left:none;
+  }
+
+  .opt2-table tr th:nth-child(8),
+  .opt2-table tr td:nth-child(8){
+    border-right:none;
+  }
+
+  .opt2-table-header {
+    text-align:left!important;
+    padding:8px 12px!important;
+    white-space:nowrap;
+  }
+
+  .opt2-no-border{
+    border:none;
+    text-align:left;
+    padding:8px 12px;
+    white-space:nowrap;
+  }
+
+  .opt2-border-cell{
+    border:1px solid #d3d3d3;
+    text-align:center;
+    padding:6px;
+    width:40px;
+  }
+
+  .opt2-table tr:last-child td.opt2-border-cell{
+    border-bottom:none;
+  }
+
+  .opt2-table tbody tr:first-child td.opt2-border-cell{
+    border-top:none;
+  }
+
+  .opt2-legend-wrapper {
+    display:flex;
+    flex-direction:column;
+    padding-top:45px;
+  }
+
+  .opt2-legend-item {
+    display:flex;
+    align-items:center;
+    margin-bottom:8px;
+    font-size:14px;
+  }
+
+  .opt2-legend-text {
+    margin-left:8px;
+  }
+
+  .opt2-domain-legends {
+    margin-top:25px;
+    font-size:13px;
+    line-height:1.6;
+  }
+
+  .opt2-domain-row {
+    display:flex;
+    margin-bottom:4px;
+  }
+
+  .opt2-domain-id {
+    width:30px;
+    font-weight:bold;
+  }
 </style>
