@@ -22,6 +22,10 @@
         <span>${item.label}</span>`;
       opt1LegendContainer.appendChild(div);
     });
+
+    document.getElementById('opt2LegendLow').innerHTML = createSVG('low', 20) + '<span class="opt2-legend-text">Low risk</span>';
+    document.getElementById('opt2LegendSome').innerHTML = createSVG('some', 20) + '<span class="opt2-legend-text">Some concerns</span>';
+    document.getElementById('opt2LegendHigh').innerHTML = createSVG('high', 20) + '<span class="opt2-legend-text">High risk</span>';
   }
 
   function renderTable(robData) {
