@@ -6,7 +6,7 @@
     const container = document.getElementById('legendJudgement');
     if (!container) return;
     
-    container.innerHTML = '<div class="legend-title">Judgement:</div>';
+    container.innerHTML = '<div class="opt1-legend-title">Judgement:</div>';
     
     const items = [
       { t: "high", label: "High" },
@@ -16,16 +16,16 @@
     
     items.forEach(item => {
       const div = document.createElement('div');
-      div.className = 'legend-item';
+      div.className = 'opt1-legend-item';
       div.innerHTML = `
-        <div class="legend-circle-container">${createSVG(item.t, 20)}</div>
+        <div class="opt1-legend-circle-container">${createSVG(item.t, 20)}</div>
         <span>${item.label}</span>`;
       container.appendChild(div);
     });
   }
 
   function renderTable(robData) {
-    const tableBody = document.getElementById('tableBody');
+    const tableBody = document.getElementById('opt1TableBody');
     if (!robData || robData.length === 0) {
       console.warn("No data found in the 'Results' sheet.");
       return;
@@ -37,13 +37,13 @@
       if (index === 0) {
         const tdSide = document.createElement('td');
         tdSide.rowSpan = robData.length;
-        tdSide.className = 'side-label';
+        tdSide.className = 'opt1-side-label';
         tdSide.innerHTML = '<div>Study</div>';
         tr.appendChild(tdSide);
       }
 
       const tdName = document.createElement('td');
-      tdName.className = 'study-name-cell bg-gray-header';
+      tdName.className = 'opt1-study-name-cell opt1-table-header';
       tdName.innerText = study.studyId || "";
       tr.appendChild(tdName);
 
@@ -52,9 +52,9 @@
         const tdDom = document.createElement('td');
 
         if (p != 'overall') {
-          tdDom.className = 'domain-cell';
+          tdDom.className = 'opt1-domain-cell';
         } else {
-          tdDom.className = 'domain-cell bg-overall';
+          tdDom.className = 'opt1-domain-cell opt1-bg-overall';
         }
 
         let d = study[p] ? study[p].toString().trim().toLowerCase() : "";
@@ -127,7 +127,7 @@
     const selectElement = document.getElementById('analysisSelect');
     const selectedValue = selectElement.value;
     const titleElement = document.getElementById('figureTitle');
-    const tableBody = document.getElementById('tableBody');
+    const tableBody = document.getElementById('opt1TableBody');
 
     tableBody.innerHTML = "";
     
