@@ -29,52 +29,95 @@
   }
 
   function renderTable(robData) {
-    const tableBody = document.getElementById('opt1TableBody');
+    const opt1TableBody = document.getElementById('opt1TableBody');
+    const opt2TableBody = document.getElementById('opt2TableBody');
+
     if (!robData || robData.length === 0) {
-      console.warn("No data found in the 'Results' sheet.");
+      console.warn("No data found in the 'Summary' sheet.");
       return;
     }
 
+    if (opt1TableBody) opt1TableBody.innerHTML = "";
+    if (opt2TableBody) opt2TableBody.innerHTML = "";
+
     robData.forEach((study, index) => {
-      const tr = document.createElement('tr');
-      
-      if (index === 0) {
-        const tdSide = document.createElement('td');
-        tdSide.rowSpan = robData.length;
-        tdSide.className = 'opt1-side-label';
-        tdSide.innerHTML = '<div>Study</div>';
-        tr.appendChild(tdSide);
+      const properties = ['d1', 'd2', 'd3', 'd4', 'd5', 'overall'];
+
+      if (opt1TableBody) {
+        const tr1 = document.createElement('tr');
+
+        if (index === 0) {
+          const tdSide = document.createElement('td');
+          tdSide.rowSpan = robData.length;
+          tdSide.className = 'opt1-side-label';
+          tdSide.innerHTML = '<div>Study</div>';
+          tr1.appendChild(tdSide);
+        }
+
+        const tdName1 = document.createElement('td');
+        tdName1.className = 'opt1-study-name-cell opt1-table-header';
+        tdName1.innerText = study.studyId || "";
+        tr1.appendChild(tdName1);
+
+        properties.forEach((p) => {
+          const tdDom = document.createElement('td');
+          tdDom.className = p !== 'overall' ? 'opt1-domain-cell' : 'opt1-domain-cell opt1-bg-overall';
+
+          let d = study[p] ? study[p].toString().trim().toLowerCase() : "";
+          let judgement = "";
+
+          if (d === "low") judgement = "low";
+          else if (d === "some concerns") judgement = "some";
+          else if (d === "high") judgement = "high";
+
+          if (judgement) {
+            tdDom.innerHTML = createSVG(judgement, 35);
+          }
+
+          tr1.appendChild(tdDom);
+        });
+
+        opt1TableBody.appendChild(tr1);
       }
 
-      const tdName = document.createElement('td');
-      tdName.className = 'opt1-study-name-cell opt1-table-header';
-      tdName.innerText = study.studyId || "";
-      tr.appendChild(tdName);
+      if (opt2TableBody) {
+        const tr2 = document.createElement('tr');
 
-      const properties = ['d1', 'd2', 'd3', 'd4', 'd5', 'overall']
-      properties.forEach((p) => {
-        const tdDom = document.createElement('td');
+        const tdUniqueId = document.createElement('td');
+        tdUniqueId.className = 'opt2-no-border'; 
+        tdUniqueId.innerText = study.studyId || "";
+        tr2.appendChild(tdUniqueId);
 
-        if (p != 'overall') {
-          tdDom.className = 'opt1-domain-cell';
-        } else {
-          tdDom.className = 'opt1-domain-cell opt1-bg-overall';
-        }
+        const tdOutcome = document.createElement('td');
+        tdOutcome.className = 'opt2-no-border';
+        tdOutcome.innerText = study.outcome || "";
+        tr2.appendChild(tdOutcome);
 
-        let d = study[p] ? study[p].toString().trim().toLowerCase() : "";
-        let judgement = "";
+        properties.forEach((p) => {
+          const tdDom = document.createElement('td');
+        
+          tdDom.className = 'opt2-border-cell'; 
 
-        if (d === "low") judgement = "low";
-        else if (d === "some concerns") judgement = "some";
-        else if (d === "high") judgement = "high";
+          let d = study[p] ? study[p].toString().trim().toLowerCase() : "";
+          let judgement = "";
 
-        if (judgement) {
-          tdDom.innerHTML = createSVG(judgement, 35);
-        }
+          if (d === "low") judgement = "low";
+          else if (d === "some concerns") judgement = "some";
+          else if (d === "high") judgement = "high";
 
-        tr.appendChild(tdDom);
-      });
-      tableBody.appendChild(tr);
+          if (judgement) {
+            if (p !== 'overall') {
+              tdDom.innerHTML = createSVG(judgement, 35, true);
+            } else {
+              tdDom.innerHTML = createSVG(judgement, 35);
+            }
+          }
+
+          tr2.appendChild(tdDom);
+        });
+
+        opt2TableBody.appendChild(tr2);
+      }
     });
   }
 
@@ -82,14 +125,14 @@
     const figureTypeSelect = document.getElementById("figureTypeSelect");
     const option1 = document.getElementById("option1");
     const option2 = document.getElementById("option2");
-
-    option1.style.display = "none";
-    option2.style.display = "none";
+  
+    option1.classList.add("hidden");
+    option2.classList.add("hidden");
 
     if (figureTypeSelect.value === "1") {
-        option1.style.display = "block";
+        option1.classList.remove("hidden");
     } else if (figureTypeSelect.value === "2") {
-        option2.style.display = "block";
+        option2.classList.remove("hidden");
     }
   }
 
@@ -128,17 +171,17 @@
   });
 
   function handleAnalysisChange() {
-    const selectElement = document.getElementById('analysisSelect');
-    const selectedValue = selectElement.value;
+    const analysisSelectElement = document.getElementById('analysisSelect');
+    const selectedAnalysis = analysisSelectElement.value;
     const titleElement = document.getElementById('figureTitle');
     const tableBody = document.getElementById('opt1TableBody');
 
     tableBody.innerHTML = "";
     
-    if (selectedValue === 'itt') {
+    if (selectedAnalysis === 'itt') {
       titleElement.innerText = "Intention-to-treat";
       renderTable(ittRobResults);
-    } else if (selectedValue === 'pp') {
+    } else if (selectedAnalysis === 'pp') {
       titleElement.innerText = "Per-protocol";
       renderTable(ppRobResults);
     }
@@ -222,18 +265,24 @@
 
     return `
       <svg width="${canvasSizeSVG}" height="${canvasSizeSVG}" viewBox="0 0 ${canvasSizeSVG} ${canvasSizeSVG}" style="display: inline-block; vertical-align: middle; overflow: visible;">
-        <circle cx="${center}" cy="${center}" r="${radius}" fill="${color}" ${strokeAttribute}"/>
+        <circle cx="${center}" cy="${center}" r="${radius}" fill="${color}" ${strokeAttribute}/>
         ${metricSignal}
       </svg>`;
   }
 
   function generatePNG() {
     const area = document.getElementById('captureArea');
-    const targetSize = 3600; 
+    const analysisSelectElement = document.getElementById('analysisSelect');
+    const selectedAnalysis = analysisSelectElement.value;
+    const styleSelectElement = document.getElementById('figureTypeSelect');
+    const selectedStyle = styleSelectElement.value;
+
+    area.classList.add('printing');
+    void area.offsetHeight; // força reflow síncrono
+
+    const targetSize = 3600;
     const currentWidth = area.getBoundingClientRect().width;
     const customScale = targetSize / currentWidth;
-    const selectElement = document.getElementById('analysisSelect');
-    const selectedValue = selectElement.value;
 
     html2canvas(area, {
       scale: customScale,
@@ -243,10 +292,14 @@
       width: area.scrollWidth,
       height: area.scrollHeight
     }).then(canvas => {
+      area.classList.remove('printing');
       const link = document.createElement('a');
-      link.download = 'traffic_light_plot_' + selectedValue + '.png';
+      link.download = 'traffic_light_plot_' + selectedAnalysis + "_t" + selectedStyle + "_" + '.png';
       link.href = canvas.toDataURL("image/png", 1.0);
       link.click();
+    }).catch(err => {
+      area.classList.remove('printing');
+      console.error(err);
     });
   }
 </script>
