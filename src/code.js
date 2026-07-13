@@ -3,10 +3,9 @@ function onOpen() {
   ui.createMenu('RoB 2')
     .addItem('Assessment Form', 'showAssessmentForm')
     .addItem('Summary', 'populateSummary')
-    .addItem('Figures', 'generateSheetTabFigures')
+    .addItem('Figures', 'showTrafficLightPlot')
     .addItem('Generating a Print View', 'generatePrintView')
     .addItem('Discrepancy Check', 'showDiscrepancyCheckForm')
-    .addItem('Traffic Light Plot', 'showTrafficLightPlot')
     .addToUi();
 }
 
@@ -28,6 +27,7 @@ function showAssessmentForm() {
 }
 
 function showTrafficLightPlot() {
+  generateSheetTabFigures();
   const template = HtmlService.createTemplateFromFile('trafficLightPlot');
 
   const html = template.evaluate()
