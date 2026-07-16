@@ -41,6 +41,7 @@ Examples of use of RoB 2 GS:
   - [Deleting an existing assessment](#deleting-an-existing-assessment)
   - [Creating a summary table and risk of bias graph](#creating-a-summary-table-and-risk-of-bias-graph)
     - [Download risk of bias graph](#download-risk-of-bias-graph)
+  - [Risk of bias figures](#risk-of-bias-figures)
 - [License](#license)
 
 ## System and software requirements
@@ -140,6 +141,7 @@ This outputs details of each assessment (Assessment ID, Study ID, Reference, Out
 
 3. A plot of the percentage of risk of bias assessments at each level of risk of bias per domain will be displayed on the right-hand side of the sheet. The default setting results in equal weighting for each study (and the plot can be interpreted as showing the proportion of results at each level of risk of bias). If weights have been entered, the plot is weighted by this (and can be interpreted as the proportion of information at each level of risk of bias).
 
+
 #### Download risk of bias graph
 
 1. Click on the chart; three dots will appear in the top right-hand corner of the chart;
@@ -147,6 +149,33 @@ This outputs details of each assessment (Assessment ID, Study ID, Reference, Out
 2. Click on the three dots. Under *Download chart*, select the format you want (PNG, PDF or SVG);
 
 ![instructions](images/save_rob_graph.gif)
+
+
+### Risk of bias figures
+
+This outputs Cochrane-style risk of bias figures (“traffic light plots”), which display the domain and overall judgements study-by-study, as shown below. Figures are displayed separately according to effect of interest ('assignment to intervention ' or 'adhering to intervention'). There are two style options for generating the figures: option 1 is similar to the style of the [RoBVis tool](https://www.riskofbias.info/welcome/robvis-visualization-tool) and option 2 follows the traditional style of RoB 2 for Excel.
+
+Option 1:
+![Figure option 1](images/traffic_light_plot_itt_t1_.png)
+
+Option 2:
+![Figure option 2](images/traffic_light_plot_itt_t2.png)
+
+
+1. Click the 'Figures' button on the 'Intro' sheet or in the *RoB 2* menu.
+
+2. In the window that opens, select the type of figure and which set of results to include, depending on the analysis of interest (intention-to-treat or per-protocol). Download the figure displayed on the screen as a .png file by clicking the *Download* button.
+
+![Image options](images/buttons_traffic_light_plot_modal.png)
+
+
+3. Alternatively, the figures will also be generated in the 'Figures (ITT)' or 'Figure (PP)' sheet, depending on the results. In this case, the figures can be edited later, for example by adding borders and lines using the standard Google Sheets functions. They can be downloaded in PDF format.
+
+![How export sheet figures to PDF](images/download_sheet_figures.gif)
+
+
+> [!NOTE]
+> Change the order in which the studies appear in the figures by sorting the columns in the 'Summary' sheet.
 
 
 ## License
