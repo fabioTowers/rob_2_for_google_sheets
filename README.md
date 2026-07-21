@@ -42,6 +42,7 @@ Examples of use of RoB 2 GS:
   - [Creating a summary table and risk of bias graph](#creating-a-summary-table-and-risk-of-bias-graph)
     - [Download risk of bias graph](#download-risk-of-bias-graph)
   - [Risk of bias figures](#risk-of-bias-figures)
+  - [Populating results for printing](#populating-results-for-printing)
 - [License](#license)
 
 ## System and software requirements
@@ -176,6 +177,20 @@ Option 2:
 
 > [!NOTE]
 > Change the order in which the studies appear in the figures by sorting the columns in the 'Summary' sheet.
+
+
+### Populating results for printing
+
+This outputs the full results for each study assessment, including the answers to signalling questions and the justifications given for answers, into a template. This may facilitate double-checking or allow the creation of supplementary materials for publications.
+
+1. Click the 'Generating a Print View' button on the 'Intro' sheet or in the *RoB 2* menu.
+
+2. Results will be copied and pasted in the 'Print (ITT)' or ‘Print (PP)’ sheets.
+
+3. After clicking to view the required sheet ('Print (ITT)' or 'Print (PP)'), go to the *File* menu an then *Download* to select the format. When selecting *PDF (.pdf)*, you can adjust the page break settings, page orientation and other options.
+
+> [!NOTE]
+> Change the order in which the studies appear in the figures by sorting the columns in the 'Results' sheet.
 
 
 ## License
