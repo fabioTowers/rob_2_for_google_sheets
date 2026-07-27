@@ -43,6 +43,7 @@ Examples of use of RoB 2 GS:
     - [Download risk of bias graph](#download-risk-of-bias-graph)
   - [Risk of bias figures](#risk-of-bias-figures)
   - [Populating results for printing](#populating-results-for-printing)
+  - [Discrepancy check](#discrepancy-check)
 - [License](#license)
 
 ## System and software requirements
