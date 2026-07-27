@@ -193,6 +193,35 @@ This outputs the full results for each study assessment, including the answers t
 > Change the order in which the studies appear in the figures by sorting the columns in the 'Results' sheet.
 
 
+### Discrepancy check
+
+This facilitates the discrepancy check between two reviewers' answers and allows the output of agreed (final) judgements. The two reviewers should enter their assessments into different Excel files. IT IS IMPORTANT BACK UP YOUR RESULTS (first reviewer’s results) BEFORE USING THIS FUNCTION as the first reviewer’s results will be replaced with the agreed judgements!
+
+**Setup**:
+1. Copy and paste ALL Reviewer 2's results (from their sheet called ‘Results’) into the 'Check' sheet.
+
+  1. To copy all the content from the 'Results' sheet, click on the square at the intersection of the row numbers and the column headings.
+  2. Once you have selected all the content, to copy it, right-click and select *Copy* from the menu that appears, or use the shortcut CTRL + C.
+  3. To paste the content into the 'Check' sheet, select cell A1, right-click, and from the menu that appears, select *Paste* or use the shortcut CTRL + V.
+
+![How copy and paste results](images/copy_and_paste_demonstration.gif)
+
+2. Ensure that the same 'Assessment ID's have been used for the assessments of the same results in BOTH reviewers' results.
+
+
+**Use**:
+1. Click the 'Discrepancy Check' button on the 'Intro' sheet or in the *RoB 2* menu.
+
+2. A user form should appear.
+
+3. Both reviewers' answers should be displayed side-by-side. Judgements will be highlighted with a red border if the judgements reached by the two reviewers are different.
+
+4. Edit Consensus with final decisions and save. Results can then be produced using the ‘Summary’, ‘Figures’ and ‘Print’ functions as described previously.
+
+> [!NOTE]
+> Reviewer 2's results cannot be edited in this form.
+
+
 ## License
 
 Licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). See [LICENSE.md](LICENSE.md) for more informations.
