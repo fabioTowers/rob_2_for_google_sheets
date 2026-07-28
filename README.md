@@ -161,7 +161,7 @@ Option 1:
 ![Figure option 1](images/traffic_light_plot_itt_t1_.png)
 
 Option 2:
-![Figure option 2](images/traffic_light_plot_itt_t2.png)
+![Figure option 2](images/traffic_light_plot_itt_t2_.png)
 
 
 1. Click the 'Figures' button on the 'Intro' sheet or in the *RoB 2* menu.
